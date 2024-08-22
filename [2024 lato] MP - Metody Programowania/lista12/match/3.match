@@ -1,0 +1,33 @@
+let insert = fix (fun insert -> fun tree val ->
+    match tree with
+    | Leaf() -> Node(val, Leaf(), Leaf())
+    | Node(v, l, r) -> if val<v then Node(v, insert l val, r) else Node(v, l, insert r val)
+    end
+    )
+in
+let tree = Leaf()
+in let tree = insert tree 7
+in let tree = insert tree 4
+in let tree = insert tree 8
+in let tree = insert tree 2
+
+
+in
+let flatten = fix (fun flatten -> fun tree ->
+        match tree with
+        | Leaf() -> Nil()
+        | Node(v, l, r) -> append (append (flatten l) (Cons(v, Nil()))) (flatten r)
+        end
+        )
+in
+
+let sort = fun xs ->
+    let loop = fix (fun loop -> fun tree xs ->
+        match xs with
+        | Nil() -> tree
+        | Cons(x, xs2) -> loop (insert tree x) xs2
+        end
+        )
+    in flatten (loop (Leaf()) xs)
+in
+sort (Cons(7, Cons(4, Cons(8, Cons(2, Nil())))))

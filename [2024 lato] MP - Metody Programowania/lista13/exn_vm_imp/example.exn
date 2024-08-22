@@ -1,0 +1,12 @@
+let is_prime = fun n ->
+  if n < 0 then raise
+  else
+  let loop = fix (fun loop -> fun p ->
+    if p * p > n then true
+    else if mod n p = 0 then false
+    else loop (p + 1))
+  in
+  loop 2
+in
+
+is_prime -2

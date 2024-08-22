@@ -1,0 +1,2 @@
+let id = fun (x : int) -> x in
+id 42

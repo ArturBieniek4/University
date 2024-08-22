@@ -1,0 +1,8 @@
+begin
+var x
+x := 42
+begin
+x := 13
+end
+write x
+end

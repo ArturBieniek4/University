@@ -1,0 +1,2 @@
+Używając modułu turtle, napisz program rysujący kolorowy obrazek nr 4 lub nr 8 (inny, niż oddawałeś na liście) z tych zaprezentowanych na stronie 'Obrazki do C4' w tym kursie. Zwróć uwagę, że w obrazku nr 4 kolory są losowe, ale każde dwa kolejne są podobne do siebie, natomiast w obrazku nr 8 kolory są cykliczne.
+Liczba elementów obrazka (krzyżyków lub kolumn) powinna być możliwa do zmiany pojedynczym parametrem programu. Ta liczba nie musi być dzielnikiem 360; należy zadbać, by obrazek był w takim przypadku możliwie mało nierówny.

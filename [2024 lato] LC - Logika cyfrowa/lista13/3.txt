@@ -1,0 +1,11 @@
+alu_bsel
+Jeśli RS2 = 0 to
+OP, BRANCH
+Wpp
+OP-IMM, JALR, LOAD, STORE, AUIPC
+
+rd_we
+OP, OP-IMM, JAL, JALR, LOAD, LUI, AUIPC
+
+alu_zero
+BRANCH

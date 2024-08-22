@@ -1,0 +1,8 @@
+(lang dune 3.11)
+
+(package
+  (name simple)
+  (synopsis "Simple functional language with simple types")
+  (description ""))
+
+(using menhir 2.1)

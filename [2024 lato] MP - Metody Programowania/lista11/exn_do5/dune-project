@@ -1,0 +1,8 @@
+(lang dune 3.11)
+
+(package
+  (name exn)
+  (synopsis "Simple functional language with exceptions")
+  (description ""))
+
+(using menhir 2.1)

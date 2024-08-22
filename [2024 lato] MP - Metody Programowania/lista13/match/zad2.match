@@ -1,0 +1,8 @@
+(let y = match Test(1,2,3) with 
+| Test(x,y,z) -> y 
+| _ -> -1
+end
+in match Test() with
+| Test() -> y
+| _ -> -2
+end)

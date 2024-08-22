@@ -1,0 +1,6 @@
+L(G) zawiera wszystkie napisy złożone z liter abc w dowolnej kolejności, przy czym liter a jest tyle samo co b
+Dowód:
+S występuje między każdymi a,b
+z S można wyprodukować SC oraz CS
+z C można wyprodukować cC, co oznacza że wstawiając C można uzyskać dowolnie długi ciąg liter c
+z S można uzyskać ab lub ba z lukami w środku umożliwiającymi wstawienie dowolnej długości ciągu złożonego z liter C lub ponownie ab/ba z lukami

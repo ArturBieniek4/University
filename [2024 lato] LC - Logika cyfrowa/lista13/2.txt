@@ -1,0 +1,14 @@
+a) pamięć danych
+LOAD 25%
+STORE 10%
+SUMA 35%
+
+b) pamięć instrukcji 100%
+
+c) ALU
+Wszystkie bez JAL i LUI = 92%
+
+d) generator stałych
+Wszystkie poza OP = 76%
+
+e) Generuje śmieci (cokolwiek) które nie są wykorzystywane

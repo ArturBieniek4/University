@@ -1,0 +1,1 @@
+Calc.Main.interp("if 2+2*2=6 then 1 else 0");;

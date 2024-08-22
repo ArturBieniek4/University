@@ -1,0 +1,4 @@
+let x = 42 in
+let y = () in
+let z = x in
+z

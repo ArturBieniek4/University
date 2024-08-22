@@ -1,0 +1,19 @@
+read 1
+read 2
+read 3
+load 1
+sub 2
+sub 3
+jgtz tak
+load 2
+sub 1
+sub 3
+jgtz tak
+load 3
+sub 1
+sub 2
+jgtz tak
+write =0
+halt
+tak:
+write =1

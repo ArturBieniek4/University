@@ -1,0 +1,9 @@
+Używając list składanych (list comprehensions) napisz opisane dalej funkcje. Każda funkcja powinna zawierać tylko instrukcję return wraz z wyrażeniem listowym, ewentualnie umieszczonym w innych funkcjach (zatem funkcja nie powinna zawierać zwykłych pętli itp.).
+
+Każda funkcja jest warta 0.5p.
+1. Funkcja przyjmuje listę liczb i zwraca listę tych zawartych w niej liczb, które są sumą kwadratów dwóch innych różnych liczb na liście wejściowej, bez powtórzeń; np. f([1,1,2,3,5])=[5], a f([1,2,2,3,3,3,4,5,6,8,10])=[5,10] (lub [10,5]).
+2. Funkcja przyjmuje listę liczb i zwraca jej kopię, ale z liczbami podzielnymi przez 7 zamienionymi na 0 i bez żadnych liczb większych od 10; np. f([3,7,12,5,14,18,20,2])=[3,0,5,0,2].
+3. Funkcja przyjmuje dwa stringi i zwraca pierwszy zmodyfikowany tak, że zawiera tylko małe litery alfabetu angielskiego zawarte również w drugim; np. f('Wroclaw Srodmiescie', 'Zalew Szczecinski') = 'clawiescie'.
+4. Funkcja przyjmuje listę list, i zwraca sumę liczb nieparzystych stojących na parzystych indeksach (licząc od 0), sumując tak po wszystkich listach wejściowych; np. f([[1,2,3,6,8]])=4, a f([[10], [3,4,5], [200,300,301]])=309.
+
+Dla każdej funkcji należy wpisać dwa sensownej długości testy.

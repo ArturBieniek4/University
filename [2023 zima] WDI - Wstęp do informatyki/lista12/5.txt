@@ -1,0 +1,7 @@
+a1 p1 a2 p2 . . . pk−1 ak
+STOS:p3
+PRINT:a1 a2 p1 a3 p2 ... ak pk-1
+Wykonanie:
+(((a1 p1 a2) p2 a3) ... pk-1 ak)
+
+Modyfikacja: od końca przeglądać listę

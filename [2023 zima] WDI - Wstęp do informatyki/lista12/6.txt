@@ -1,0 +1,14 @@
+1. A  StosPusty()
+2. Dla i=1,2,…,n:
+a) xwi
+b) Jeśli x to argument (liczba): Wstaw(A,x)
+c) Jeśli x to operator:
+	Jeżeli A pusty, wyrażenie niepoprawne
+i. y2  Zdejmij(A)
+	Jeżeli A pusty, wyrażenie niepoprawne
+ii. y1  Zdejmij(A)
+iii.Wykonaj działanie y1 x y2, wynik na stos:
+• zy1 x y2
+• Wstaw(A,z)
+3. Wynik  Zdejmij(A)
+	4. Jeżeli A nie jest pusty, wyrażenie niepoprawne

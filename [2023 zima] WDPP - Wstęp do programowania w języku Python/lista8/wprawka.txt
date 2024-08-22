@@ -1,0 +1,4 @@
+Będziemy używać pliku popularne_slowa ze strony wykładu (4) na SKOS. Wczytaj wszystkie słowa z tego pliku, kompletnie pomijając te długości mniejszej niż 4.
+
+Następnie, chcemy podzielić słowa na zbiory ze względu na ich początkowe 4 litery. 'Wieloryb' i 'Wielkopolska' byłyby w jednym zbiorze, ale innym niż 'Wieczerza'. Wypisz dziesięć najbardziej popularnych 4-literowych początków słów, wraz z informacją jaki procent wszystkich słów stanowi każdy z tych największych zbiorów (1p.). Przykładowo, prawie 3% słów z pliku zaczyna się od 'prze-'.
+Dodatkowo, wypisz wszystkie słowa z dziesiątego najbardziej licznego zbioru (0.3p). Wypisz również wszystkie zbiory, które zawierają dokładnie 100 słów zaczynających się na ten sam 4-literowy ciąg (0.7p).

@@ -1,0 +1,14 @@
+OP
+25 mux na wejściu PC
+30 odczyt PC
+250 wczytanie instrukcji
+50 ścieżka sterowania
+free w tym czasie mux rd
+150 rejestry (-50 bo już w czasie obliczania ścieżki sterowania się robiły)
+25 mux
+200 alu
+200 rejestry?
+
+b)30+250+150(równolegle stała)+25+200+250+25+20=950
+c)30+250+150+25+200+250
+d)30+250+150+25+200+50+25+20

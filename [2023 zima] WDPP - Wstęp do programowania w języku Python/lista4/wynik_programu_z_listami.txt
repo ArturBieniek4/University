@@ -1,0 +1,42 @@
+Dla listy [1, 2, 3, 4, 5] suma elementow rowna sie
+15
+15
+Jak zsumujemy tylko parzyste, to otrzymamy
+6
+
+Histogram dla listy [1, 2, 3, 4, 5, 6, 7, 4, 8, 4, 8, 2, 2, 1, 10]
+1__*
+2__**
+3__***
+4__****
+5__*****
+6__******
+7__*******
+4__****
+8__********
+4__****
+8__********
+2__**
+2__**
+1__*
+10_**********
+
+Zaczynamy od [1, 2, 3, 4, 5] i zwiekszamy 4 razy
+[2, 3, 4, 5, 6]
+[3, 4, 5, 6, 7]
+[4, 5, 6, 7, 8]
+[5, 6, 7, 8, 9]
+
+Zaczynamy od [1, 2, 3, 4, 5] i normalizujemy 3 razy
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+Dlaczego ciagle to samo?
+O, i znowu:
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+Oczywiscie mamy [1, 2, 3, 4, 5] == [1,2,3,4,5]
+
+Powiekszamy parzyste, pomijamy nieparzyste i wstawiamy 0 po
+[3, 0, 5, 0]
+Cos madrego na zakonczenie:
+nauka rudymentalnie programowania rustykalnie pythonie rustykalnie wcale hej jest radykalnie taka hej trudna radykalnie

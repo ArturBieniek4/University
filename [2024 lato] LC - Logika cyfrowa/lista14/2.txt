@@ -1,0 +1,5 @@
+3x4
+14x10
+3 - dodatkowy branch
+
+instrukcji jest 3+10*4+1

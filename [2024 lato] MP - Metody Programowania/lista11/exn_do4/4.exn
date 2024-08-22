@@ -1,0 +1,5 @@
+try
+try raise A with
+B -> 13
+with
+A -> 42
