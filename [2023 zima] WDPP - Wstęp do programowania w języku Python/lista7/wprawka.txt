@@ -1,0 +1,3 @@
+Napisz (ręcznie, bez użycia import rozwiązanie) funkcje obsługujące liczby wymierne, tzn. ułamki. W szczególności, zdefiniuj funkcje dodawania, odejmowania, mnożenia i dzielenia; funkcje te mogą przyjmować i zwracać pary liczb całkowitych. Ułamki powinny być prezentowane w postaci nieskracalnej, dlatego zapisz także algorytm Euklidesa wyliczający NWD.
+
+Zaprezentuj kilka przykładów użycia ułamków w operacjach dodawania, mnożenia i dzielenia.

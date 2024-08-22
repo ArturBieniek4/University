@@ -1,0 +1,29 @@
+read 1 # wczytaj n
+read 2 # wczytaj a (min)
+read 3 # wczytaj b (max)
+load 1
+sub =1
+store 4 # iterator od n do 0
+petla:
+read 5
+add =10
+store 5
+load ^5
+add =1
+store ^5
+load 4
+sub =1
+store 4
+load 4
+jgtz petla
+
+load 3
+sub 2
+store 3
+petla2:
+
+load 3
+sub =1
+store 3
+load 3
+jgtz petla2

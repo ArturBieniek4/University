@@ -1,0 +1,3 @@
+RS1 do akumulatora
+Potem RS2 do rd, ad jest rs1
+RS1 leci przez muxa do rd, tu nie trzeb nic zmieniać tylko sygnał do muxa

@@ -1,0 +1,2 @@
+try raise 7 with
+x -> x+2

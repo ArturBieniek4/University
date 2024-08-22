@@ -1,0 +1,1 @@
+g++ $1.cpp -o $1 -O3 && echo "COMPILATION SUCCESS" && ./$1

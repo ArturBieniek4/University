@@ -1,0 +1,1 @@
+let f = fun g -> g 42 in f (fun x -> x)

@@ -1,0 +1,2 @@
+Zrobić "martwe stany"
+liczące cykle mul/div w ukł sterującym

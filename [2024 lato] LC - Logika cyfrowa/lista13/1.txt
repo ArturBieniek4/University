@@ -1,0 +1,16 @@
+a)
+pc_sel +4
+rd_sel ALU
+rd_we 1
+alu_asel RS1
+alu_bsel RS2
+alu_op OP
+mem_we 0
+
+b)
+PC użyteczne
+Text ROM użyteczne (wczytanie instrukcji)
+Plik rejestrów użyteczne
+Generator stałych useless
+ALU użyteczne
+Data RAM useless 

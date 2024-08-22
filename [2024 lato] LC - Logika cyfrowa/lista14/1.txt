@@ -1,0 +1,8 @@
+op 4
+op-imm 4
+load 5
+store 4
+branch 3
+jal 3
+jalr 3
+typ U 3

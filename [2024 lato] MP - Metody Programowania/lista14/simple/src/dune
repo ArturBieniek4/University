@@ -1,0 +1,7 @@
+(menhir (modules parser))
+(ocamllex lexer)
+
+(executable
+ (name simple)
+ (modes byte exe)
+ (public_name simple))

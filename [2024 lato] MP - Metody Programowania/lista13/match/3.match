@@ -1,0 +1,5 @@
+match (2,3) with
+| (x,y) when x=2 -> 5
+| (x,y) -> y
+| _ -> -1
+end

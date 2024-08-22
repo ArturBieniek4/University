@@ -1,0 +1,8 @@
+let even = fix (fun even -> fun xs ->
+  match xs with
+  | Nil() -> true
+  | Cons(_, Nil()) -> false
+  | Cons(_, Cons(_, xs)) -> even xs
+  end) in
+
+even (Cons(1, Cons(2, Cons(3, Nil()))))

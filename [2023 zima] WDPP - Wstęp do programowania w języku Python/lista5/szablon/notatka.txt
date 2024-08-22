@@ -1,0 +1,3 @@
+Do tego opowiedzieć o a = b i odśmiecaniu (zliczanie referencji ale nie tylko)
+Jak zostanie czasu to qsort oraz o rozpoczęcie pracy ze słownikami
+

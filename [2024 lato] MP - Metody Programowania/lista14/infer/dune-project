@@ -1,0 +1,8 @@
+(lang dune 3.11)
+
+(package
+  (name infer)
+  (synopsis "Simple functional language with type reconstruction")
+  (description ""))
+
+(using menhir 2.1)

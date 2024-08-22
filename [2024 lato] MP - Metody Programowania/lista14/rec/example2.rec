@@ -1,0 +1,13 @@
+let rec even = fun xs ->
+  match xs with
+  | Nil() -> true
+  | Cons(_, xs) -> odd xs
+  end
+and odd = fun xs ->
+  match xs with
+  | Nil() -> false
+  | Cons(_, xs) -> even xs
+  end
+in
+
+even (Cons(1, Cons(2, Cons(3, Nil()))))

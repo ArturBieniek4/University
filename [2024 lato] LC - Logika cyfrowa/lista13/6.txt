@@ -1,0 +1,6 @@
+Dodajemy nowy port zapisu (RD+AD+WE) w pliku rejestrów
+Dodajemy w RD portu 1 opcje przekazania RS2
+Do alu leci RS1
+a) Do alu leci 0 i sumujemy (zmieniamy generator stałych)
+b) Dodajemy NOP do alu
+c) 

@@ -1,0 +1,4 @@
+Nieterminale:S
+Terminale:epsilon, a, b
+Produkcje:S->aSa, S->bSb
+Startowy:S

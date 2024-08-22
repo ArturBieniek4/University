@@ -1,0 +1,4 @@
+mux do ad 3wej
+2 akumulatory z sygnałami wejścia
+To tak jakby mieć plik rejestrów który działa w 2 cyklach
+Różnica tylko dla OP i BRANCH - wczytują dwie na raz

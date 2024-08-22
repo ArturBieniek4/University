@@ -1,0 +1,15 @@
+(library
+  (name infLib)
+  (wrapped false)
+  (modules addrVm ast check evalFast evalPrecise evalSpec
+           flatVm infLexer infLib infParser solution))
+
+(executable
+  (name inf)
+  (modes byte exe)
+  (public_name inf)
+  (libraries infLib)
+  (modules inf))
+
+(menhir (modules infParser))
+(ocamllex infLexer)

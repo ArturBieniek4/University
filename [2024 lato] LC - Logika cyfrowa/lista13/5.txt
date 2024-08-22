@@ -1,0 +1,1 @@
+Nic nie trzeba zmieniać, to jest dosłownie load, tylko zamiast imm ładujemy rejestr

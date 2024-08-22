@@ -1,0 +1,3 @@
+Dwa porty zapisu rejestrów
+Albo dodajemy sumator +4 (bo tego od PC nie można wykorzystać)
+Albo wykorzystujemy istniejący sumator i dajemy do niego muxy

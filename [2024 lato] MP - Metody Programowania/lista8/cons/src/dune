@@ -1,0 +1,6 @@
+(library
+ (name cons))
+
+(menhir (modules parser))
+
+(ocamllex lexer)

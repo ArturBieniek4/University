@@ -1,0 +1,1 @@
+let f a b c = if (a>c && b>c) then a*a+b*b else (if (b>a && c>a) then b*b+c*c else a*a+c*c);;

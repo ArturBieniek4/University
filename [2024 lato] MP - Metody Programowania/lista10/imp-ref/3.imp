@@ -1,0 +1,9 @@
+begin
+var x
+x := 42
+begin
+var x
+x := 13
+end
+write x
+end

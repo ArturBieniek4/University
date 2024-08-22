@@ -1,0 +1,3 @@
+let p1 = fun x -> x in
+let p3 = fun x y z -> x z (y z) in 
+let p5 = fun f x y -> f x (f x y) in 5

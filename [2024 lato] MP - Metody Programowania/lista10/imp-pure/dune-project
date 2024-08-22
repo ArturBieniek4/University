@@ -1,0 +1,8 @@
+(lang dune 3.11)
+
+(package
+  (name imp)
+  (synopsis "Simple imperative langauge")
+  (description ""))
+
+(using menhir 2.1)
