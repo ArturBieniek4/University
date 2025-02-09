@@ -1,0 +1,752 @@
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.file 0 "/MEGA/UWr/Systemy wbudowane/lista8/zadanie1" "main.c"
+  12               	vScrollingLed:
+  13               	.LVL0:
+  14               	.LFB4:
+  15               		.file 1 "main.c"
+   1:main.c        **** /******************************************************************************
+   2:main.c        ****  * Header file inclusions.
+   3:main.c        ****  ******************************************************************************/
+   4:main.c        **** 
+   5:main.c        **** #include "FreeRTOS.h"
+   6:main.c        **** #include "task.h"
+   7:main.c        **** 
+   8:main.c        **** #include <avr/io.h>
+   9:main.c        **** 
+  10:main.c        **** 
+  11:main.c        **** #include <stdio.h>
+  12:main.c        **** 
+  13:main.c        **** /******************************************************************************
+  14:main.c        ****  * Private macro definitions.
+  15:main.c        ****  ******************************************************************************/
+  16:main.c        **** 
+  17:main.c        **** #define mainCyclicLED_TASK_PRIORITY   1
+  18:main.c        **** 
+  19:main.c        **** #define mainScrollingLED_TASK_PRIORITY 1
+  20:main.c        **** 
+  21:main.c        **** /******************************************************************************
+  22:main.c        ****  * Private function prototypes.
+  23:main.c        ****  ******************************************************************************/
+  24:main.c        **** 
+  25:main.c        **** static void vCyclicLed(void* pvParameters);
+  26:main.c        **** 
+  27:main.c        **** static void vScrollingLed(void* pvParameters);
+  28:main.c        **** 
+  29:main.c        **** /******************************************************************************
+  30:main.c        ****  * Public function definitions.
+  31:main.c        ****  ******************************************************************************/
+  32:main.c        **** 
+  33:main.c        **** /**************************************************************************//**
+  34:main.c        ****  * \fn int main(void)
+  35:main.c        ****  *
+  36:main.c        ****  * \brief Main function.
+  37:main.c        ****  *
+  38:main.c        ****  * \return
+  39:main.c        ****  ******************************************************************************/
+  40:main.c        **** int main(void)
+  41:main.c        **** {
+  42:main.c        ****     // Create task.
+  43:main.c        ****     xTaskHandle blink_handle;
+  44:main.c        ****     xTaskHandle serial_handle;
+  45:main.c        **** 
+  46:main.c        ****     xTaskCreate
+  47:main.c        ****         (
+  48:main.c        ****          vCyclicLed,
+  49:main.c        ****          "cyclic",
+  50:main.c        ****          configMINIMAL_STACK_SIZE,
+  51:main.c        ****          NULL,
+  52:main.c        ****          mainCyclicLED_TASK_PRIORITY,
+  53:main.c        ****          &blink_handle
+  54:main.c        ****         );
+  55:main.c        **** 
+  56:main.c        ****     xTaskCreate
+  57:main.c        ****         (
+  58:main.c        ****          vScrollingLed,
+  59:main.c        ****          "scrolling",
+  60:main.c        ****          configMINIMAL_STACK_SIZE,
+  61:main.c        ****          NULL,
+  62:main.c        ****          mainScrollingLED_TASK_PRIORITY,
+  63:main.c        ****          &serial_handle
+  64:main.c        ****         );
+  65:main.c        **** 
+  66:main.c        ****     // Start scheduler.
+  67:main.c        ****     vTaskStartScheduler();
+  68:main.c        **** 
+  69:main.c        ****     return 0;
+  70:main.c        **** }
+  71:main.c        **** 
+  72:main.c        **** /**************************************************************************//**
+  73:main.c        ****  * \fn static vApplicationIdleHook(void)
+  74:main.c        ****  *
+  75:main.c        ****  * \brief
+  76:main.c        ****  ******************************************************************************/
+  77:main.c        **** void vApplicationIdleHook(void)
+  78:main.c        **** {
+  79:main.c        **** 
+  80:main.c        **** }
+  81:main.c        **** 
+  82:main.c        **** /******************************************************************************
+  83:main.c        ****  * Private function definitions.
+  84:main.c        ****  ******************************************************************************/
+  85:main.c        **** 
+  86:main.c        **** /**************************************************************************//**
+  87:main.c        ****  * \fn static void vBlinkLed(void* pvParameters)
+  88:main.c        ****  *
+  89:main.c        ****  * \brief
+  90:main.c        ****  *
+  91:main.c        ****  * \param[in]   pvParameters
+  92:main.c        ****  ******************************************************************************/
+  93:main.c        **** static void vCyclicLed(void* pvParameters)
+  94:main.c        **** {
+  95:main.c        ****     #define LED PB5 // D13
+  96:main.c        ****     #define LED_DDR DDRB
+  97:main.c        ****     #define LED_PORT PORTB
+  98:main.c        **** 
+  99:main.c        ****     #define BTN PB4 // D12
+ 100:main.c        ****     #define BTN_PIN PINB
+ 101:main.c        ****     #define BTN_PORT PORTB
+ 102:main.c        **** 
+ 103:main.c        ****     #define BUF_SIZE 25
+ 104:main.c        ****     uint8_t buffer[BUF_SIZE];
+ 105:main.c        ****     uint8_t bufcnt=0;
+ 106:main.c        ****     uint8_t bytecnt=1;
+ 107:main.c        **** 
+ 108:main.c        ****     #define DELAY 1000/8/BUF_SIZE
+ 109:main.c        ****     LED_DDR |= _BV(LED);
+ 110:main.c        ****     BTN_PORT |= _BV(BTN);
+ 111:main.c        ****     while(1)
+ 112:main.c        ****     {
+ 113:main.c        ****         if(BTN_PIN & _BV(BTN))
+ 114:main.c        ****         {
+ 115:main.c        ****             buffer[bufcnt] |= bytecnt;
+ 116:main.c        ****         }
+ 117:main.c        ****         else 
+ 118:main.c        ****         {
+ 119:main.c        ****             buffer[bufcnt] &= ~bytecnt;
+ 120:main.c        ****         }
+ 121:main.c        ****         bytecnt<<=1;
+ 122:main.c        ****         if(bytecnt==0)
+ 123:main.c        ****         {
+ 124:main.c        ****             bytecnt=1;
+ 125:main.c        ****             bufcnt++;
+ 126:main.c        ****             if(bufcnt==BUF_SIZE)
+ 127:main.c        ****             {
+ 128:main.c        ****                 bufcnt=0;
+ 129:main.c        ****             }
+ 130:main.c        ****         }
+ 131:main.c        ****         if(buffer[bufcnt] & bytecnt)
+ 132:main.c        ****         {
+ 133:main.c        ****             LED_PORT &= ~_BV(LED);
+ 134:main.c        ****         }
+ 135:main.c        ****         else
+ 136:main.c        ****         {
+ 137:main.c        ****             LED_PORT |= _BV(LED);
+ 138:main.c        ****         }
+ 139:main.c        ****         vTaskDelay(DELAY / portTICK_PERIOD_MS);
+ 140:main.c        ****     }
+ 141:main.c        **** }
+ 142:main.c        **** 
+ 143:main.c        **** /**************************************************************************//**
+ 144:main.c        ****  * \fn static void vSerial(void* pvParameters)
+ 145:main.c        ****  *
+ 146:main.c        ****  * \brief
+ 147:main.c        ****  *
+ 148:main.c        ****  * \param[in]   pvParameters
+ 149:main.c        ****  ******************************************************************************/
+ 150:main.c        **** static void vScrollingLed(void* pvParameters)
+ 151:main.c        **** {
+  16               		.loc 1 151 1 view -0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+ 152:main.c        ****     #define LED PD7
+ 153:main.c        ****     #define LED_DDR DDRD
+ 154:main.c        ****     #define LED_PORT PORTD
+ 155:main.c        ****     uint16_t kitt=0b111000000000;
+  22               		.loc 1 155 5 view .LVU1
+ 156:main.c        ****     LED_DDR = 0b11111111;
+  23               		.loc 1 156 5 view .LVU2
+  24               		.loc 1 156 13 is_stmt 0 view .LVU3
+  25 0000 8FEF      		ldi r24,lo8(-1)
+  26               	.LVL1:
+  27               		.loc 1 156 13 view .LVU4
+  28 0002 8AB9      		out 0xa,r24
+ 157:main.c        ****     LED_PORT = kitt>>2;
+  29               		.loc 1 157 5 is_stmt 1 view .LVU5
+  30               		.loc 1 157 14 is_stmt 0 view .LVU6
+  31 0004 80E8      		ldi r24,lo8(-128)
+  32 0006 8BB9      		out 0xb,r24
+ 158:main.c        ****     UCSR0B &= ~_BV(RXEN0) & ~_BV(TXEN0);
+  33               		.loc 1 158 5 is_stmt 1 view .LVU7
+  34               		.loc 1 158 12 is_stmt 0 view .LVU8
+  35 0008 8091 C100 		lds r24,193
+  36 000c 877E      		andi r24,lo8(-25)
+  37 000e 8093 C100 		sts 193,r24
+ 155:main.c        ****     LED_DDR = 0b11111111;
+  38               		.loc 1 155 14 view .LVU9
+  39 0012 C0E0      		ldi r28,0
+  40 0014 DEE0      		ldi r29,lo8(14)
+  41               	.LVL2:
+  42               	.L4:
+ 159:main.c        ****     while(1) {
+  43               		.loc 1 159 5 is_stmt 1 view .LVU10
+ 160:main.c        ****         UCSR0B &= ~_BV(RXEN0) & ~_BV(TXEN0);
+  44               		.loc 1 160 9 view .LVU11
+  45               		.loc 1 160 16 is_stmt 0 view .LVU12
+  46 0016 8091 C100 		lds r24,193
+  47 001a 877E      		andi r24,lo8(-25)
+  48 001c 8093 C100 		sts 193,r24
+ 161:main.c        ****         for(int i=0;i<9;i++)
+  49               		.loc 1 161 9 is_stmt 1 view .LVU13
+  50               	.LBB2:
+  51               		.loc 1 161 13 view .LVU14
+  52               	.LVL3:
+  53               		.loc 1 161 22 discriminator 1 view .LVU15
+  54               	.LBE2:
+ 160:main.c        ****         UCSR0B &= ~_BV(RXEN0) & ~_BV(TXEN0);
+  55               		.loc 1 160 16 is_stmt 0 view .LVU16
+  56 0020 09E0      		ldi r16,lo8(9)
+  57 0022 10E0      		ldi r17,0
+  58               	.LVL4:
+  59               	.L2:
+  60               	.LBB3:
+ 162:main.c        ****         {
+ 163:main.c        ****             kitt=kitt>>1;
+  61               		.loc 1 163 13 is_stmt 1 view .LVU17
+  62 0024 CE01      		movw r24,r28
+ 164:main.c        ****             LED_PORT=kitt>>2;
+  63               		.loc 1 164 13 view .LVU18
+  64               		.loc 1 164 26 is_stmt 0 view .LVU19
+  65 0026 33E0      		ldi r19,3
+  66               		1:
+  67 0028 9695      		lsr r25
+  68 002a 8795      		ror r24
+  69 002c 3A95      		dec r19
+  70 002e 01F4      		brne 1b
+  71 0030 D695      		lsr r29
+  72 0032 C795      		ror r28
+  73               	.LVL5:
+  74               		.loc 1 164 21 view .LVU20
+  75 0034 8BB9      		out 0xb,r24
+ 165:main.c        ****             vTaskDelay(300 / portTICK_PERIOD_MS);
+  76               		.loc 1 165 13 is_stmt 1 view .LVU21
+  77 0036 8CE2      		ldi r24,lo8(44)
+  78 0038 91E0      		ldi r25,lo8(1)
+  79 003a 0E94 0000 		call vTaskDelay
+  80               	.LVL6:
+ 161:main.c        ****         {
+  81               		.loc 1 161 26 discriminator 3 view .LVU22
+ 161:main.c        ****         {
+  82               		.loc 1 161 22 discriminator 1 view .LVU23
+  83 003e 0150      		subi r16, 1
+  84 0040 1040      		sbci r17, 0
+  85               	.LVL7:
+ 161:main.c        ****         {
+  86               		.loc 1 161 22 is_stmt 0 discriminator 1 view .LVU24
+  87 0042 01F4      		brne .L2
+  88 0044 09E0      		ldi r16,lo8(9)
+  89 0046 10E0      		ldi r17,0
+  90               	.LVL8:
+  91               	.L3:
+ 161:main.c        ****         {
+  92               		.loc 1 161 22 discriminator 1 view .LVU25
+  93               	.LBE3:
+  94               	.LBB4:
+ 166:main.c        ****         }
+ 167:main.c        ****         for(int i=0;i<9;i++)
+ 168:main.c        ****         {
+ 169:main.c        ****             kitt=kitt<<1;
+  95               		.loc 1 169 13 is_stmt 1 view .LVU26
+  96               		.loc 1 169 17 is_stmt 0 view .LVU27
+  97 0048 CC0F      		lsl r28
+  98 004a DD1F      		rol r29
+  99               	.LVL9:
+ 170:main.c        ****             LED_PORT=kitt>>2;
+ 100               		.loc 1 170 13 is_stmt 1 view .LVU28
+ 101               		.loc 1 170 26 is_stmt 0 view .LVU29
+ 102 004c CE01      		movw r24,r28
+ 103 004e 9695      		lsr r25
+ 104 0050 8795      		ror r24
+ 105 0052 9695      		lsr r25
+ 106 0054 8795      		ror r24
+ 107               		.loc 1 170 21 view .LVU30
+ 108 0056 8BB9      		out 0xb,r24
+ 171:main.c        ****             vTaskDelay(300 / portTICK_PERIOD_MS);
+ 109               		.loc 1 171 13 is_stmt 1 view .LVU31
+ 110 0058 8CE2      		ldi r24,lo8(44)
+ 111 005a 91E0      		ldi r25,lo8(1)
+ 112 005c 0E94 0000 		call vTaskDelay
+ 113               	.LVL10:
+ 167:main.c        ****         {
+ 114               		.loc 1 167 26 discriminator 3 view .LVU32
+ 167:main.c        ****         {
+ 115               		.loc 1 167 22 discriminator 1 view .LVU33
+ 116 0060 0150      		subi r16, 1
+ 117 0062 1040      		sbci r17, 0
+ 118               	.LVL11:
+ 167:main.c        ****         {
+ 119               		.loc 1 167 22 is_stmt 0 discriminator 1 view .LVU34
+ 120 0064 01F4      		brne .L3
+ 121 0066 00C0      		rjmp .L4
+ 122               	.LBE4:
+ 123               		.cfi_endproc
+ 124               	.LFE4:
+ 127               	vCyclicLed:
+ 128               	.LVL12:
+ 129               	.LFB3:
+  94:main.c        ****     #define LED PB5 // D13
+ 130               		.loc 1 94 1 is_stmt 1 view -0
+ 131               		.cfi_startproc
+  94:main.c        ****     #define LED PB5 // D13
+ 132               		.loc 1 94 1 is_stmt 0 view .LVU36
+ 133 0068 CF93      		push r28
+ 134               		.cfi_def_cfa_offset 3
+ 135               		.cfi_offset 28, -2
+ 136 006a DF93      		push r29
+ 137               		.cfi_def_cfa_offset 4
+ 138               		.cfi_offset 29, -3
+ 139 006c CDB7      		in r28,__SP_L__
+ 140 006e DEB7      		in r29,__SP_H__
+ 141               		.cfi_def_cfa_register 28
+ 142 0070 6997      		sbiw r28,25
+ 143               		.cfi_def_cfa_offset 29
+ 144 0072 0FB6      		in __tmp_reg__,__SREG__
+ 145 0074 F894      		cli
+ 146 0076 DEBF      		out __SP_H__,r29
+ 147 0078 0FBE      		out __SREG__,__tmp_reg__
+ 148 007a CDBF      		out __SP_L__,r28
+ 149               	/* prologue: function */
+ 150               	/* frame size = 25 */
+ 151               	/* stack size = 27 */
+ 152               	.L__stack_usage = 27
+ 104:main.c        ****     uint8_t bufcnt=0;
+ 153               		.loc 1 104 5 is_stmt 1 view .LVU37
+ 105:main.c        ****     uint8_t bytecnt=1;
+ 154               		.loc 1 105 5 view .LVU38
+ 155               	.LVL13:
+ 106:main.c        **** 
+ 156               		.loc 1 106 5 view .LVU39
+ 109:main.c        ****     BTN_PORT |= _BV(BTN);
+ 157               		.loc 1 109 5 view .LVU40
+ 109:main.c        ****     BTN_PORT |= _BV(BTN);
+ 158               		.loc 1 109 13 is_stmt 0 view .LVU41
+ 159 007c 259A      		sbi 0x4,5
+ 110:main.c        ****     while(1)
+ 160               		.loc 1 110 5 is_stmt 1 view .LVU42
+ 110:main.c        ****     while(1)
+ 161               		.loc 1 110 14 is_stmt 0 view .LVU43
+ 162 007e 2C9A      		sbi 0x5,4
+ 106:main.c        **** 
+ 163               		.loc 1 106 13 view .LVU44
+ 164 0080 11E0      		ldi r17,lo8(1)
+ 105:main.c        ****     uint8_t bytecnt=1;
+ 165               		.loc 1 105 13 view .LVU45
+ 166 0082 00E0      		ldi r16,0
+ 167               	.LVL14:
+ 168               	.L13:
+ 111:main.c        ****     {
+ 169               		.loc 1 111 5 is_stmt 1 view .LVU46
+ 113:main.c        ****         {
+ 170               		.loc 1 113 9 view .LVU47
+ 115:main.c        ****         }
+ 171               		.loc 1 115 19 is_stmt 0 view .LVU48
+ 172 0084 E02F      		mov r30,r16
+ 173 0086 F0E0      		ldi r31,0
+ 174 0088 DE01      		movw r26,r28
+ 175 008a 1196      		adiw r26,1
+ 176 008c A00F      		add r26,r16
+ 177 008e B11D      		adc r27,__zero_reg__
+ 178 0090 8C91      		ld r24,X
+ 113:main.c        ****         {
+ 179               		.loc 1 113 11 view .LVU49
+ 180 0092 1C9B      		sbis 0x3,4
+ 181 0094 00C0      		rjmp .L8
+ 115:main.c        ****         }
+ 182               		.loc 1 115 13 is_stmt 1 view .LVU50
+ 115:main.c        ****         }
+ 183               		.loc 1 115 28 is_stmt 0 view .LVU51
+ 184 0096 812B      		or r24,r17
+ 185               	.L9:
+ 186 0098 9E01      		movw r18,r28
+ 187 009a 2F5F      		subi r18,-1
+ 188 009c 3F4F      		sbci r19,-1
+ 189 009e E20F      		add r30,r18
+ 190 00a0 F31F      		adc r31,r19
+ 191 00a2 8083      		st Z,r24
+ 121:main.c        ****         if(bytecnt==0)
+ 192               		.loc 1 121 9 is_stmt 1 view .LVU52
+ 121:main.c        ****         if(bytecnt==0)
+ 193               		.loc 1 121 16 is_stmt 0 view .LVU53
+ 194 00a4 110F      		lsl r17
+ 195               	.LVL15:
+ 122:main.c        ****         {
+ 196               		.loc 1 122 9 is_stmt 1 view .LVU54
+ 122:main.c        ****         {
+ 197               		.loc 1 122 11 is_stmt 0 view .LVU55
+ 198 00a6 1111      		cpse r17,__zero_reg__
+ 199 00a8 00C0      		rjmp .L10
+ 124:main.c        ****             bufcnt++;
+ 200               		.loc 1 124 13 is_stmt 1 view .LVU56
+ 201               	.LVL16:
+ 125:main.c        ****             if(bufcnt==BUF_SIZE)
+ 202               		.loc 1 125 13 view .LVU57
+ 125:main.c        ****             if(bufcnt==BUF_SIZE)
+ 203               		.loc 1 125 19 is_stmt 0 view .LVU58
+ 204 00aa 0F5F      		subi r16,lo8(-(1))
+ 205               	.LVL17:
+ 126:main.c        ****             {
+ 206               		.loc 1 126 13 is_stmt 1 view .LVU59
+ 126:main.c        ****             {
+ 207               		.loc 1 126 15 is_stmt 0 view .LVU60
+ 208 00ac 0931      		cpi r16,lo8(25)
+ 209 00ae 01F0      		breq .L14
+ 210               	.LVL18:
+ 211               	.L15:
+ 124:main.c        ****             bufcnt++;
+ 212               		.loc 1 124 20 view .LVU61
+ 213 00b0 11E0      		ldi r17,lo8(1)
+ 214               	.LVL19:
+ 215               	.L10:
+ 131:main.c        ****         {
+ 216               		.loc 1 131 9 is_stmt 1 view .LVU62
+ 131:main.c        ****         {
+ 217               		.loc 1 131 18 is_stmt 0 view .LVU63
+ 218 00b2 FE01      		movw r30,r28
+ 219 00b4 3196      		adiw r30,1
+ 220 00b6 E00F      		add r30,r16
+ 221 00b8 F11D      		adc r31,__zero_reg__
+ 131:main.c        ****         {
+ 222               		.loc 1 131 12 view .LVU64
+ 223 00ba 8081      		ld r24,Z
+ 224 00bc 8123      		and r24,r17
+ 131:main.c        ****         {
+ 225               		.loc 1 131 11 view .LVU65
+ 226 00be 8115      		cp r24, __zero_reg__
+ 227 00c0 01F0      		breq .L11
+ 133:main.c        ****         }
+ 228               		.loc 1 133 13 is_stmt 1 view .LVU66
+ 133:main.c        ****         }
+ 229               		.loc 1 133 22 is_stmt 0 view .LVU67
+ 230 00c2 2D98      		cbi 0x5,5
+ 231               	.L12:
+ 139:main.c        ****     }
+ 232               		.loc 1 139 9 is_stmt 1 view .LVU68
+ 233 00c4 85E0      		ldi r24,lo8(5)
+ 234 00c6 90E0      		ldi r25,0
+ 235 00c8 0E94 0000 		call vTaskDelay
+ 236               	.LVL20:
+ 111:main.c        ****     {
+ 237               		.loc 1 111 10 view .LVU69
+ 113:main.c        ****         {
+ 238               		.loc 1 113 11 is_stmt 0 view .LVU70
+ 239 00cc 00C0      		rjmp .L13
+ 240               	.L8:
+ 119:main.c        ****         }
+ 241               		.loc 1 119 13 is_stmt 1 view .LVU71
+ 119:main.c        ****         }
+ 242               		.loc 1 119 28 is_stmt 0 view .LVU72
+ 243 00ce 912F      		mov r25,r17
+ 244 00d0 9095      		com r25
+ 245 00d2 8923      		and r24,r25
+ 246 00d4 00C0      		rjmp .L9
+ 247               	.LVL21:
+ 248               	.L14:
+ 128:main.c        ****             }
+ 249               		.loc 1 128 23 view .LVU73
+ 250 00d6 00E0      		ldi r16,0
+ 251               	.LVL22:
+ 128:main.c        ****             }
+ 252               		.loc 1 128 23 view .LVU74
+ 253 00d8 00C0      		rjmp .L15
+ 254               	.LVL23:
+ 255               	.L11:
+ 137:main.c        ****         }
+ 256               		.loc 1 137 13 is_stmt 1 view .LVU75
+ 137:main.c        ****         }
+ 257               		.loc 1 137 22 is_stmt 0 view .LVU76
+ 258 00da 2D9A      		sbi 0x5,5
+ 259 00dc 00C0      		rjmp .L12
+ 260               		.cfi_endproc
+ 261               	.LFE3:
+ 263               		.section	.rodata.str1.1,"aMS",@progbits,1
+ 264               	.LC0:
+ 265 0000 6379 636C 		.string	"cyclic"
+ 265      6963 00
+ 266               	.LC1:
+ 267 0007 7363 726F 		.string	"scrolling"
+ 267      6C6C 696E 
+ 267      6700 
+ 268               		.section	.text.startup,"ax",@progbits
+ 269               	.global	main
+ 271               	main:
+ 272               	.LFB1:
+  41:main.c        ****     // Create task.
+ 273               		.loc 1 41 1 is_stmt 1 view -0
+ 274               		.cfi_startproc
+ 275 0000 00D0      		rcall .
+ 276 0002 00D0      		rcall .
+ 277               		.cfi_def_cfa_offset 6
+ 278 0004 CDB7      		in r28,__SP_L__
+ 279 0006 DEB7      		in r29,__SP_H__
+ 280               		.cfi_def_cfa_register 28
+ 281               	/* prologue: function */
+ 282               	/* frame size = 4 */
+ 283               	/* stack size = 4 */
+ 284               	.L__stack_usage = 4
+  43:main.c        ****     xTaskHandle serial_handle;
+ 285               		.loc 1 43 5 view .LVU78
+  44:main.c        **** 
+ 286               		.loc 1 44 5 view .LVU79
+  46:main.c        ****         (
+ 287               		.loc 1 46 5 view .LVU80
+ 288 0008 CE01      		movw r24,r28
+ 289 000a 0396      		adiw r24,3
+ 290 000c 7C01      		movw r14,r24
+ 291 000e 01E0      		ldi r16,lo8(1)
+ 292 0010 20E0      		ldi r18,0
+ 293 0012 30E0      		ldi r19,0
+ 294 0014 45E5      		ldi r20,lo8(85)
+ 295 0016 50E0      		ldi r21,0
+ 296 0018 60E0      		ldi r22,lo8(.LC0)
+ 297 001a 70E0      		ldi r23,hi8(.LC0)
+ 298 001c 80E0      		ldi r24,lo8(gs(vCyclicLed))
+ 299 001e 90E0      		ldi r25,hi8(gs(vCyclicLed))
+ 300 0020 0E94 0000 		call xTaskCreate
+ 301               	.LVL24:
+  56:main.c        ****         (
+ 302               		.loc 1 56 5 view .LVU81
+ 303 0024 CE01      		movw r24,r28
+ 304 0026 0196      		adiw r24,1
+ 305 0028 7C01      		movw r14,r24
+ 306 002a 20E0      		ldi r18,0
+ 307 002c 30E0      		ldi r19,0
+ 308 002e 45E5      		ldi r20,lo8(85)
+ 309 0030 50E0      		ldi r21,0
+ 310 0032 60E0      		ldi r22,lo8(.LC1)
+ 311 0034 70E0      		ldi r23,hi8(.LC1)
+ 312 0036 80E0      		ldi r24,lo8(gs(vScrollingLed))
+ 313 0038 90E0      		ldi r25,hi8(gs(vScrollingLed))
+ 314 003a 0E94 0000 		call xTaskCreate
+ 315               	.LVL25:
+  67:main.c        **** 
+ 316               		.loc 1 67 5 view .LVU82
+ 317 003e 0E94 0000 		call vTaskStartScheduler
+ 318               	.LVL26:
+  69:main.c        **** }
+ 319               		.loc 1 69 5 view .LVU83
+  70:main.c        **** 
+ 320               		.loc 1 70 1 is_stmt 0 view .LVU84
+ 321 0042 80E0      		ldi r24,0
+ 322 0044 90E0      		ldi r25,0
+ 323               	/* epilogue start */
+ 324 0046 0F90      		pop __tmp_reg__
+ 325 0048 0F90      		pop __tmp_reg__
+ 326 004a 0F90      		pop __tmp_reg__
+ 327 004c 0F90      		pop __tmp_reg__
+ 328 004e 0895      		ret
+ 329               		.cfi_endproc
+ 330               	.LFE1:
+ 332               		.text
+ 333               	.global	vApplicationIdleHook
+ 335               	vApplicationIdleHook:
+ 336               	.LFB2:
+  78:main.c        **** 
+ 337               		.loc 1 78 1 is_stmt 1 view -0
+ 338               		.cfi_startproc
+ 339               	/* prologue: function */
+ 340               	/* frame size = 0 */
+ 341               	/* stack size = 0 */
+ 342               	.L__stack_usage = 0
+  80:main.c        **** 
+ 343               		.loc 1 80 1 view .LVU86
+ 344               	/* epilogue start */
+ 345 00de 0895      		ret
+ 346               		.cfi_endproc
+ 347               	.LFE2:
+ 349               	.Letext0:
+ 350               		.file 2 "/usr/avr/include/stdint.h"
+ 351               		.file 3 "./FreeRTOS/Source/include/projdefs.h"
+ 352               		.file 4 "./FreeRTOS/Source/portable/GCC/ATMega328/portmacro.h"
+ 353               		.file 5 "./FreeRTOS/Source/include/task.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/cc9BGw19.s:2      *ABS*:0000003e __SP_H__
+     /tmp/cc9BGw19.s:3      *ABS*:0000003d __SP_L__
+     /tmp/cc9BGw19.s:4      *ABS*:0000003f __SREG__
+     /tmp/cc9BGw19.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/cc9BGw19.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/cc9BGw19.s:12     .text:00000000 vScrollingLed
+     /tmp/cc9BGw19.s:16     .text:00000000 .Loc.0
+     /tmp/cc9BGw19.s:17     .text:00000000 L0
+     /tmp/cc9BGw19.s:22     .text:00000000 .Loc.1
+     /tmp/cc9BGw19.s:23     .text:00000000 .Loc.2
+     /tmp/cc9BGw19.s:24     .text:00000000 .Loc.3
+     /tmp/cc9BGw19.s:27     .text:00000002 .Loc.4
+     /tmp/cc9BGw19.s:29     .text:00000004 .Loc.5
+     /tmp/cc9BGw19.s:30     .text:00000004 .Loc.6
+     /tmp/cc9BGw19.s:33     .text:00000008 .Loc.7
+     /tmp/cc9BGw19.s:34     .text:00000008 .Loc.8
+     /tmp/cc9BGw19.s:38     .text:00000012 .Loc.9
+     /tmp/cc9BGw19.s:43     .text:00000016 .Loc.10
+     /tmp/cc9BGw19.s:44     .text:00000016 .Loc.11
+     /tmp/cc9BGw19.s:45     .text:00000016 .Loc.12
+     /tmp/cc9BGw19.s:49     .text:00000020 .Loc.13
+     /tmp/cc9BGw19.s:51     .text:00000020 .Loc.14
+     /tmp/cc9BGw19.s:53     .text:00000020 .Loc.15
+     /tmp/cc9BGw19.s:55     .text:00000020 .Loc.16
+     /tmp/cc9BGw19.s:61     .text:00000024 .Loc.17
+     /tmp/cc9BGw19.s:63     .text:00000026 .Loc.18
+     /tmp/cc9BGw19.s:64     .text:00000026 .Loc.19
+     /tmp/cc9BGw19.s:74     .text:00000034 .Loc.20
+     /tmp/cc9BGw19.s:76     .text:00000036 .Loc.21
+     /tmp/cc9BGw19.s:81     .text:0000003e .Loc.22
+     /tmp/cc9BGw19.s:82     .text:0000003e .Loc.23
+     /tmp/cc9BGw19.s:86     .text:00000042 .Loc.24
+     /tmp/cc9BGw19.s:92     .text:00000048 .Loc.25
+     /tmp/cc9BGw19.s:95     .text:00000048 .Loc.26
+     /tmp/cc9BGw19.s:96     .text:00000048 .Loc.27
+     /tmp/cc9BGw19.s:100    .text:0000004c .Loc.28
+     /tmp/cc9BGw19.s:101    .text:0000004c .Loc.29
+     /tmp/cc9BGw19.s:107    .text:00000056 .Loc.30
+     /tmp/cc9BGw19.s:109    .text:00000058 .Loc.31
+     /tmp/cc9BGw19.s:114    .text:00000060 .Loc.32
+     /tmp/cc9BGw19.s:115    .text:00000060 .Loc.33
+     /tmp/cc9BGw19.s:119    .text:00000064 .Loc.34
+     /tmp/cc9BGw19.s:123    .text:00000068 L0
+     /tmp/cc9BGw19.s:127    .text:00000068 vCyclicLed
+     /tmp/cc9BGw19.s:130    .text:00000068 .Loc.35
+     /tmp/cc9BGw19.s:131    .text:00000068 L0
+     /tmp/cc9BGw19.s:132    .text:00000068 .Loc.36
+     /tmp/cc9BGw19.s:153    .text:0000007c .Loc.37
+     /tmp/cc9BGw19.s:154    .text:0000007c .Loc.38
+     /tmp/cc9BGw19.s:156    .text:0000007c .Loc.39
+     /tmp/cc9BGw19.s:157    .text:0000007c .Loc.40
+     /tmp/cc9BGw19.s:158    .text:0000007c .Loc.41
+     /tmp/cc9BGw19.s:160    .text:0000007e .Loc.42
+     /tmp/cc9BGw19.s:161    .text:0000007e .Loc.43
+     /tmp/cc9BGw19.s:163    .text:00000080 .Loc.44
+     /tmp/cc9BGw19.s:165    .text:00000082 .Loc.45
+     /tmp/cc9BGw19.s:169    .text:00000084 .Loc.46
+     /tmp/cc9BGw19.s:170    .text:00000084 .Loc.47
+     /tmp/cc9BGw19.s:171    .text:00000084 .Loc.48
+     /tmp/cc9BGw19.s:179    .text:00000092 .Loc.49
+     /tmp/cc9BGw19.s:182    .text:00000096 .Loc.50
+     /tmp/cc9BGw19.s:183    .text:00000096 .Loc.51
+     /tmp/cc9BGw19.s:192    .text:000000a4 .Loc.52
+     /tmp/cc9BGw19.s:193    .text:000000a4 .Loc.53
+     /tmp/cc9BGw19.s:196    .text:000000a6 .Loc.54
+     /tmp/cc9BGw19.s:197    .text:000000a6 .Loc.55
+     /tmp/cc9BGw19.s:200    .text:000000aa .Loc.56
+     /tmp/cc9BGw19.s:202    .text:000000aa .Loc.57
+     /tmp/cc9BGw19.s:203    .text:000000aa .Loc.58
+     /tmp/cc9BGw19.s:206    .text:000000ac .Loc.59
+     /tmp/cc9BGw19.s:207    .text:000000ac .Loc.60
+     /tmp/cc9BGw19.s:212    .text:000000b0 .Loc.61
+     /tmp/cc9BGw19.s:216    .text:000000b2 .Loc.62
+     /tmp/cc9BGw19.s:217    .text:000000b2 .Loc.63
+     /tmp/cc9BGw19.s:222    .text:000000ba .Loc.64
+     /tmp/cc9BGw19.s:225    .text:000000be .Loc.65
+     /tmp/cc9BGw19.s:228    .text:000000c2 .Loc.66
+     /tmp/cc9BGw19.s:229    .text:000000c2 .Loc.67
+     /tmp/cc9BGw19.s:232    .text:000000c4 .Loc.68
+     /tmp/cc9BGw19.s:237    .text:000000cc .Loc.69
+     /tmp/cc9BGw19.s:238    .text:000000cc .Loc.70
+     /tmp/cc9BGw19.s:241    .text:000000ce .Loc.71
+     /tmp/cc9BGw19.s:242    .text:000000ce .Loc.72
+     /tmp/cc9BGw19.s:249    .text:000000d6 .Loc.73
+     /tmp/cc9BGw19.s:252    .text:000000d8 .Loc.74
+     /tmp/cc9BGw19.s:256    .text:000000da .Loc.75
+     /tmp/cc9BGw19.s:257    .text:000000da .Loc.76
+     /tmp/cc9BGw19.s:260    .text:000000de L0
+     /tmp/cc9BGw19.s:271    .text.startup:00000000 main
+     /tmp/cc9BGw19.s:273    .text.startup:00000000 .Loc.77
+     /tmp/cc9BGw19.s:274    .text.startup:00000000 L0
+     /tmp/cc9BGw19.s:275    .text.startup:00000002 L0
+     /tmp/cc9BGw19.s:276    .text.startup:00000004 L0
+     /tmp/cc9BGw19.s:285    .text.startup:00000008 .Loc.78
+     /tmp/cc9BGw19.s:286    .text.startup:00000008 .Loc.79
+     /tmp/cc9BGw19.s:287    .text.startup:00000008 .Loc.80
+     /tmp/cc9BGw19.s:302    .text.startup:00000024 .Loc.81
+     /tmp/cc9BGw19.s:316    .text.startup:0000003e .Loc.82
+     /tmp/cc9BGw19.s:319    .text.startup:00000042 .Loc.83
+     /tmp/cc9BGw19.s:320    .text.startup:00000042 .Loc.84
+     /tmp/cc9BGw19.s:329    .text.startup:00000050 L0
+     /tmp/cc9BGw19.s:335    .text:000000de vApplicationIdleHook
+     /tmp/cc9BGw19.s:337    .text:000000de .Loc.85
+     /tmp/cc9BGw19.s:338    .text:000000de L0
+     /tmp/cc9BGw19.s:343    .text:000000de .Loc.86
+     /tmp/cc9BGw19.s:346    .text:000000e0 L0
+     /tmp/cc9BGw19.s:354    .text:000000e0 L0
+     /tmp/cc9BGw19.s:332    .text.startup:00000050 L0
+                     .debug_frame:00000000 L0
+     /tmp/cc9BGw19.s:66     .text:00000028 .L11
+     /tmp/cc9BGw19.s:59     .text:00000024 .L2
+     /tmp/cc9BGw19.s:91     .text:00000048 .L3
+     /tmp/cc9BGw19.s:42     .text:00000016 .L4
+     /tmp/cc9BGw19.s:240    .text:000000ce .L8
+     /tmp/cc9BGw19.s:215    .text:000000b2 .L10
+     /tmp/cc9BGw19.s:248    .text:000000d6 .L14
+     /tmp/cc9BGw19.s:255    .text:000000da .L11
+     /tmp/cc9BGw19.s:168    .text:00000084 .L13
+     /tmp/cc9BGw19.s:185    .text:00000098 .L9
+     /tmp/cc9BGw19.s:211    .text:000000b0 .L15
+     /tmp/cc9BGw19.s:231    .text:000000c4 .L12
+     /tmp/cc9BGw19.s:813    .debug_abbrev:00000000 .Ldebug_abbrev0
+     /tmp/cc9BGw19.s:1528   .debug_rnglists:00000018 .LLRL8
+     /tmp/cc9BGw19.s:1538   .debug_line:00000000 .Ldebug_line0
+     /tmp/cc9BGw19.s:14     .text:00000000 .LFB4
+     /tmp/cc9BGw19.s:124    .text:00000068 .LFE4
+     /tmp/cc9BGw19.s:1228   .debug_loclists:00000010 .LLST0
+     /tmp/cc9BGw19.s:1223   .debug_loclists:0000000c .LVUS0
+     /tmp/cc9BGw19.s:1263   .debug_loclists:00000034 .LLST1
+     /tmp/cc9BGw19.s:1256   .debug_loclists:0000002e .LVUS1
+     /tmp/cc9BGw19.s:1518   .debug_rnglists:0000000c .LLRL2
+     /tmp/cc9BGw19.s:1303   .debug_loclists:0000005e .LLST3
+     /tmp/cc9BGw19.s:1294   .debug_loclists:00000056 .LVUS3
+     /tmp/cc9BGw19.s:80     .text:0000003e .LVL6
+     /tmp/cc9BGw19.s:94     .text:00000048 .LBB4
+     /tmp/cc9BGw19.s:122    .text:00000068 .LBE4
+     /tmp/cc9BGw19.s:1347   .debug_loclists:0000008b .LLST4
+     /tmp/cc9BGw19.s:1340   .debug_loclists:00000085 .LVUS4
+     /tmp/cc9BGw19.s:113    .text:00000060 .LVL10
+     /tmp/cc9BGw19.s:129    .text:00000068 .LFB3
+     /tmp/cc9BGw19.s:261    .text:000000de .LFE3
+     /tmp/cc9BGw19.s:1383   .debug_loclists:000000b0 .LLST5
+     /tmp/cc9BGw19.s:1378   .debug_loclists:000000ac .LVUS5
+     /tmp/cc9BGw19.s:1420   .debug_loclists:000000d6 .LLST6
+     /tmp/cc9BGw19.s:1411   .debug_loclists:000000ce .LVUS6
+     /tmp/cc9BGw19.s:1458   .debug_loclists:000000fd .LLST7
+     /tmp/cc9BGw19.s:1445   .debug_loclists:000000f1 .LVUS7
+     /tmp/cc9BGw19.s:236    .text:000000cc .LVL20
+     /tmp/cc9BGw19.s:336    .text:000000de .LFB2
+     /tmp/cc9BGw19.s:347    .text:000000e0 .LFE2
+     /tmp/cc9BGw19.s:272    .text.startup:00000000 .LFB1
+     /tmp/cc9BGw19.s:330    .text.startup:00000050 .LFE1
+     /tmp/cc9BGw19.s:301    .text.startup:00000024 .LVL24
+     /tmp/cc9BGw19.s:315    .text.startup:0000003e .LVL25
+     /tmp/cc9BGw19.s:318    .text.startup:00000042 .LVL26
+     /tmp/cc9BGw19.s:13     .text:00000000 .LVL0
+     /tmp/cc9BGw19.s:52     .text:00000020 .LVL3
+     /tmp/cc9BGw19.s:90     .text:00000048 .LVL8
+     /tmp/cc9BGw19.s:128    .text:00000068 .LVL12
+     /tmp/cc9BGw19.s:155    .text:0000007c .LVL13
+     /tmp/cc9BGw19.s:355    .debug_info:00000000 .Ldebug_info0
+     /tmp/cc9BGw19.s:8      .text:00000000 .Ltext0
+     /tmp/cc9BGw19.s:349    .text:000000e0 .Letext0
+     /tmp/cc9BGw19.s:50     .text:00000020 .LBB2
+
+UNDEFINED SYMBOLS
+vTaskDelay
+xTaskCreate
+vTaskStartScheduler
+__do_copy_data

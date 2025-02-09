@@ -1,0 +1,24 @@
+Zmierzony czas + 8bit: 7 cykli
+Zmierzony czas - 8bit: 7 cykli
+Zmierzony czas * 8bit: 10 cykli
+Zmierzony czas / 8bit: 247 cykli
+
+Zmierzony czas + 16bit: 14 cykli
+Zmierzony czas - 16bit: 14 cykli
+Zmierzony czas * 16bit: 22 cykli
+Zmierzony czas / 16bit: 229 cykli
+
+Zmierzony czas + 32bit: 28 cykli
+Zmierzony czas - 32bit: 28 cykli
+Zmierzony czas * 32bit: 97 cykli
+Zmierzony czas / 32bit: 627 cykli
+
+Zmierzony czas + 64bit: 64 cykli
+Zmierzony czas - 64bit: 64 cykli
+Zmierzony czas * 64bit: 360 cykli
+Zmierzony czas / 64bit: 792 cykli
+
+Zmierzony czas + float: 140 cykli
+Zmierzony czas - float: 147 cykli
+Zmierzony czas * float: 148 cykli
+Zmierzony czas / float: 484 cykli
