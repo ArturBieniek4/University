@@ -1,0 +1,18 @@
+stat holes.bin --printf="blocks: %b\nblock size:%B\nfile size:%s\n"
+stat holes.bin -f
+od -c holes.bin
+ls -ls holes.bin
+ls -ls --block-size=512 holes.bin
+
+./mkholes -> Non-zero blocks: 138
+
+blocks: 1104
+block size:512
+file size:33550336
+
+ls -ls -> 512
+
+1104*512= 565248
+
+Plik zawiera dziury.
+Dziury nie muszą być w żaden sposób odzwieciedlone na dysku.

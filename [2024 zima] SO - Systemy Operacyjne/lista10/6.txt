@@ -1,0 +1,11 @@
+Dzięki poll() nie tracimy za każdym razem ~10K cykli na wejście do trybu uprzywilejowanego - sami sobie schedulujemy zadania w userspace a do systemu zwracamy się tylko gdy już wszystko obrobimy i potrzebujemy czekać aż coś przeczytamy.
+poll() można wywoływać na:
+    - plikach zwykłych
+    - urządzeniach znakowych
+    - rurach
+    - socketach
+poll() sprawdza, czy dostalibyśmy EWOULDBLOCK
+Deskryptory warto skonfigurować w trybie nieblokującym, bo potem będziemy z tego czytać w pętli, nie chcemy się zablokować
+Aby mieć nieblokujący deskryptor gniazda trzeba ustawić O_NONBLOCK przy pomocy fnctl:
+fcntl(fd, F_SETFL, fcntl(fd, F_GETFL) | O_NONBLOCK);
+Trzeba dać w revents POLLIN dla odczytu, POLLOUT dla zapisu, timeout=-1

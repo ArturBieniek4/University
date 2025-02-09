@@ -1,0 +1,2 @@
+Jmpbuf nie musi przechowywać tych rejestrów, które są caller-saved.
+Longjmp zapisuje adres gdzie chce skoczyć i robi ret

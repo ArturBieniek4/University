@@ -1,0 +1,9 @@
+rwx definiują uprawnienia dostępu
+r - możemy czytać jakie pliki są w katalogu (getdents), ale nie możemy zrobić na nich stata
+w - możemy usuwać i dodawać pliki do katalogu, zmieniać ich nazwy
+x - możemy czytać metadane plików i katalogów wewnątrz (stat) i uzyskiwać do nich dostęp zgodnie z ich uprawnieniami
+
+set-gid dla katalogu powoduje, że wszystkie pliki utworzone w tym katalogu mają grupę taką jak katalog
+sticky dla katalogu uniemożliwia usuwanie plików wewnątrz katalogu
+Katalog /usr/local u mnie (arch) ma uprawnienia 0755, nic nadzwyczajnego
+Katalog /tmp ma uprawnienia 1777, czyli ustawiony sticky, co oznacza że nie można usuwać plików innych użytkowników i grup

@@ -1,0 +1,10 @@
+Problem odwrócenia priorytetów:
+- Mamy 3 wątki o priorytetach 20, 40, 60
+- Wątek 1 o priorytecie 20 bierze blokadę M1 i zostaje wywłaszczony
+- Wątek 3 o priorytecie 60(najwyższym) nie może nic zrobić bo czeka na blokadę M1
+- Wątek 2 o priorytecie 40 cały czas coś robi (minutami, godzinami, dniami)
+- W efekcie wątek o najwyższym priorytecie jest blokowany przez wątek o niższym priorytecie
+- Rozwiązaniem jest chwilowe podniesienie priorytetu wątku trzymającego blokadę do priorytetu wątku który na nią czeka.
+- Po to mutex pamięta właściciela (a także po to żeby łatwiej debugować sytuacje typu oddajemy mutex którego nie wzięliśmy)
+- Aby nie dopuścić do odwrócenia priorytetów wystarczy sprawdzić kto trzyma blokadę którą próbujemy wziąć i chwilowo podnieść mu priorytet do swojego.
+- Cahir mówił że semafory są na to totalnie nieodporne, bo nie wiemy kto wziął "żeton"

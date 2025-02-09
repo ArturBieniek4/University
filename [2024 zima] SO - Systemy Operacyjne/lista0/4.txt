@@ -1,0 +1,36 @@
+Jądro musi przygotować przestrzeń adresową procesu:
+    sekcje programu
+        kod
+        dane
+        stos
+            argc, argv, envp
+            auxilary vector - dostarcza informacji o środowisku np.
+                AT_PAGESZ - rozmiar strony
+                AT_CLKTCK - częstotliwość z jaką liczy zegar times(2)
+                AT_PHDR - adres nagłówka programu
+                AT_PHENT - rozmiar nagłówka programu
+                AT_PHNUM - liczba nagłówków programu
+                AT_BASE - adres interpretera, zazwyczaj jest to ldd
+                AT_ENTRY - entry point
+                AT_UID, AT_EUID, AT_GID, AT_EGID
+                AT_RANDOM - losowa wartość 16-bitowa
+                
+            NULL auxilary vector entry - koniec auxilary vectora
+
+
+Oprócz tego czyszczone są flagi FP i ustawiane rejestry
+
+Aby wywołać funkcję jądra:
+    - umieszczamy argumenty w rejestrach rdi, rsi, rdx, r10, r8, r9; jest limit 6 argumentów, nie ma umieszczania argumentów na stosie; tylko argumenty klasy INTEGER i MEMORY
+    - w rejestrze rax umieszczamy numer syscalla
+    - wykonujemy instrukcję syscall
+
+
+Gdzie spodziewać się wyników:
+- Zawartość rejestrów rcx i r11 zostanie zniszczona
+- rax zawiera wynik syscalla
+- Jądro nie może zmieniać rejestrów FP, jeżeli są zmieniane to muszą zostać przywrócone przed opuszczeniem kodu jądra
+
+
+Jak jądro sygnalizuje niepowodzenie:
+    - jeżeli po wywołaniu syscall rax jest niezerowy - to wystąpił błąd, jego kod jest od -1 do -4095 i to jest -errno

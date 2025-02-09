@@ -1,0 +1,3 @@
+Nie ma takiej gwarancji, ponieważ strony będą wczytywane z pliku dopiero gdy spróbujemy uzyskać do nich dostęp co spowoduje page fault.
+
+Gdyby system pozwolił pisać do pliku który jest wykonywany, to moglibyśmy wczytać plik w stanie niespójnym, co spowoduje nieoczekiwane zachowanie programu.

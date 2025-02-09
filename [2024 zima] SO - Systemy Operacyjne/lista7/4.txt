@@ -1,0 +1,7 @@
+pgd - page global directory - lista zmapowanych segmentów pamięci, wskazuje na tablicę stron
+mmap - ?? obiekt wspierający?
+SEGV_MAPERR - strona nie istnieje
+SEGV_ACCERR - brak uprawnień
+minor page fault - strona jest już w pamięci RAM bo załadował ją inny program
+major page fault - stronę trzeba dopiero ściągnąć do RAM, np. z dysku
+page cache - strony które już ściągnięto z dysku są trzymane w wolnej pamięci RAM

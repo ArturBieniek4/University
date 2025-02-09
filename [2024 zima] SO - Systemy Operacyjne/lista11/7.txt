@@ -1,0 +1,5 @@
+Fragmentacja jest szkodliwa, poniważ odczyt sekwencyjny jest zawsze szybszy.
+Delayed allcation pozwala alokować bloki grupami a nie pojedynczo, dzięki czemu można zmniejszyć fragmentację, ponieważ alokowane w tym samym czasie pliki są razem.
+ext3 ma limit systemu plików do 16TB, ext4 1EB
+Extenty - zamiast wypisać wszystkie bloki po kolei mówimy od tego bloku tyle bloków, to jest forma kompresji bezstratnej listy bloków, która dodatkowo zwiększa wydajność
+Najprostsza defragmentacja online alokuje dla każdego pliku w miarę ciągłe extenty, przenosi tam dane pliku po czym przepina wskaźniki na bloki

@@ -1,0 +1,9 @@
+openat(int dirfd, const char *pathname, int flags, mode_t mode) - otwiera plik w ścieżce relatywnej
+
+fstatat(int dirfd, const char *restrict pathname, struct stat *restrict statbuf, int flags) - daje informacje o pliku w ścieżce relatywnej
+brk(addr) - zmienia rozmiar segmentu pamięci programu, alokując tym samym pamięć, malloc tego używa, a opendir używa malloc
+getdents64(int fd, void *dirp, size_t count) - zwraca strukturę linux_dirent, która zawiera wskaźnik na następną strukturę i nazwę pliku
+
+write(int fd, const void buf[.count], size_t count) - pisze do pliku, w tym przypadku na stdout
+
+close(int fd) - zamyka plik

@@ -1,0 +1,7 @@
+bind() w serwerze wiąże gniazdo z adresem lokalnym
+accept() w serwerze wiąże gniazdo z adresem zdalnym klienta
+connect() w kliencie wiąże gniazdo z adresem lokalnym (efemerycznym) i zdalnym serwera
+Tylko klient używa portów ulotnych
+Drugi parametr listen(2) - backlog definiuje ile maksymalnie połączeń chcemy trzymać w kolejce, te które się nie zmieszczą będą odrzucane
+Socket w accept(2) ma numer portu będący portem danej usługi
+Klient kończy połączenie gdy przesyła EOF.

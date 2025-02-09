@@ -1,0 +1,17 @@
+strace -e openat,dup2,pipe2,close,clone,execve -o pipeline.log -f dash
+ps -ef | grep sh | wc -l > cnt
+
+proces dash od razu tworzy dwie rury - 3<-4 i 4<-5
+dup2 zastępuje:
+4->1 - zamiast stdout ps dajemy początek rury
+3->0 - zamiast stdin grep dajemy koniec rury
+5->1 - zamiast stdout grep dajemy początek rury
+4->0 - zamiast stdin wc dajemy koniec rury
+
+52736 openat(AT_FDCWD, "cnt", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+52736 dup2(3, 1)
+Tworzymy plik i zamieniamy stdout na jego deskryptor
+
+close(1) następuje przy wyjściu programu i zamyka stdin, co zamyka rurę
+Wtedy do procesu w który skierowana jest rura dociera EOF
+wc robi close(0) czyli zamyka stdout, czyli plik

@@ -1,0 +1,6 @@
+Jak zawołamy exit() to uwalimy cały proces, wszystie wątki
+Fork() tworzy proces potomny w którym jest tylko ten wątek który zawołał forka.
+Sygnały są obsługiwane w kontekście wątku który jest aktualnie wykonywany
+execve() ubija wszystkie wątki
+Oberwanie lethal sygnałem ubija wszystkie wątki
+Deskryptor pliku jest współdzielony między wątkami - w jądrze jest tabelka otwartego pliku i mamy na nią wskaźnik. Między procesami a wątkami tu jedyna różnica to że jeśli jeden wątek otworzy jakiś plik to on od razu jest dostępny dla wszystkich wątków.

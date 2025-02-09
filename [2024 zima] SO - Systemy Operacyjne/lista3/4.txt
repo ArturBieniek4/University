@@ -1,0 +1,4 @@
+echo -e '\033[1Asterujacy\nx3'; read
+echo -e '\e[31mCzerwony tekst\e[0m'; read
+
+cat nie jest powłoką, więc interpretuje te kody w sposób bezpośredni jako znaki

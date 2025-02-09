@@ -1,0 +1,3 @@
+Wywołujemy P 2 razy , zatrzyma się między linią 17 a 18.
+Wywołujemy dwa razy V, wartość tylko do 1 się podnosi
+Dopiero później pierwszy wątek bierze ten delay 2 razy, drugi raz już nie wstanie.

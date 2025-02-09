@@ -1,0 +1,11 @@
+fork() -> pthread_create(), przyjmuje nazwę funkcji do wykonania i argumenty
+exit() -> pthread_exit()
+waitpid() -> pthread_join()
+atexit() -> pthread_cleanup_push()
+abort() -> pthread_cancel(), główna różnica że w thread możemy to totalnie olać
+
+
+Joinable się same nie grzebią, dzięki czemu można na nie poczekać
+Detached są grzebane automatycznie przez jądro.
+W wątkach nie ma żadnej hierarchii.
+Kto usuwa stos jest niezdefiniowane w POSIX, to jest szczegół implementacji jądra ~ Polesiuk

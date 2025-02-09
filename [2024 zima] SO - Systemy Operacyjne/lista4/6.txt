@@ -1,0 +1,16 @@
+Proces może zostać wywłaszczony zaraz po sprawdzeniu czy plik istnieje.
+Wystarczy zamienić access() na dodatkową flagę
+O_EXCL - powoduje błąd, jeżeli plik istnieje
+Ten syscall wykona się atomowo w kodzie jądra i nie spowoduje race condition.
+
+#include "csapp.h"
+
+bool f_lock(const char *path) {
+    if(Open(path, O_CREAT|O_WRONLY|O_EXCL, 0700)<0)
+        return false;
+    return true;
+}
+
+void f_unlock(const char *path) {
+    Unlink(path);
+}

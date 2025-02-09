@@ -1,0 +1,8 @@
+Przy tworzeniu hardlinku system plików dodaje inode do katalogu i zwiększa refcount tego inoda o 1.
+Symlink to specjalny plik który wskazuje na ścieżkę a nie na inode.
+ln -s loop1 loop2
+ln -s loop2 loop1
+realpath loop1
+System zwróci ELOOP kiedy podczas rozwiązywania symlinku zostanie przekroczony limit napotkanych symlinków po drodze.
+Nie można zrobić pętli dowiązaniem twardym ponieważ nie wskazuje na ścieżkę tylko na inode.
+Gdyby można było hardlinkować katalogi to można by zrobić pętlę na hardlinkach

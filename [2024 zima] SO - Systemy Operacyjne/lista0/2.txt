@@ -1,0 +1,14 @@
+Wektor przerwań to tabela zapisana przez system operacyjny, w której pod kolejnymi indeksami (numerami przerwań) są zapisane adresy procedur jądra obsługujących dane przerwanie.
+
+Przed pobraniem pierwszej instrukcji procedury obsługi przerwania:
+    - Procesor pushuje adres powrotu na stos, jest to adres aktualnej instrukcji lub następnej.
+    - Procesor zapisuje część stanu procesora na stosie, który będzie wymagany do wznowienia działania programu, np. rejestr EFLAGS
+    - Przechodzi w tryb jądra/uprzywilejowany
+
+Po natrafieniu na instrukcję powrotu z przerwania:
+    - Przywraca zapisany stan ze stosu
+    - Przechodzi w tryb użytkownika
+    - Skacze do zapisanego na stosie adresu powrotu
+
+Procedura obsługi przerwania musi działać w trybie jądra, żeby mieć dostęp do wszystkich zasosób systemu, przykładowo jeżeli dostajemy syscalla zapisu czegoś na dysk to musimy mieć możliwość fizycznie zapisać na dysk.
+Osobny stos jest konieczny, ponieważ nie chcemy korzystać z niczego ze stosu programu który wywował przerwanie, ani nie chcemy żeby ten program po powrocie z przerwania mógł czytać zawartość stosu jądra, który może zawierać wrażliwe informacje.

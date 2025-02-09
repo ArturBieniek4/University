@@ -1,0 +1,11 @@
+Główne wzorce wykorzystania pamięci:
+ - ramps - monotoniczne akumulowanie danych w czasie
+ - peaks - program buduje duże struktury w celu wykonania obliczeń, zajmując szybko pamięć, a po zakończeniu obliczeń ją zwalnia
+ - plateaus - szybkie budowanie struktur danych w pamięci, a następnie używanie tych struktur danych przez długi czas
+
+Bloki różnych rozmiarów zazwyczaj służą różnym celom, bloki tego samego rozmiaru zazwyczaj "giną" razem. Umieszczenie obiektów tego samego rozmiaru zaalokowanych w tym samym czasie obok siebie pozwala zwolnić ciągły fragment pamięci w momencie ich zwolnienia.
+
+Strategie alokacji pamięci:
+ - best fit - skanowanie całej wolnej pamięciaby znaleźć najmniejszy wolny blok w którym zmieści się payload, najlepsza strategia ale najbardziej czasochłonna
+ - first fit - skanowanie wolnej pamięci od początku, w poszukiwaniu pierwszego wolnego bloku w którym zmieści się payload, minusem jest to że powstaje mnóstwo drzazg (splinters)
+ - next fit - tak jak first fit, ale nie skanujemy od początku tylko od miejsca gdzie ostatnio skończyliśmy, jest szybsze od first fit i ma zazwyczaj mniejszą fragmentację, ale czasem może źle wpływać na lokalność dostępów do pamięci

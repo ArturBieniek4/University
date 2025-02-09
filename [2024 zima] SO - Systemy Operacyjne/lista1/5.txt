@@ -1,0 +1,39 @@
+lsof +p pid
+
+REG — Regular file
+A typical file that contains data, such as text, binaries, etc.
+
+DIR — Directory
+Represents a directory in the filesystem.
+
+CHR — Character device file
+A file that handles data character by character, often representing devices like keyboards or terminals.
+
+BLK — Block device file
+A file that handles data in blocks, typically associated with storage devices like hard drives.
+
+FIFO — First In, First Out
+A special file type also called a named pipe. It enables communication between processes.
+
+SOCK — Socket
+A file that represents network connections (used for inter-process communication or over networks).
+
+IPv4 — IPv4 socket
+An Internet Protocol version 4 socket used for communication over IPv4 networks.
+
+IPv6 — IPv6 socket
+An Internet Protocol version 6 socket used for communication over IPv6 networks.
+
+UNIX — Unix domain socket
+A socket used for inter-process communication (IPC) on the same host machine, without involving network protocols.
+
+DEL — Deleted file
+A file that has been deleted, but is still open by a process.
+
+PIPE — Pipe
+A pipe file used for communication between processes in a pipeline.
+
+MEM — Memory-mapped file or shared library
+These files are used in memory-mapped I/O, such as shared libraries loaded into a process's memory.
+
+diff -u before after | grep IPv4

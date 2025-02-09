@@ -1,0 +1,15 @@
+Należy zawsze wykonywać kod z mininalnymi możliwymi uprawnieniami.
+Należy pozbyć się na stałe uprawnień w momencie kiedy nie są już potrzebne.
+Lepiej używać specyficznych dla Linuxa syscalli getresuid() i getresgid(), zmniejszają ryzyko pomyłki.
+Należy zawsze sprawdzać, czy zmiana uprawnień się udała (a nie tylko czy syscall wrócił bez błędu).
+Przed wykonaniem innego programu koniecznie należy pozbyć się uprawnień i zamknąć otwarte pliki z wrażliwymi danymi.
+Nie należy wykonywać shella ani interpretera z uprawnieniami.
+
+Standardowo w Linuxie albo możemy wszystko (root) albo prawie nic (user).
+Żeby umożliwić pewnym userom robienie pewnych rzeczy np. zmiana czasu systemowego, zazwyczaj tworzy się skrypty set-uid-root, które to robią
+Ale te skrypty mogą czasem być dziurawe.
+Z tego powodu lepiej jest dać użytkownikom częściowy dostęp do niektórych rzeczy.
+
+CAP_DAC_READ_SEARCH umożliwia przeglądanie wszystkich folderów i czytanie wszystkich plików
+CAP_KILL umożliwia wysłanie sygnału do dowolnego procesu
+Normalnie sygnał można wysłać tylko do procesu na swoim użytkowniku.

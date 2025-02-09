@@ -1,0 +1,18 @@
+ioctl() umożliwia odczyt i modyfikację parametrów plików specjalnych, tj. urządzeń znakowych i blokowych.
+
+Drugi parametr - request definiuję komendę i składa się z następujących pól:
+31   29 28                    16  15           8  7            0
+| I/O | Parameter Length        | Command Group | Command       |
+
+Trzeci parametr to argument zmiennego typu.
+
+DIOCEJECT - wysuń dysk (taki który da się wysunąć np. dyskietkę, płytę)
+KIOCTYPE - odczytuje typ klawiatury np.
+    KB_ASCII - ASCII terminal as keyboard
+    KB_PC - type 101 PC keyboard
+    KB_USB
+    KB_SUN3 - Sun Type 3 keyboard
+SIOCGIFCONF - odczytuję listę inferfejsów sieciowych
+
+Zgadzam się z krytyką, gdyż ciężko było mi nawet rozszyfrować, do czego służą poszczególne makra.
+Powinno to raczej być bardziej obiektowe lub rozdzielone na osobne syscalle

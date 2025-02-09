@@ -1,0 +1,23 @@
+Kanoniczny:
+    - linia po linii
+    - działają erase i kill
+
+Znaki specjalne:
+    INT(Ctrl+C)
+    QUIT(Ctrl+\)
+    ERASE(Backspace)
+    KILL(Ctrl+U)
+    EOF(Ctrl+D)
+    NL(\n)
+    EOL
+    SUSP(Ctrl+Z)
+    STOP
+    START
+    CR(\r)
+
+W APUE nie ma rysunku 62-1 XD
+
+Na czas wpisywania hasła terminal można pozostawić w trybie kanonicznym, należy jedynie wyłączyć echo
+Edytory takie jak vi nie chcą czytać całej linii, tylko pojedyncze znaki i same zarządzać plikiem.
+Dodatkowo, chcą przechwytywać znaki specjalne i nadawać im inne znaczenie.
+Np. Ctrl+C ma kopiować a nie wysyłać SIGINT

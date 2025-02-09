@@ -1,0 +1,13 @@
+script nagrywa terminal
+Robi to poprzez stworzenie pseudoterminala i bycie między procesem w tym pseudoterminalu a faktycznym terminalem który widzi użytkownik.
+
+script -T timing -c dash
+scriptreplay -t timing
+strace -f -e read,write -o script.log script -T timing -c dash
+stty -a
+stty -inlcr
+stty -onlcr
+echo -e typescript
+
+INLCR - zamienia NL na CR w wejściu
+ONLCR - zamienia NL na CR+NL w wyjściu

@@ -1,0 +1,622 @@
+COMMAND   PID  USER   FD      TYPE             DEVICE  SIZE/OFF    NODE NAME
+firefox 16750 artur  cwd       DIR                8,2      4096  655362 /home/artur
+firefox 16750 artur  rtd       DIR               0,65       540       1 /
+firefox 16750 artur  txt       REG               7,14   1178408     265 /snap/firefox/5014/usr/lib/firefox/firefox
+firefox 16750 artur  DEL       REG                0,1             19559 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             23727 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              6263 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21559 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1               147 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             22636 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              1157 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              1156 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             23726 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11390 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18576 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             22662 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15522 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11418 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              3170 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              6264 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11417 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11416 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11415 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11414 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15521 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11413 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15520 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11412 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15519 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    705684 3541172 /usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+firefox 16750 artur  DEL       REG                0,1             10324 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21560 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              3169 /memfd:mozilla-ipc
+firefox 16750 artur  mem       CHR            226,128              1205 /dev/dri/renderD128
+firefox 16750 artur  DEL       REG                0,1             11391 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             22634 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             10325 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    757076 3541173 /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+firefox 16750 artur  mem       REG                8,2    333612 3539325 /usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf
+firefox 16750 artur  DEL       REG                0,1             11411 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2   1555749  824327 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/sponsorBlocker@ajay.app.xpi
+firefox 16750 artur  mem       REG                8,2   3964532  660055 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/uBlock0@raymondhill.net.xpi
+firefox 16750 artur  DEL       REG                0,1             15518 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2   1077261  786590 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/cashback_letyshops@LetyShops.xpi
+firefox 16750 artur  DEL       REG                0,1             11410 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              1176 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15517 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              8389 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11409 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15516 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15515 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    108172 3542393 /usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf
+firefox 16750 artur  DEL       REG                0,1             15514 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    137052 3542394 /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf
+firefox 16750 artur  DEL       REG                0,1             11408 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,14     68627      43 /snap/firefox/5014/usr/lib/firefox/browser/features/pictureinpicture@mozilla.org.xpi
+firefox 16750 artur  mem-r     REG                8,2     32768  680526 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage-sync-v2.sqlite-shm
+firefox 16750 artur  mem       REG                8,2    286987  787930 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/{094c428f-8a39-4af8-a4a3-1aff5fb34abc}.xpi
+firefox 16750 artur  mem       REG                8,2   1310728  824342 /home/artur/snap/firefox/common/.cache/mesa_shader_cache/index
+firefox 16750 artur  mem       REG                8,2    139512 3542397 /usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf
+firefox 16750 artur  DEL       REG                0,1             22631 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15513 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19577 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19573 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19572 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              3165 /memfd:mozilla-ipc
+firefox 16750 artur  mem-r     REG                8,2     32768  694049 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/synced-tabs.db-shm
+firefox 16750 artur  DEL       REG                0,1              8382 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              5326 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9361 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             10314 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             10313 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             15512 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18577 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             10309 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             16503 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             16502 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             16504 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18573 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21551 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             22623 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             22622 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19578 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18575 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11457 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11456 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11455 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11454 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11453 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              6262 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20             10305 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20              9620 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/dri/radeonsi_dri.so (stat: No such file or directory)
+firefox 16750 artur  DEL       REG                0,1             19582 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11452 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11451 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11450 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11449 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,14    975456     275 /snap/firefox/5014/usr/lib/firefox/libfreeblpriv3.so
+firefox 16750 artur  DEL       REG                0,1              9351 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11448 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11447 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              5368 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18574 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11446 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11445 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11444 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11443 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11442 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11441 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,14    545248     287 /snap/firefox/5014/usr/lib/firefox/libnssckbi.so
+firefox 16750 artur  mem       REG               7,14    335976     292 /snap/firefox/5014/usr/lib/firefox/libsoftokn3.so
+firefox 16750 artur  DEL       REG                0,1             19557 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18572 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9349 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    353824 3539332 /usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf
+firefox 16750 artur  mem       REG                8,2    380132 3542762 /usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf
+firefox 16750 artur  DEL       REG                0,1              9345 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9344 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11440 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              1171 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11439 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11438 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11437 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18566 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2    422713  823568 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/{830f38bd-efc5-45dc-a5a6-064d9a638806}.xpi
+firefox 16750 artur  DEL       REG                0,1             19576 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19575 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,10              7618 /usr/lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2 (path dev=8,2, inode=2359998)
+firefox 16750 artur  mem       REG               7,14    443540      46 /snap/firefox/5014/usr/lib/firefox/browser/features/webcompat@mozilla.org.xpi
+firefox 16750 artur  DEL       REG                0,1             19574 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19571 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19570 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18571 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18567 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9371 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9370 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9369 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9368 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20              9671 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             13016 /snap/firefox/5014/gnome-platform/usr/share/glib-2.0/schemas/gschemas.compiled (stat: No such file or directory)
+firefox 16750 artur  DEL       REG                0,1              2129 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19569 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18565 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18564 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18560 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2     74402  717270 /home/artur/.config/dconf/user
+firefox 16750 artur  DEL       REG                0,1             19567 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              5324 /memfd:xshmfence
+firefox 16750 artur  DEL       REG                0,1             19568 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2137 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2135 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2134 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2133 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2132 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2131 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2130 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9353 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9347 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9346 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2128 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2127 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              2126 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11436 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11435 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18557 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18556 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18555 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,14    104870      42 /snap/firefox/5014/usr/lib/firefox/browser/features/formautofill@mozilla.org.xpi
+firefox 16750 artur  DEL       REG                0,1             19560 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              6267 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20             10366 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXxf86vm.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10297 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7693 /usr/lib/x86_64-linux-gnu/libtinfo.so.6.3 (path dev=8,2, inode=2359695)
+firefox 16750 artur  mem       REG               7,10              7503 /usr/lib/x86_64-linux-gnu/libedit.so.2.0.68 (path dev=8,2, inode=2360663)
+firefox 16750 artur  DEL       REG                0,1             21557 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20             10970 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10514 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdrm_intel.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2    569679  690126 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/langpack-en-US@firefox.mozilla.org.xpi
+firefox 16750 artur  DEL       REG                0,1             11354 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,10              7515 /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0 (path dev=8,2, inode=2361546)
+firefox 16750 artur  mem       REG               7,20             10517 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdrm_nouveau.so.2.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7504 /usr/lib/x86_64-linux-gnu/libelf-0.186.so (path dev=8,2, inode=2367553)
+firefox 16750 artur  mem       REG               7,20             10282 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libGL.so.1.7.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11265 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10520 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdrm_radeon.so.1.0.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10615 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libglapi.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10300 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10819 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libicudata.so.70.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10834 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libicuuc.so.70.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11291 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               846 /snap/firefox/5014/gnome-platform/usr/lib/librsvg-2.so.2.48.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2   9509672  930055 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/scriptCache-current.bin
+firefox 16750 artur  mem       REG               7,20             10511 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdrm_amdgpu.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11078 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libsensors.so.5.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10277 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libEGL_mesa.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2   2121476  930038 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/scriptCache-child-current.bin
+firefox 16750 artur  DEL       REG                0,1             19558 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20             11295 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11277 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11267 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11263 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11279 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11261 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-dri2.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10294 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10275 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libEGL.so.1.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10816 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.526 (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2    340712 3541175 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+firefox 16750 artur  mem       REG                8,2      2672  662854 /home/artur/snap/firefox/common/.cache/fontconfig/35bc73d4bd310007bce718b269d3eebb-le64.cache-7
+firefox 16750 artur  mem       REG               7,20             11269 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11235 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libwayland-server.so.0.22.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10508 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10566 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgbm.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10046 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2      2824  662851 /home/artur/snap/firefox/common/.cache/fontconfig/367d4876ccf3812f2260f83ad9687217-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     15792  662841 /home/artur/snap/firefox/common/.cache/fontconfig/6c02816c23987688e4b57b2a80e6cd74-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     44064 1720358 /var/snap/firefox/common/fontconfig/5e18047c-b951-4e35-9771-2350a5843270-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     46128  678662 /home/artur/snap/firefox/common/.cache/fontconfig/8f8b453f-2eed-4a94-b1b9-85dd232d532f-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     22960 1720085 /var/snap/firefox/common/fontconfig/da260d10-46f5-4a52-ba9d-953e91b30de8-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3520  678661 /home/artur/snap/firefox/common/.cache/fontconfig/725fdc72-9771-468e-84e3-94a2c9fae04a-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     87624  678660 /home/artur/snap/firefox/common/.cache/fontconfig/01496f2b-0cb8-4926-a79c-76933fe012b3-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3200  678659 /home/artur/snap/firefox/common/.cache/fontconfig/e8e285de-1786-4324-a504-e7efa5a9923f-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     30480  678658 /home/artur/snap/firefox/common/.cache/fontconfig/94e2cfb8-db42-4c9b-9882-f4961871b5bd-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1688  678657 /home/artur/snap/firefox/common/.cache/fontconfig/1ee47de9-2e27-47e6-8ace-4422a0948b29-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      4792  678656 /home/artur/snap/firefox/common/.cache/fontconfig/466e468e-03da-4f11-b66c-dfcd9d9d2982-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1792  678655 /home/artur/snap/firefox/common/.cache/fontconfig/50ed1ac4-0e06-4bab-8906-d532e0894218-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      4224  678654 /home/artur/snap/firefox/common/.cache/fontconfig/49af6dd2-d8b4-41de-a9ca-164c51ed47f8-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      6560  678653 /home/artur/snap/firefox/common/.cache/fontconfig/a64514ca-d48d-4336-8d1f-e2e4828260bf-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      8904  722420 /home/artur/snap/firefox/common/.cache/fontconfig/d419665c-b5e9-4568-85a5-da2637315bc6-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     16784  678651 /home/artur/snap/firefox/common/.cache/fontconfig/d1d9f9a9-c4de-4d80-aa2c-b5c89c1e8da7-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     16896  678650 /home/artur/snap/firefox/common/.cache/fontconfig/3075dffa-f0ac-48c4-b6ed-de669abdd701-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1864  678649 /home/artur/snap/firefox/common/.cache/fontconfig/aa1e1cf0-6896-41f2-89d1-c78e9cf2b57a-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1904  678648 /home/artur/snap/firefox/common/.cache/fontconfig/0d9173b8-b2ed-461e-9202-cdec1820882e-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1968  678647 /home/artur/snap/firefox/common/.cache/fontconfig/c50f4f0c-7823-4dbe-b8bf-2c90e97e6258-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1872  678646 /home/artur/snap/firefox/common/.cache/fontconfig/09a32446-fa06-415d-9568-30a88efce8d3-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1784  678645 /home/artur/snap/firefox/common/.cache/fontconfig/9ba9325f-ab9c-4dde-9fb3-4a18cee7cd53-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1800  678644 /home/artur/snap/firefox/common/.cache/fontconfig/c4a020df-e6c5-41ab-b36f-1c75d6dda204-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1792  678643 /home/artur/snap/firefox/common/.cache/fontconfig/fcf7a424-c452-4172-80ea-b2a56f199625-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1880 1716972 /var/snap/firefox/common/fontconfig/ab8ced37-040b-43c2-a8f1-39b2e2e53fad-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      2128 1716913 /var/snap/firefox/common/fontconfig/3a7ea176-4972-44da-aae8-851e27b8d6c9-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1792  678642 /home/artur/snap/firefox/common/.cache/fontconfig/93cdfdf3-e838-45c9-889f-fdefcf762a33-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1800  678641 /home/artur/snap/firefox/common/.cache/fontconfig/6641d2f4-7ddb-42c1-b955-6874fb69aa7a-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      2456  700141 /home/artur/snap/firefox/common/.cache/fontconfig/b7c51a21-c0cc-47fb-b23f-6eeaf1f9c339-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     20680 1716861 /var/snap/firefox/common/fontconfig/819e6391-18ae-47ba-8425-987aacbb3aa2-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     24856 1716798 /var/snap/firefox/common/fontconfig/feabc5fa-ab72-458e-8c0a-d931c686a2d7-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     29512  702641 /home/artur/snap/firefox/common/.cache/fontconfig/a998251c-6f46-4063-8055-83de5b913914-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3008  678640 /home/artur/snap/firefox/common/.cache/fontconfig/e9416b11-4117-4124-b91b-d89e12e75dae-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3288 1716427 /var/snap/firefox/common/fontconfig/5695ca1e-0dfa-4938-b7eb-de237bd5f840-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     22280  678639 /home/artur/snap/firefox/common/.cache/fontconfig/0b92ef5e-8818-4f82-a111-e67f2bb65d16-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     77200 1716370 /var/snap/firefox/common/fontconfig/9e5b5ccd-f5eb-4570-a7a2-ec1cf7e9b7f7-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     24064  678638 /home/artur/snap/firefox/common/.cache/fontconfig/cd12dc59-c886-4a74-a441-50138fdad542-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3224  678637 /home/artur/snap/firefox/common/.cache/fontconfig/3143b314-a454-4a06-8a91-cd94f3972796-le64.cache-7
+firefox 16750 artur  mem       REG                8,2   4176861  998050 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/startupCache.8.little
+firefox 16750 artur  mem       REG                8,2      1968 1716117 /var/snap/firefox/common/fontconfig/e3ce8400-7161-4a4c-832e-3a9f60ab89da-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      9208 1716064 /var/snap/firefox/common/fontconfig/02bc2b4e-d4b1-4c77-b2e3-cec6a2d5520a-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1824  678636 /home/artur/snap/firefox/common/.cache/fontconfig/3bdbea79-3fe7-4414-9cf2-92ce5d5607be-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      1872 1716104 /var/snap/firefox/common/fontconfig/ed8545d7-7dc3-480c-8bbf-edd1fabaa445-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      5360 1715969 /var/snap/firefox/common/fontconfig/7111f99e-e629-4c25-a113-b52368b00ad6-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     47336  684472 /home/artur/snap/firefox/common/.cache/fontconfig/61ba1c3e-3485-420c-9f5e-372425fdb6bc-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     55112 1715558 /var/snap/firefox/common/fontconfig/953233bf-65de-43c2-9ad0-ba99d88df0c0-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     62800  678625 /home/artur/snap/firefox/common/.cache/fontconfig/6209a900-ecc9-4b19-95c1-9c9ae84f65ed-le64.cache-7
+firefox 16750 artur  mem       REG               7,14  43687293      47 /snap/firefox/5014/usr/lib/firefox/browser/omni.ja
+firefox 16750 artur  mem       REG               7,14  34500546     296 /snap/firefox/5014/usr/lib/firefox/omni.ja
+firefox 16750 artur  mem       REG                8,2     10056  678635 /home/artur/snap/firefox/common/.cache/fontconfig/c19814c6-3fe7-4cbd-b00f-6c5caa611b24-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      3368  678634 /home/artur/snap/firefox/common/.cache/fontconfig/6c072f89-b5ea-4b52-9dda-d17f2a9daa0f-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      2400  678632 /home/artur/snap/firefox/common/.cache/fontconfig/961e0d14-e891-4af1-b38a-87ca377f3749-le64.cache-7
+firefox 16750 artur  mem       REG                8,2     11504  678624 /home/artur/snap/firefox/common/.cache/fontconfig/32acce8e-7942-4479-8d7b-0808f9df3b7f-le64.cache-7
+firefox 16750 artur  mem       REG               7,20              9654 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             20254 /snap/firefox/5014/gnome-platform/usr/share/mime/mime.cache (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2      1728  678631 /home/artur/snap/firefox/common/.cache/fontconfig/cc01e806-2240-48b7-81f0-e7b2f9e04f3c-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      2144  678630 /home/artur/snap/firefox/common/.cache/fontconfig/4837e207-d041-4e20-ade2-2c9b0ab538c8-le64.cache-7
+firefox 16750 artur  DEL       REG                0,1             17514 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2     10336  678623 /home/artur/snap/firefox/common/.cache/fontconfig/1f358446-e28c-4dd8-a677-1d10c4f72a9f-le64.cache-7
+firefox 16750 artur  DEL       REG                0,1             17547 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21556 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21555 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             13445 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11434 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11433 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11389 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             23697 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             23698 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19606 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1              9363 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1               146 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             19594 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             21558 /memfd:xshmfence
+firefox 16750 artur  DEL       REG                0,1             11388 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG                8,2      1688  678629 /home/artur/snap/firefox/common/.cache/fontconfig/decf7c08-a59e-4fe0-b5ee-d0ad49e7ad43-le64.cache-7
+firefox 16750 artur  mem       REG                8,2      2120  678628 /home/artur/snap/firefox/common/.cache/fontconfig/5e6020d2-c57a-48de-8fb9-9d7e736320d3-le64.cache-7
+firefox 16750 artur  DEL       REG                0,1             22630 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               0,52         2     280 /run/user/1000/dconf/user
+firefox 16750 artur  DEL       REG                0,1             16508 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             11386 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20             10311 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libSM.so.6.0.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,14    378952     331 /snap/firefox/5014/usr/lib/x86_64-linux-gnu/libopus.so.0.8.0
+firefox 16750 artur  mem       REG               7,20             11211 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisenc.so.2.0.12 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10279 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libFLAC.so.8.3.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7451 /usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.2 (path dev=8,2, inode=2361646)
+firefox 16750 artur  mem       REG                8,2      1696  678627 /home/artur/snap/firefox/common/.cache/fontconfig/953d5fd2-4b0b-438d-9048-13358cab3f7d-le64.cache-7
+firefox 16750 artur  mem       REG               7,20             10303 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libICE.so.6.3.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10386 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libasyncns.so.0.3.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11089 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libsndfile.so.1.0.31 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11798 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-15.99.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11209 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.9 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11054 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpulse.so.0.24.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10759 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgtk-x11-2.0.so.0.2400.33 (stat: No such file or directory)
+firefox 16750 artur  mem       REG                8,2      1872  678626 /home/artur/snap/firefox/common/.cache/fontconfig/c2243f64-6105-4abc-b7c4-c1461a4c5e99-le64.cache-7
+firefox 16750 artur  mem       REG               7,20             10936 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libogg.so.0.8.5 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11124 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libtdb.so.1.4.5 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11213 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.8 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10589 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0.2400.33 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,24             75862 /snap/firefox/5014/data-dir/themes/Yaru/gtk-3.0/gtk.gresource (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              2070 /usr/lib/locale/C.utf8/LC_CTYPE (path dev=8,2, inode=2364268)
+firefox 16750 artur  DEL       REG                0,1             18545 /memfd:mozilla-ipc
+firefox 16750 artur  DEL       REG                0,1             18544 /memfd:mozilla-ipc
+firefox 16750 artur  mem       REG               7,20               810 /snap/firefox/5014/gnome-platform/usr/lib/libcanberra.so.0.2.5 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10382 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libasound.so.2.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               804 /snap/firefox/5014/gnome-platform/usr/lib/libcanberra-gtk.so.0.1.9 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               791 /snap/firefox/5014/gnome-platform/usr/lib/gtk-2.0/modules/libcanberra-gtk-module.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10037 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             16412 /snap/firefox/5014/gnome-platform/usr/share/locale/en/LC_MESSAGES/gtk30-properties.mo (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             16413 /snap/firefox/5014/gnome-platform/usr/share/locale/en/LC_MESSAGES/gtk30.mo (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              2077 /usr/lib/locale/C.utf8/LC_NUMERIC (path dev=8,2, inode=2365152)
+firefox 16750 artur  mem       REG               7,10              2080 /usr/lib/locale/C.utf8/LC_TIME (path dev=8,2, inode=2365288)
+firefox 16750 artur  mem       REG               7,10              2069 /usr/lib/locale/C.utf8/LC_COLLATE (path dev=8,2, inode=2364266)
+firefox 16750 artur  mem       REG               7,10              7425 /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache (path dev=8,2, inode=2913682)
+firefox 16750 artur  mem       REG               7,14 142786384     294 /snap/firefox/5014/usr/lib/firefox/libxul.so
+firefox 16750 artur  mem       REG               7,20               303 /snap/firefox/5014/gnome-platform/lib/x86_64-linux-gnu/libgpg-error.so.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7577 /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5 (path dev=8,2, inode=2361664)
+firefox 16750 artur  mem       REG               7,20             10578 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgcrypt.so.20.3.4 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7479 /usr/lib/x86_64-linux-gnu/libcap.so.2.44 (path dev=8,2, inode=2361587)
+firefox 16750 artur  mem       REG               7,10              7570 /usr/lib/x86_64-linux-gnu/liblz4.so.1.9.3 (path dev=8,2, inode=2360013)
+firefox 16750 artur  mem       REG               7,20             11302 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libzstd.so.1.4.8 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7572 /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5 (path dev=8,2, inode=2366544)
+firefox 16750 artur  mem       REG               7,10              7470 /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5 (path dev=8,2, inode=2361666)
+firefox 16750 artur  mem       REG               7,20             10422 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.0.9 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11117 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libsystemd.so.0.32.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10335 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10323 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10425 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.0.9 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10485 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libdatrie.so.1.4.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10419 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10397 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               300 /snap/firefox/5014/gnome-platform/lib/x86_64-linux-gnu/libdbus-1.so.3.19.13 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10869 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libjpeg.so.8.2.2 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11176 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               302 /snap/firefox/5014/gnome-platform/lib/x86_64-linux-gnu/libexpat.so.1.8.7 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11011 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.42.2 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11275 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11272 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11282 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10358 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11017 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpng16.so.16.37.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10673 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.2.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10557 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libfreetype.so.6.18.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11127 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libthai.so.0.3.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               308 /snap/firefox/5014/gnome-platform/lib/x86_64-linux-gnu/libselinux.so.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10899 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7712 /usr/lib/x86_64-linux-gnu/libz.so.1.2.11 (path dev=8,2, inode=2361074)
+firefox 16750 artur  mem       REG               7,10              2075 /usr/lib/locale/C.utf8/LC_MONETARY (path dev=8,2, inode=2365113)
+firefox 16750 artur  mem       REG               7,10              2074 /usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES (path dev=8,2, inode=2365100)
+firefox 16750 artur  mem       REG               7,10              2078 /usr/lib/locale/C.utf8/LC_PAPER (path dev=8,2, inode=2365153)
+firefox 16750 artur  mem       REG               7,20             10317 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7667 /usr/lib/x86_64-linux-gnu/libresolv.so.2 (path dev=8,2, inode=2364499)
+firefox 16750 artur  mem       REG               7,14     11488     284 /snap/firefox/5014/usr/lib/firefox/libmozwayland.so
+firefox 16750 artur  mem       REG               7,20             10547 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libffi.so.7.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10983 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.10.4 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10350 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10355 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10326 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10332 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10329 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10338 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11232 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.22.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11226 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             11288 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10392 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10320 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10530 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10389 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.23809.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10592 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.4200.10 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10560 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libfribidi.so.0.4.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10443 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libcairo.so.2.11800.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10805 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.60830.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10952 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.5100.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10603 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.7800.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10662 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.7800.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10618 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.7800.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10587 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2406.32 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10754 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2406.32 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,14   8676048     276 /snap/firefox/5014/usr/lib/firefox/libgkcodecs.so
+firefox 16750 artur  mem       REG               7,10              2076 /usr/lib/locale/C.utf8/LC_NAME (path dev=8,2, inode=2365115)
+firefox 16750 artur  mem       REG               7,10              2068 /usr/lib/locale/C.utf8/LC_ADDRESS (path dev=8,2, inode=2364010)
+firefox 16750 artur  mem       REG               7,20             11229 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.22.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10550 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.12.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,14    410944     293 /snap/firefox/5014/usr/lib/firefox/libssl3.so
+firefox 16750 artur  mem       REG               7,14   1299136     283 /snap/firefox/5014/usr/lib/firefox/libmozsqlite3.so
+firefox 16750 artur  mem       REG               7,20             10347 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10437 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11800.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10958 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.5100.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10955 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.5100.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,14    720768     286 /snap/firefox/5014/usr/lib/firefox/libnss3.so
+firefox 16750 artur  mem       REG               7,14    168808     291 /snap/firefox/5014/usr/lib/firefox/libsmime3.so
+firefox 16750 artur  mem       REG               7,14    184760     288 /snap/firefox/5014/usr/lib/firefox/libnssutil3.so
+firefox 16750 artur  mem       REG               7,14    175576     278 /snap/firefox/5014/usr/lib/firefox/liblgpllibs.so
+firefox 16750 artur  mem       REG               7,14    148560     282 /snap/firefox/5014/usr/lib/firefox/libmozsandbox.so
+firefox 16750 artur  mem       REG               7,14    209440     285 /snap/firefox/5014/usr/lib/firefox/libnspr4.so
+firefox 16750 artur  mem       REG               7,10              7474 /usr/lib/x86_64-linux-gnu/libc.so.6 (path dev=8,2, inode=2364484)
+firefox 16750 artur  mem       REG               7,10              7524 /usr/lib/x86_64-linux-gnu/libgcc_s.so.1 (path dev=8,2, inode=2362197)
+firefox 16750 artur  mem       REG               7,10              7575 /usr/lib/x86_64-linux-gnu/libm.so.6 (path dev=8,2, inode=2364487)
+firefox 16750 artur  mem       REG               7,10              2079 /usr/lib/locale/C.utf8/LC_TELEPHONE (path dev=8,2, inode=2365280)
+firefox 16750 artur  mem       REG               7,10              2072 /usr/lib/locale/C.utf8/LC_MEASUREMENT (path dev=8,2, inode=2365077)
+firefox 16750 artur  mem       REG               7,20             10341 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20             10624 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.7800.1 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,14      4112     281 /snap/firefox/5014/usr/lib/firefox/libmozgtk.so
+firefox 16750 artur  mem       REG               7,14     12064     290 /snap/firefox/5014/usr/lib/firefox/libplds4.so
+firefox 16750 artur  mem       REG               7,14     16152     289 /snap/firefox/5014/usr/lib/firefox/libplc4.so
+firefox 16750 artur  mem       REG               7,20             11108 /snap/firefox/5014/gnome-platform/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,20               296 /snap/firefox/5014/gnome-platform/lib/x86_64-linux-gnu/bindtextdomain.so (stat: No such file or directory)
+firefox 16750 artur  mem       REG               7,10              7445 /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 (path dev=8,2, inode=2361593)
+firefox 16750 artur  mem       REG               7,10              2071 /usr/lib/locale/C.utf8/LC_IDENTIFICATION (path dev=8,2, inode=2364270)
+firefox 16750 artur    0r      CHR                1,3       0t0       5 /dev/null
+firefox 16750 artur    1u     unix 0x0000000000000000       0t0   57376 type=STREAM
+firefox 16750 artur    2u     unix 0x0000000000000000       0t0   57376 type=STREAM
+firefox 16750 artur    3r      CHR                1,3       0t0       5 /dev/null
+firefox 16750 artur    4r      CHR                1,3       0t0       5 /dev/null
+firefox 16750 artur    5r      CHR                1,3       0t0       5 /dev/null
+firefox 16750 artur    6r     FIFO               0,14       0t0  137002 pipe
+firefox 16750 artur    7w     FIFO               0,14       0t0  137002 pipe
+firefox 16750 artur    8u      REG                0,1         0      81 /memfd:mozreserved (deleted)
+firefox 16750 artur    9u      REG                0,1         0      82 /memfd:mozreserved (deleted)
+firefox 16750 artur   10u      REG                0,1         0      83 /memfd:mozreserved (deleted)
+firefox 16750 artur   11u      REG                0,1         0      84 /memfd:mozreserved (deleted)
+firefox 16750 artur   12u     unix 0x0000000000000000       0t0  137003 type=DGRAM
+firefox 16750 artur   13u     unix 0x0000000000000000       0t0  137005 type=STREAM
+firefox 16750 artur   14u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   15uw     REG                8,2   2097152  678420 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/cookies.sqlite
+firefox 16750 artur   16u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   17u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   18u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   19wW     REG                8,2         0  678416 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/.parentlock
+firefox 16750 artur   20u  a_inode               0,15         0      65 [eventpoll]
+firefox 16750 artur   21r     FIFO               0,14       0t0  147269 pipe
+firefox 16750 artur   22w     FIFO               0,14       0t0  147269 pipe
+firefox 16750 artur   23r     FIFO               0,14       0t0  147270 pipe
+firefox 16750 artur   24w     FIFO               0,14       0t0  147270 pipe
+firefox 16750 artur   25r      REG               7,14  34500546     296 /snap/firefox/5014/usr/lib/firefox/omni.ja
+firefox 16750 artur   26r      REG               7,14  43687293      47 /snap/firefox/5014/usr/lib/firefox/browser/omni.ja
+firefox 16750 artur   27r     FIFO               0,14       0t0  147271 pipe
+firefox 16750 artur   28w     FIFO               0,14       0t0  147271 pipe
+firefox 16750 artur   29r     FIFO               0,14       0t0  162198 pipe
+firefox 16750 artur   30w     FIFO               0,14       0t0  162198 pipe
+firefox 16750 artur   31u  netlink                          0t0  149486 ROUTE
+firefox 16750 artur   32r     FIFO               0,14       0t0  159517 pipe
+firefox 16750 artur   33w     FIFO               0,14       0t0  159517 pipe
+firefox 16750 artur   34r      REG                8,2   4176861  998050 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/startupCache.8.little
+firefox 16750 artur   35u     unix 0x0000000000000000       0t0  162200 type=STREAM
+firefox 16750 artur   36r      REG                8,2   2121476  930038 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/scriptCache-child-current.bin
+firefox 16750 artur   37r     FIFO               0,14       0t0  168013 pipe
+firefox 16750 artur   38w     FIFO               0,14       0t0  168013 pipe
+firefox 16750 artur   39r      REG                0,1    234840   17514 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur   40u     unix 0x0000000000000000       0t0  163117 type=STREAM
+firefox 16750 artur   41r      REG                8,2   9509672  930055 /home/artur/snap/firefox/common/.cache/mozilla/firefox/amciyxeq.default-release/startupCache/scriptCache-current.bin
+firefox 16750 artur   42r  a_inode               0,15         0      65 inotify
+firefox 16750 artur   43u     unix 0x0000000000000000       0t0  220164 type=STREAM
+firefox 16750 artur   44u     unix 0x0000000000000000       0t0  221633 type=STREAM
+firefox 16750 artur   45r      REG               7,14    104870      42 /snap/firefox/5014/usr/lib/firefox/browser/features/formautofill@mozilla.org.xpi
+firefox 16750 artur   46u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   47r      REG                8,2    569679  690126 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/langpack-en-US@firefox.mozilla.org.xpi
+firefox 16750 artur   48r      REG                0,1   1048576   19557 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur   49uw     REG                8,2    258560  678421 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage.sqlite
+firefox 16750 artur   50uw     REG                8,2     57344  799364 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++f86445b0-40c4-4f5b-bfdb-b0f0f16b0aae^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur   51u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   52u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   53u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   54u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   55u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   56u      CHR            226,128       0t0    1205 /dev/dri/renderD128
+firefox 16750 artur   57r      REG                0,1       182   19558 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur   58uw     REG                8,2    196608  678419 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/permissions.sqlite
+firefox 16750 artur   59r      REG                0,1    267325   19560 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur   60r      REG                0,1    460800   19559 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur   61u      REG                8,2    557496  689864 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/cookies.sqlite-wal
+firefox 16750 artur   62u      REG                8,2         0  799365 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++f86445b0-40c4-4f5b-bfdb-b0f0f16b0aae^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur   63u     unix 0x0000000000000000       0t0  163121 type=SEQPACKET
+firefox 16750 artur   64u     unix 0x0000000000000000       0t0  163122 type=SEQPACKET
+firefox 16750 artur   65r     FIFO               0,14       0t0  163123 pipe
+firefox 16750 artur   66w     FIFO               0,14       0t0  163123 pipe
+firefox 16750 artur   67u     unix 0x0000000000000000       0t0  163124 type=SEQPACKET
+firefox 16750 artur   68u     unix 0x0000000000000000       0t0  163125 type=SEQPACKET
+firefox 16750 artur   69u     unix 0x0000000000000000       0t0  143359 type=STREAM
+firefox 16750 artur   70u     IPv4             282794       0t0     TCP akb-ubuntu.home:47600->waw07s06-in-f3.1e100.net:http (ESTABLISHED)
+firefox 16750 artur   71u     unix 0x0000000000000000       0t0  157416 type=SEQPACKET
+firefox 16750 artur   72r      REG                8,2   3964532  660055 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/uBlock0@raymondhill.net.xpi
+firefox 16750 artur   73r      REG               7,14    443540      46 /snap/firefox/5014/usr/lib/firefox/browser/features/webcompat@mozilla.org.xpi
+firefox 16750 artur   74r      REG                8,2    422713  823568 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/{830f38bd-efc5-45dc-a5a6-064d9a638806}.xpi
+firefox 16750 artur   75uw     REG                8,2  26214400  678520 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite
+firefox 16750 artur   76u     unix 0x0000000000000000       0t0  148230 type=STREAM
+firefox 16750 artur   77u     unix 0x0000000000000000       0t0  160687 type=SEQPACKET
+firefox 16750 artur   78r      REG                8,2   1077261  786590 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/cashback_letyshops@LetyShops.xpi
+firefox 16750 artur   79r      REG                8,2   1555749  824327 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/sponsorBlocker@ajay.app.xpi
+firefox 16750 artur   80u  a_inode               0,15         0      65 [eventpoll]
+firefox 16750 artur   81u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   82u  a_inode               0,15         0      65 [eventpoll]
+firefox 16750 artur   83u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   84u  a_inode               0,15         0      65 [eventpoll]
+firefox 16750 artur   85u      REG                8,2   2164304  694015 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite-wal
+firefox 16750 artur   86u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   87u      REG                8,2    229376  678514 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/cert9.db
+firefox 16750 artur   88u     unix 0x0000000000000000       0t0  160689 type=STREAM
+firefox 16750 artur   89u      REG                8,2    294912  678515 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/key4.db
+firefox 16750 artur   90u  a_inode               0,15         0      65 [eventfd]
+firefox 16750 artur   91u     IPv4             279200       0t0     UDP *:53997 
+firefox 16750 artur   92uw     REG                8,2     98304  669613 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/bounce-tracking-protection.sqlite
+firefox 16750 artur   93uw     REG                8,2  23166976  678521 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite
+firefox 16750 artur   94u     unix 0x0000000000000000       0t0  163231 type=STREAM
+firefox 16750 artur   95u     IPv4             282795       0t0     TCP akb-ubuntu.home:49878->text-lb.esams.wikimedia.org:https (ESTABLISHED)
+firefox 16750 artur   96rw     REG                8,2  26214400  678520 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite
+firefox 16750 artur   97u      REG                8,2   2164304  694015 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite-wal
+firefox 16750 artur   98rw     REG                8,2  23166976  678521 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite
+firefox 16750 artur   99u     unix 0x0000000000000000       0t0  163229 type=SEQPACKET
+firefox 16750 artur  100u      REG                8,2    557496  694057 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite-wal
+firefox 16750 artur  101rw     REG                8,2  26214400  678520 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite
+firefox 16750 artur  102u      REG                8,2   2164304  694015 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite-wal
+firefox 16750 artur  103rw     REG                8,2  23166976  678521 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite
+firefox 16750 artur  104u      REG                8,2    557496  694057 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite-wal
+firefox 16750 artur  105uw     REG                8,2    229376  678519 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/content-prefs.sqlite
+firefox 16750 artur  106uw     REG                8,2    131072 1498814 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++a3e42d6e-6add-4550-a06f-5313069d753d^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  107r      REG                8,2    286987  787930 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/extensions/{094c428f-8a39-4af8-a4a3-1aff5fb34abc}.xpi
+firefox 16750 artur  108r      REG                0,1      6998   19567 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  109r      REG                0,1       274   19568 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  110r      REG                0,1      6272   19569 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  111u     unix 0x0000000000000000       0t0  149502 type=STREAM
+firefox 16750 artur  112r      REG                0,1      2172   19570 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  113u      REG                8,2    557496  694057 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite-wal
+firefox 16750 artur  114r      REG                0,1      2356   19571 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  115r      REG                0,1     65848   19572 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  116r      REG                0,1     24972   19573 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  117r      REG                0,1       170   19574 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  118r      REG                0,1      2840   19575 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  119r      REG                8,2    393216  694017 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/weave/bookmarks.sqlite
+firefox 16750 artur  120r      REG                0,1      1488   19576 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  121r      REG                0,1     21314   19577 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  122r      REG                0,1     11514   19578 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  123u     unix 0x0000000000000000       0t0  298138 type=STREAM
+firefox 16750 artur  124u      REG                8,2         0 1498815 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++a3e42d6e-6add-4550-a06f-5313069d753d^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur  125u     IPv4             157561       0t0     TCP akb-ubuntu.home:49114->waw07s06-in-f3.1e100.net:http (ESTABLISHED)
+firefox 16750 artur  126ur     REG                8,2    229376  678562 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage-sync-v2.sqlite
+firefox 16750 artur  127u      REG                8,2   7443816  658472 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage-sync-v2.sqlite-wal
+firefox 16750 artur  128ur     REG                8,2     32768  680526 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage-sync-v2.sqlite-shm
+firefox 16750 artur  129u     IPv4             148337       0t0     TCP akb-ubuntu.home:35818->93.243.107.34.bc.googleusercontent.com:https (ESTABLISHED)
+firefox 16750 artur  130uw     REG                8,2   4390912  655512 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++www.olx.pl/cache/caches.sqlite
+firefox 16750 artur  131u     unix 0x0000000000000000       0t0  161707 type=SEQPACKET
+firefox 16750 artur  132u     IPv4             223237       0t0     TCP akb-ubuntu.home:53710->123.208.120.34.bc.googleusercontent.com:https (ESTABLISHED)
+firefox 16750 artur  133u     unix 0x0000000000000000       0t0  281666 type=STREAM
+firefox 16750 artur  134r      REG                0,1    964248    8389 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  135uw     REG                8,2     49152 1450549 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++b1a7c4fa-8c0b-45b7-b853-10d02a2a68bb^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  136u      REG                8,2         0 1451115 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++b1a7c4fa-8c0b-45b7-b853-10d02a2a68bb^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur  137uw     REG                8,2     65536  678518 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/protections.sqlite
+firefox 16750 artur  138uw     REG                8,2     49152  681749 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++7d2e707a-a92c-43b4-883a-313224bd5a50^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  139u      REG                8,2         0  681751 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++7d2e707a-a92c-43b4-883a-313224bd5a50^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur  140u     IPv4             163321       0t0     TCP akb-ubuntu.home:59494->cdn-185-199-108-153.github.com:https (ESTABLISHED)
+firefox 16750 artur  141u     IPv4             279202       0t0     TCP akb-ubuntu.home:58448->a2-16-168-11.deploy.static.akamaitechnologies.com:http (ESTABLISHED)
+firefox 16750 artur  142u      REG                8,2    663352  655496 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++www.olx.pl/cache/caches.sqlite-wal
+firefox 16750 artur  143uw     REG                8,2    247808  657438 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++www.olx.pl/ls/data.sqlite
+firefox 16750 artur  144u     IPv4             223451       0t0     TCP akb-ubuntu.home:34552->server-108-138-51-2.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  145uw     REG                8,2     49152  823571 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++bda92626-5f4f-42a0-9a1d-ed139017d84b^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  146u      REG                8,2         0  800782 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++bda92626-5f4f-42a0-9a1d-ed139017d84b^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur  147uw     REG                8,2     49152  713077 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++www.olx.pl/idb/1648948887mbWe.sqlite
+firefox 16750 artur  148uw     REG                8,2    294912  658821 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++590f774f-82f3-4e50-a1e6-705d4a9f9295^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  149u     unix 0x0000000000000000       0t0  298130 type=STREAM
+firefox 16750 artur  150r      REG               7,14     68627      43 /snap/firefox/5014/usr/lib/firefox/browser/features/pictureinpicture@mozilla.org.xpi
+firefox 16750 artur  151u     IPv4             163314       0t0     TCP akb-ubuntu.home:47192->rd-in-f84.1e100.net:https (ESTABLISHED)
+firefox 16750 artur  152u     IPv4             282796       0t0     TCP akb-ubuntu.home:47352->upload-lb.esams.wikimedia.org:https (ESTABLISHED)
+firefox 16750 artur  153r      REG                0,1     12306   16504 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  154u      REG                8,2         0  658822 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++590f774f-82f3-4e50-a1e6-705d4a9f9295^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite-wal
+firefox 16750 artur  155u     unix 0x0000000000000000       0t0  163250 type=SEQPACKET
+firefox 16750 artur  156rw     REG                8,2  26214400  678520 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite
+firefox 16750 artur  157u     unix 0x0000000000000000       0t0  223243 type=STREAM
+firefox 16750 artur  158u     unix 0x0000000000000000       0t0  223343 type=SEQPACKET
+firefox 16750 artur  159u     IPv4             144896       0t0     TCP akb-ubuntu.home:59214->server-13-227-146-5.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  160u      REG                8,2   2164304  694015 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/places.sqlite-wal
+firefox 16750 artur  161rw     REG                8,2  23166976  678521 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite
+firefox 16750 artur  162u     unix 0x0000000000000000       0t0  162754 type=STREAM
+firefox 16750 artur  163u      REG                8,2    557496  694057 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/favicons.sqlite-wal
+firefox 16750 artur  164u     IPv4             160718       0t0     TCP akb-ubuntu.home:55216->140.227.186.35.bc.googleusercontent.com:https (ESTABLISHED)
+firefox 16750 artur  165u     unix 0x0000000000000000       0t0  304137 type=STREAM
+firefox 16750 artur  166u     IPv4             166507       0t0     TCP akb-ubuntu.home:60334->172.64.155.249:https (ESTABLISHED)
+firefox 16750 artur  167u     unix 0x0000000000000000       0t0  162752 type=SEQPACKET
+firefox 16750 artur  168u     IPv4             223297       0t0     TCP akb-ubuntu.home:45340->server-18-244-146-42.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  169u     IPv4             144905       0t0     TCP akb-ubuntu.home:59328->server-18-244-102-56.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  170u     IPv4             223298       0t0     TCP akb-ubuntu.home:45352->server-18-244-146-42.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  171u     unix 0x0000000000000000       0t0  301514 type=STREAM
+firefox 16750 artur  172u     unix 0x0000000000000000       0t0  164341 type=SEQPACKET
+firefox 16750 artur  173r      REG                0,1    964248    8389 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  174u      REG                0,1      4096    9363 /memfd:mozilla-ipc (deleted)
+firefox 16750 artur  175ur     REG                8,2    327680  694046 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/synced-tabs.db
+firefox 16750 artur  176u      REG                8,2  23872608  694048 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/synced-tabs.db-wal
+firefox 16750 artur  177ur     REG                8,2     32768  694049 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/synced-tabs.db-shm
+firefox 16750 artur  178u      REG                8,2         0  713078 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++www.olx.pl/idb/1648948887mbWe.sqlite-wal
+firefox 16750 artur  179u     unix 0x0000000000000000       0t0  168022 type=SEQPACKET
+firefox 16750 artur  180u      REG                8,2    393216  694017 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/weave/bookmarks.sqlite
+firefox 16750 artur  181uw     REG                8,2    720896  678539 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/formhistory.sqlite
+firefox 16750 artur  182u     IPv4             299097       0t0     TCP akb-ubuntu.home:56478->server-108-138-51-24.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  183u     unix 0x0000000000000000       0t0  156480 type=STREAM
+firefox 16750 artur  184uw     REG                8,2      6144 1055584 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/https+++login.olx.pl/ls/data.sqlite
+firefox 16750 artur  185u     IPv4             285732       0t0     TCP akb-ubuntu.home:58778->server-108-138-51-64.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  186u     IPv4             285731       0t0     TCP akb-ubuntu.home:56472->server-108-138-51-24.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  187u     unix 0x0000000000000000       0t0  304142 type=STREAM
+firefox 16750 artur  188u     IPv4             282869       0t0     TCP akb-ubuntu.home:38284->172.64.146.223:https (ESTABLISHED)
+firefox 16750 artur  189u     unix 0x0000000000000000       0t0  281716 type=STREAM
+firefox 16750 artur  190uw     REG                8,2    131072 1498814 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++a3e42d6e-6add-4550-a06f-5313069d753d^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  191u     IPv4             225660       0t0     TCP akb-ubuntu.home:40040->ec2-52-28-117-163.eu-central-1.compute.amazonaws.com:https (ESTABLISHED)
+firefox 16750 artur  192u     unix 0x0000000000000000       0t0  301152 type=SEQPACKET
+firefox 16750 artur  193uw     REG                8,2     49152  823571 /home/artur/snap/firefox/common/.mozilla/firefox/amciyxeq.default-release/storage/default/moz-extension+++bda92626-5f4f-42a0-9a1d-ed139017d84b^userContextId=4294967295/idb/3647222921wleabcEoxlt-eengsairo.sqlite
+firefox 16750 artur  195u     unix 0x0000000000000000       0t0  301522 type=SEQPACKET
+firefox 16750 artur  196u     IPv4             281947       0t0     TCP akb-ubuntu.home:37060->ec2-34-249-76-14.eu-west-1.compute.amazonaws.com:https (ESTABLISHED)
+firefox 16750 artur  197u     IPv4             281948       0t0     TCP akb-ubuntu.home:33154->server-108-138-47-44.waw51.r.cloudfront.net:http (ESTABLISHED)
+firefox 16750 artur  199u     IPv4             305535       0t0     TCP akb-ubuntu.home:52520->server-18-244-102-63.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  202u     unix 0x0000000000000000       0t0  154614 type=SEQPACKET
+firefox 16750 artur  203u     IPv4             285730       0t0     TCP akb-ubuntu.home:46832->server-18-244-102-63.waw51.r.cloudfront.net:https (ESTABLISHED)
+firefox 16750 artur  205u     unix 0x0000000000000000       0t0  281704 type=STREAM

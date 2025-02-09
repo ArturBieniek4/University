@@ -1,0 +1,5 @@
+Księgując metadane zapewniamy spójność struktur systemu plików, ale może wystąpić utrata danych. Księgując dane zapewniamy dodatkowo spójność danych. Dziennik skł.
+Type 1 (descriptor block) - przechowuje listę bloków zapisywanych na dysk
+Za nim występują bloki danych
+Type 2 (commit block) - zawiera informację, że descriptor block został w całości zapisany na dysku
+Operacje muszą być idempotentne żeby awaria zasilania w trakcie commitowania journala nie spowodowała zmiany czegoś w niepożądany sposób kilka razy.

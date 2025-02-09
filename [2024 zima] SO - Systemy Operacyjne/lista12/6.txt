@@ -1,0 +1,10 @@
+Wzajemne wykluczanie:
+    Musi gwarantować że max 1 proces jest w sekcji krytycznej
+    Nie może być deadlocka
+    Opcjonalnie fairness
+
+Daje się znaleźć przeplot gdzie obaj wchodzą do sekcji krytycznej w wierszu 12
+Wątek 0 wywłaszczony przed linią 6.
+Wątek 1 wywłaszczony przed linią 10.
+Wątek 0 wchodzi do sekcji krytycznej.
+Wątek 1 wchodzi do sekcji krytycznej.

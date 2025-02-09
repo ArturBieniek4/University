@@ -1,0 +1,10 @@
+UDP nie wymaga połączeń, więc nie wymaga też nasłuchiwania.
+recvfrom(2) z 3 ostatnimi argumentami równymi 0 jest równoważny z read(2)
+recvfrom(2) ma tę przewagę nad read(), że zwraca jednocześnie adres z którego przyszedł pakiet
+recvfrom(2) przyjmuje: socket, bufor, flagi i bufor na adres, zwraca długość przeczytanego pakietu
+sendto(2) przyjmuje socket, bufor, flagi i adres gdzie wysłać
+write(2) zamiast send będzie wystarczający tylko w TCP, w przeciwnym razie nie wiemy gdzie wysłać, chyba że wywołamy sobie connect(2)
+sendto(2) na sockecie UDP binduje lokalny port efemeryczny
+recvmsg(2) pozwala na odczyt np. wiadomości 1MB do 10x buforów 100KB
+Tak samo sendmsg pozwala na zapis spanując bufory
+Dodatkowo mamy dostęp do ancillary data, możemy np. sprawdzić adres i port docelowy pakietu (czyli np. poznać swoje publiczne IP w ten sposób)

@@ -1,0 +1,6 @@
+EXDEV bo nie można tego zrobić atomowo
+Znajdź wolne miejsce we wpisie nowego katalogu, nie przecinające granicy między blokami
+Wpisz tam ten plik.
+Usuń plik ze starego katalogu.
+Tego się nie da atomowo i trzeba iść na kompropis ~ Polesiuk
+A w sumie da się atomowo dzięki journalowi!

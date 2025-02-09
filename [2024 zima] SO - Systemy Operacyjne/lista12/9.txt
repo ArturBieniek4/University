@@ -1,0 +1,11 @@
+a)
+Producer wywłaszczony przed linią 8.
+Consumer się kręci i opróżnia kolejkę.
+Potem sleep() w linii 12.
+Producer budzi consumera.
+Consumer się budzi i chce zrobić pop() na pustej kolejce.
+
+b)
+Producer wywłaszczony przed linią 5 sleep() gdy kolejka pełna - ale nie śpi!
+Consumer opróżnia kolejkę i robi sleep() w 12
+Producer się budzi i robi sleep() - oba śpią!

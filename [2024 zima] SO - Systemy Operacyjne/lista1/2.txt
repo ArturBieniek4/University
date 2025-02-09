@@ -1,0 +1,7 @@
+Proces, który staje się sierotą jest podczepiany pod init.
+Żeby pogrzebać zombie process, trzeba wywołać waitpid() w jego rodzicu.
+Samopogrzebanie się procesu nie miałoby sensu, ponieważ raczej chcemy znać exit status.
+Gdyby waitpid() mogło grzebać nie swoje dzieci, to jakikolwiek proces mógłby "ukraść" zombie process,
+a) wtedy pozna on exit status (który może zawierać wrażliwe informacje)
+ponadto, jeżeli oba te procesy wywołają waitpid() na sobie nawzajem, to jest deadlock
+b) a ponadto proces rodzic jeżeli wywołał waitpid() to się zawiesi.

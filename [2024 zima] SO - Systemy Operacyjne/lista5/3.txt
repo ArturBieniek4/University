@@ -1,0 +1,4 @@
+Usuwanie przebiega zawsze tak samo, być może jak jest bardzo dużo nieużytków możemy chcieć je skompaktować.
+Dodawanie:
+- jeżeli jest puste miejsce w które się zmieścimy to możemy tam
+- jeżeli nie ma, to jądro musi skompaktować dirent lub go powiększyć (co może wiązać się z przeniesieniem)

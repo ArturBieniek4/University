@@ -1,0 +1,7 @@
+Blok pośredni to blok który przechowuje w sobie listę bloków
+Znajdź n wolnych bloków w bitmapie bloków i oznacz jako zajęte.
+Zapisz i zajmij bloki pośrednie.
+Wczytaj i-węzeł pliku.
+Jeżeli używamy bloków pośrednich to najpierw utworzyć je i wypełnić.
+Zapisz zmodyfikowany i-węzeł.
+

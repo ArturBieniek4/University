@@ -1,0 +1,13 @@
+sudo dumpe2fs -h /dev/nvme1n1p2
+Rozmiar bloku jest podany, nie trzeba go obliczać.
+Inode count tak samo.
+W strukturze superbloku (https://docs.kernel.org/filesystems/ext4/globals.html):
+Rozmiar bloku:  2^(10+s_log_block_size)
+Liczba inodów: s_inodes_count
+Liczba bloków: s_blocks_count_lo
+Liczba bloków w grupie: s_block_per_group
+Liczba inodów w grupie: s_inodes_per_group
+Grupy przechowujące backup superbloku (i tablicy deskryptorów grup bloków): s_backup_bgs 
+s
+Bez -h wyświetla grupy
+Do grupy bloków należą bloki inody i bitmapy wolnych

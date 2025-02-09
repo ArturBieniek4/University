@@ -1,0 +1,11 @@
+Wejście do sekcji krytycznej jest uwarunkowane jednym warunkiem - przeciwny dopiero co z niej wyszedł lub przeciwny oddaje nam kolejkę.
+Czyli wiemy że nigdy 2 nie wejdą razem.
+Do tego kiedyś ktoś wejdzie, bo nie występuje sytuacja że warunek jest fałszywy dla obu procesów.
+
+
+Jeśli P0 jest w sekcji krytycznej to istniała wcześniej chwila czasu że blocked[1] == false lub turn == 0
+Jeśli blocked[1]==false, to P1 jest między 11 a 6
+Jeśli turn==0 to P1 przejechał przez 7 instrukcję później niż my, czyli zablokował się na pętli while.
+
+
+Przypuśćmy że oba są w sekcji krytycznej - co się musiało wydarzyć niezależnie od przeplotu?

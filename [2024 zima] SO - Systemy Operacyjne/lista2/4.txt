@@ -1,0 +1,9 @@
+kill - potrzebujemy pida
+pkill - wystarczy nazwa
+xkill - klikamy okienko; nie wysyła żadnego sygnału! tylko gada z serwerem X żeby zakończył działanie danego okna
+Domyślnie SIGTERM
+fg/bg wznawia proces
+ps -aux | grep xeyes
+cat /proc/14550/status | grep ShdPnd
+pkill -USR1 xeyes
+W Linuxie sygnały przychodzą w rosnącej kolejności numeracji
