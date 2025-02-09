@@ -5,8 +5,8 @@ def isPrime(n):
             return False
         i+=1
     return True
-N7 = 9
-N = 11
+N7 = 7
+N = 10
 sevens=''.join(['7' for i in range(N7)])
 liczby=set()
 for l in range(N-N7+1):
