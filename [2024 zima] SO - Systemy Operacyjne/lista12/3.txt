@@ -1,0 +1,5 @@
+Blokada wirująca nie jest sprawiedliwa, ponieważ blokujemy zasób i nikt nie może nas zmusić do jego oddania.
+Moja odp na 2: n^2/2 ms
+Approved by Polesiuk
+n^2 jeśli wątki nie kończą po wyjściu z sekcji krytycznej
+n*(n+1)/2 jeśli kończą

@@ -1,0 +1,6 @@
+sekcja krytyczna - fragment kodu gdzie zmieniane są zmienne do których ma dostęp także inny proces. Rolą systemu operacyjnego jest niedopuszczenie do wykonywania się współbieżnie 2 procesów w ich sekcji krytycznej jeśli współdzielą dane.
+Nie możemy wyłączyć przerwań ponieważ mamy wiele procesorów i spowolniłoby to system.
+Prawo Amdahla: 1 / (1 - P + P/n)
+1 - P wykonuje się sekwencyjnie
+P / n wykonuje się współbieżnie
+Wielkość sekcji krytycznej wpływa na 1 - P!

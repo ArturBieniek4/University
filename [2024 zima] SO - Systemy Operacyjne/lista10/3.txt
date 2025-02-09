@@ -1,0 +1,16 @@
+Dla 2 procesów:
+Najmniejsza 2
+Największa 100
+
+Dla k procesów:
+najmniejsza 2
+największa 50*k
+
+Przeplot dla 2:
+    - pierwszy proces odczytuje tally=0
+    - drugi robi 49 obrotów pętli
+    - cała reszta robi 50 obrotów pętli
+    - pierwszy proces zapisuje tally=1
+    - drugi odczytuje tally=1
+    - pierwszy robi pozostałe 49 obrotów pętli
+    - drugi zapisuje tally=2

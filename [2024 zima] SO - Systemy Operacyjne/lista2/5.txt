@@ -1,0 +1,14 @@
+sinit to init systemu
+Wskazuje na to fakt że pid musi być 1
+ustawia cwd na /
+blokuje wszystkie sygnały
+uruchamia /bin/rc.init
+w pętli:
+    śpi 30 sekund
+    Jeśli jest jakiś sygnał to go handluje
+Dla sygnałów poweroff i reboot wywołuje odpowiednie programy
+
+sigprocmask() blokuje/odblokowuje sygnały
+sigwait() czeka na jakiś sygnał z seta który podaje
+
+Grzebie dzieci kiedy dostanie SIGCHLD albo SIGALARM, wtedy grzebie wszystkie jakie umarły.

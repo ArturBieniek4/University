@@ -1,0 +1,3 @@
+FUTEX_WAIT atomowo porównuje wartość lock-variable (żeby uniknąć problemu lost-wakeup), jeśli się zgadza to idzie spać.
+FUTEX_WAKE budzi maksymalnie podaną ilość oczekujących wątków (losowo).
+Futex sprawdza czy blokada jest zajęta lub czy ktoś na nią czeka i dopiero jeśli to jest prawdą woła jądro żeby się uśpić/wybudzić wątek.

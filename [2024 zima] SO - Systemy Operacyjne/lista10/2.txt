@@ -1,0 +1,20 @@
+Zasoby R1, R2
+Wątki A, B
+
+Deadlock:
+	- A blokuje R1
+	- B blokuje R2
+	- A próbuje zablokować R2 - nie może więc czeka
+	- B próbuje zablokować R1 - nie może więc czeka
+	Oba czekają w nieskończoność
+
+Livelock:
+	- A blokuje R1
+	- B blokuje R2
+	- A próbuje zablokować R2 - nie może więc zwalnia R1 i próbuje ponownie
+	- B zwalnia R2 i blokuje R1
+	I tak w kółko, jak w deadlocku tylko że naprzemian zwalniają i blokują zasoby
+
+Głodzenie:
+	- A blokuje R1 i R2, nigdy ich nie zwalnia
+	- B cały czas czeka na R1 i R2

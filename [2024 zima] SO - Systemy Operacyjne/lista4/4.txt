@@ -1,0 +1,9 @@
+strace -e setpgid -o pipeline4.log -f dash
+
+Powłoka tworzy grupę przy używaniu pipe, pierwszy proces jest zawsze liderem grupy
+setpgid jest wywyływany w dziecku i w rodzicu, ponieważ po wykonaniu fork() nie wiadomo, który proces będzie wykonywany na procesorze.
+Dziecko nie ma pewności że parent ustawił mu grupę.
+Parent nie ma pewności że dziecko ustawiło sobie grupę zanim spróbuje do tej grupy wysłać sygnał
+
+Przed execve() każdego z procesów jest ustawiana grupa pierwszoplanowa na lidera grupy
+Kod wyjścia potoku to zawsze kod wyjścia ostatniego procesu

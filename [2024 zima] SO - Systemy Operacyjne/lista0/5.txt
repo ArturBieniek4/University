@@ -1,0 +1,21 @@
+volatile mówi kompilatorowi, że wartość zmiennej musi być za każdym razem pobrana z pamięci
+
+1.
+volatile int ready=0;
+while (!ready) ;
+
+W tym przypadku wartość zmiennej ready może być zmieniona przez sprzęt lub inny wątek i kompilator musi o tym widzieć - inaczej wyprodukuje nieskończoną pętlę.
+
+2.
+typedef struct {
+    bool write;
+    string buf;
+} IOWriter;
+volatile IOWriter* stdout;
+void print_flush(string text)
+{
+    stdout->buf+=text;
+    stdout->write=true;
+}
+
+W tym przypadku gdyby nie było volatile, kompilator ma prawo zamienić kolejność przypisań pól struktury dla bardziej ciągłego wykorzystania pamięci, ale spowoduje to katastrofę - zostanie wysłana poprzednia zawartość bufora zanim do bufora zostanie dopisany tekst.

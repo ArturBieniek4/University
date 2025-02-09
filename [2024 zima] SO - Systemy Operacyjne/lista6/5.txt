@@ -1,0 +1,16 @@
+exit(3) woła funkcje zarejestrowane w atexit(3) i on_exit(3)
+Ponadto flushuje wszystkie bufory stdio.
+Usuwa również pliki tymczasowe stworzone przez tmpfile(3)
+
+Problemy z stdio():
+    fork() - child proces będzie miał taki sam stan bufora jak parent. Jeżeli ten bufor jest niepusty, to wypiszemy go 2 razy
+    execve() - nie wypiszemy bufora, może być on niepusty
+    _exit() - tak samo nie wypiszemy bufora
+Wszystkim tym problemom standardowo zapobiegamy wywołując fflush() przed każdym z tych syscalli.
+
+Terminal jest buforowany liniami.
+Plik zwykły jest buforowany po ileś bajtów, w zależności od rozmiaru bufora.
+stderr nie jest buforowany.
+
+Rozwiązaniem jest ustawienie w handlerze flagi, która poinformuje program, że powinien grzecznie wyjść.
+Ta flaga powinna być sprawdzana w każdej pętli wewnątrz programu i jeżeli jest zapalona możemy zawołać exit()

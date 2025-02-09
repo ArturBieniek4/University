@@ -1,0 +1,6 @@
+read(2) zwróci shortcount gdy jest mniej bajtów w buforze lub odczyt został przerwany sygnałem?
+write(2) zwróci shortcount gdy brakuje miejsca w buforze lub połączenie już zostało zamknięte
+recv zwraca rzeczywistą długość pakietu, recvmsg dodatkowo ustawia MSG_TRUNC w strukturze, stąd wiemy czy nie został obcięty
+Sieć może paść i wtedy możemy oberwać sygnałem (chociażby od użytkownika który walnął w krzyżyk)
+Próbując zapisać do gniazda którego druga strona jest zamknięta dostaniemy SIGPIPE
+Linux trzyma przez jakiś czas ostatnio używane porty, przez co dostalibyśmy EADDRINUSE jeżeli byśmy zamknęli serwer po czym szybko go uruchomili.

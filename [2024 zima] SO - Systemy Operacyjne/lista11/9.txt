@@ -1,0 +1,6 @@
+Dla kompatybilności wstecznej, zawartość HTREE jest przechowywana w bloku który ma ustawione zero, czyli niejako wolnym. Dzięki temu stary Linux może to zamontować i nie będzie widział śmieci w folderach, najwyżej nadpisze nasze indeksowanie ale nie jest to ogromny problem, ponieważ nie narusza w żaden sposób spójności.
+HTree = hashed binary-tree
+W ext3 
+Liściami HTree są bloki (logiczne) ext.
+Wierzchołki inne niż liście zawierają klucze (hashe nazw plików).
+Każdy blok HTree ma 508 liści, czyli przy założeniu że każdy liść ma 200 plików i jest w 75% pełny, jeden blok HTree indeksuje 75k plików - to w zupełności prawie zawsze wystarcza, można ewentualnie dodać jeszcze jeden poziom dla 30 milionów. Kolejny poziom rozszerzyłby do 11 bilionów, ale nie jest potrzebny więc nie jest zaimplementowany.

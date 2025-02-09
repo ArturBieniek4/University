@@ -1,0 +1,2 @@
+Przy round-robin wszystie wątki po kolei by się budziły, sprawdzały blokadę i szły spać.
+Jest niepoprawna, ponieważ może zdarzyć się przeplot, w którym proces zostaje wywłaszczony tuż przed park().

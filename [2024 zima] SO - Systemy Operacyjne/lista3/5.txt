@@ -1,0 +1,11 @@
+1. SIGTSTP
+2. Trzeba używać xterma, gnome terminal blokuje ctrl+s
+Ctrl+S freezuje terminal
+3.
+U mnie nie od razu, dopiero po wpisaniu następnej linii
+Status T - stopped by job control signal
+Killowane dopiero po wznowieniu
+4.
+tostop zabrania procesom w grupie drugoplanowej pisać na terminal
+5.
+-echoctl wyłącza echo znaków sterujących

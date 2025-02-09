@@ -1,0 +1,4 @@
+execve() tworzy odwzorowania prywatne, bo nie powinniśmy pisać po plikach z których uruchamiamy program, a nasze dzieci nie powinny domyślnie mieć współdzielonej pamięci
+
+Jądro domyślnie daje każdemu procesowi rozmiar stosu ustalony przez ulimit/rlimit, ale nie alokuje go fizycznie dopóki nie trzeba.
+SIGBUS dostaniemy jeśli zmapowaliśmy plik z argumentem length większym niż rozmiar pliku zaokrąglony do rozmiaru strony i uzyskamy dostęp w tamto miejsce;

@@ -1,0 +1,21 @@
+Zarządzanie zadaniami:
+    ^C
+    ^\
+    ^Q
+    ^S
+    ^Z
+
+Edycja wiersza:
+    ^?
+    ^U
+    ^D
+    ^R
+    ^W
+    ^V - wprowadź znak nie traktując go jako specjalny
+    ^O
+
+SIGWINCH
+
+struct winsize sz;
+ioctl( 0, TIOCGWINSZ, &sz );
+sz.ws_row * sz.ws_col

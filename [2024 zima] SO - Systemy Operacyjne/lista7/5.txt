@@ -1,0 +1,8 @@
+vm_area_struct:
+    vm_start
+    vm_end
+    vm_prot - przechowa tylko flagę read
+    vm_flags - przechowa flagę copy-on-write
+Podczas pierwszego odczytu jądro ściągnie do pamięci RAM stronę p, doda do pgd i ustawi jej flagę read i copy-on-write.
+W trakcie zapisu będzie page fault, jądro skopiuje stronę i zmieni jej uprawnienia na rw oraz skasuje flagę copy-on-write.
+Po fork() jądro kopiuje pgd, a następnie musi się przeiterować po segmentach pamięci przypisanych do procesu i każdemu który ma flagę write ją usunąć i dodać flagę copy-on-write

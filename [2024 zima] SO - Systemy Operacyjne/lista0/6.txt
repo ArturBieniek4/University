@@ -1,0 +1,11 @@
+Adres wirtualny:
+    - Virtual page number
+    - Virtual page offset
+Tłumaczenie adresów:
+    - Procesor wysyła adres wirtualny do MMU
+    - MMU szuka Page Table Entry w tabeli stron
+    - Jeżeli PTE jest valid, adres fizyczny to adres strony z PTE + VPO
+    - Jeżeli PTE nie jest valid, realizujemy page faulta po którym adres fizyczny to adres strony z PTE+VPO
+    - Przy sprawdzeniu PTE następuje również sprawdzenie uprawnień do strony
+
+TLB to mały cache specjalnie dla tablicy stron, przechowuje ostatnio przetłumaczone adresy wirtualne na fizyczne

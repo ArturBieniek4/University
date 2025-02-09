@@ -1,0 +1,2 @@
+Ustawiane jest euid i suid, czyli
+ruid=1000, euid=0, suid=0

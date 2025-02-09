@@ -1,0 +1,11 @@
+write() do pełnej rury usypia proces w oczekiwaniu na zwolnienie rury
+read() z pustej rury tak samo
+
+Jeżeli do rury pisze kilka procesów, mamy gwarancję że teksty nie dłuższe niż PIPE_BUF się nie przeplotą.
+
+Jeżeli proces czyta z rury, a proces po drugiej stronie się zakończył, to dostanie EOF.
+Jeżeli proces pisze do rury, a proces po drugiej stronie się zakończył to dostanie SIGPIPE, domyślna akcja to zakończenie procesu.
+
+Operacje na rurze zwrócą short count wtedy, gdy drugi koniec rury się zamknął.
+
+Żeby połączyć rodzica i dziecko rurą, która została utworzona przez dziecko, to dziecko musiałoby stworzyć nazwaną rurę (mkfifo), a ojciec znać wcześniej jej ścieżkę.

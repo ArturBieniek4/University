@@ -1,0 +1,14 @@
+Główne różnice UNIX/Win32:
+1. W Windows sposób znajdowania programu do wykonania jest zaszyty w bibliotekach systemu, w UNIX jest po prostu ścieżką bezwzględną
+2. cwd w Windows jest user-mode a w linux kernel-mode
+3. UNIX parsuje linię poleceń i przekazuje tablicę jako argv, Windows przekazuje to co jest i program musi sam parsować
+4. W Windows można decydować czy przekazujemy handle do plików przy tworzeniu procesu
+5. W Win32 aplikacje dostają od razu info o ich głównym oknie GUI
+6. irrelevant
+7. Parent process w Windows ma cały czas pełen dostęp do pamięci dzieci i może ją dowolnie modyfikować.
+W Windows przy utworzeniu procesu nie jest kopiowany proces rodzica, tylko tworzony pusty proces, a następnie rodzic ustawia ręcznie sekcje pamięci w dziecku.
+
+fork() w Linux "kopiuje" całą pamięć rodzica do ojca, tworzy wpis w tabeli stron, przekazuje argumenty
+execve() podmienia pamięć procesu na tą z pliku
+
+spawn() nie umożliwiałby przekazania child procesowi otwartych plików, co jest koniecznie do we/wy z pliku i pipe

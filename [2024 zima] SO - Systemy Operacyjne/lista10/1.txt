@@ -1,0 +1,28 @@
+Przetwarzanie równoległe - zadania wykonują się fizycznie jednocześnie, na wielu rdzeniach na raz
+Przetwarzanie współbieżne - zadania wykonują się niezależnie od siebie, ale niekoniecznie równocześnie, mogą być nawet wykonywane wszystkie na jednym rdzeniu, jądro dzieli czas procesora na kwanty czasu i przydziela je zadaniom
+Procedury wielobieżne (reentrant) - mogą być w dowolnym momencie przerwane i uruchomione od nowa zanim poprzednie ich wykonanie się zakończy
+Procedury wielowątkowo-bezpieczne (MT-safe) - zarządza współdzielonymi strukturami danych w taki sposób, że możliwe jest bezpieczne wykonanie jej przez wiele wątków w tym samym czasie.
+
+MT-safe, ale nie reentrant:
+printf() jest przykładem z libc
+
+__thread int t;
+void swap(int *x, int *y)
+{
+	t = *x;
+	*x = *y;
+	*y = t;
+}
+
+Reentrant, ale nie MT-safe
+int t;
+void swap(int *x, int *y)
+{
+	int s;
+	s = t;
+	t = *x;
+	*x = *y;
+	*y = t;
+	t = s;
+}
+Współbieżność na jednym wątku występuje podczas np. obsługi sygnałów

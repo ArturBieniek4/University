@@ -1,0 +1,9 @@
+Z pliku mamy zawartość tego pliku.
+Dla anonimowej mamy same zera.
+Prywatne - wszystkie nasze modyfikacje widoczne tylko dla nas.
+Dzielone - modyfikacje widoczne dla innych procesów i zapisywane do pliku
+
+Fizyczne strony pamięci mogą być współdzielone dla odwzorowań prywatnych do momentu pierwszej zmiany. (copy-on-write)
+
+Odwzorowania urządzeń blokowych pozwalają pisać surowo po dyskach i rozmawiać surowo z urządzeniami we/wy.
+Odwzorowanie urządzenia znakowego nie ma żadnego sensu - nie ma ono random access.

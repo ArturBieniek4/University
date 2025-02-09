@@ -1,0 +1,4 @@
+malloc zamiast przechodzić po liście wolnych bloków szuka od razu w kubełkach, gdy nie ma to musi wejść do następnego kubełka.
+Free dodatkowo musi dodać do kubełka.
+Sentinel musi być w każdym kubełku osobno.
+Problem z leniwymm złączaniem jest taki, że możemy przeoczyć kubełek w którym coś dodamy.

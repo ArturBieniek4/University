@@ -1,0 +1,7 @@
+Znajdź wpis pliku w katalogu.
+Usuń wpis pliku, pamiętając numer inode.
+Zmniejsz reference count w inode
+Jeśli reference count w inode spadł do zera, oznacz inode jako wolny i oznacz bloki jako wolne
+
+Plik jest usuwany z dysku jeśli refcount spadł do zera
+Odkasować można plik który ma niezerowy refcount

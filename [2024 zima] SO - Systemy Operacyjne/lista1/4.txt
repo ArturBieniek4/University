@@ -1,0 +1,8 @@
+ps -aux | grep "X"
+
+sudo pmap pid
+
+Segmenty są oznaczone nazwą programu
+Pamięć anonimowa [ anon ]
+Pliki odwzorowane w pamięć oznaczone nazwami plików
+Stos [ stack ]

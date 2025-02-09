@@ -1,0 +1,13 @@
+a) Dziedziczone przez proces potomny:
+pamięć
+otwarte pliki
+env, argv
+b) przekazywane:
+env, argv
+informacje o systemie
+pid rodzica
+
+Przed wywołaniem fork() należy opróżnić bufor stdio, ponieważ w przeciwnym wypadku wyjście dziecka i rodzica mogą się powielać i przeplatać w niekontrolowany sposób, co zazwyczaj nie jest pożądane.
+(np. wypiszemy coś 2 razy bo bufor jest kopiowany do dziecka)
+
+Jeżeli mamy SIG_IGN albo SIG_DFL to execve tego nie zmienia, ale usuwa wszystkie handlery i nadpisuje je tymi z nowego pliku.

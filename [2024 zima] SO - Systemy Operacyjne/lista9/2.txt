@@ -1,0 +1,20 @@
+UDP (datagramowy):
+ - nie mamy gwarancji że pakiet dotrze
+ - nie mamy gwarancji że pakiety dotrą we właściwej kolejności
+ - nie mamy gwarancji że dany pakiet dotrze tylko raz
+ - każdy pakiet ma swoją długość
+ - nie musi być żadnych długotrwałych relacji (otwartych połączeń) między klientem a serwerem
+
+TCP (połączeniowy):
+ - mamy gwarancję że wszystkie pakiety dotrą tylko raz we właściwej kolejności
+ - mamy połączenia
+ - automatyczne potwierdzenie odbioru pakietu i tertansmisja
+ - TCP podda się w retransmisji (zerwie połączenie) po 4-10 minutach
+ - automatycznie wyznacza round trip time żeby wiedzieć ile czekać na ACK
+ - każdy segment jest numerowany, żeby można przywrócić kolejność
+ - możemy ograniczać bufor wejściowy - sterowanie przepływem
+ - zawsze jest full-duplex
+
+simplex = komunikacja jednokierunkowa
+full-duplex = w pełni dwustronne połączenie, możemy przesyłać dane w obie strony na raz
+half-duplex = przesyłamy dane tylko w jedną stronę na raz

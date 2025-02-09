@@ -1,0 +1,8 @@
+/ - 256
+/usr - 311
+/usr/bin - 356
+/usr/bin/cc - 32548
+
+i-node zawiera w sobie wskaźniki na bloki na dysku
+
+Nie można tworzyć twardych linków między różnymi systemami plików, pewnie dlatego że powodowałoby to ogromne problemy w przypadku odmontowania któregoś systemu plików.

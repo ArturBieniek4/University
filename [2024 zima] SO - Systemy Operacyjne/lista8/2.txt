@@ -1,0 +1,4 @@
+Fragmentacja wewnętrzna występuje jeśli payload jest mniejszy niż rozmiar bloku - np. przez padding - jest ona wewnątrz bloku. Fragmentacja zewnętrzna występuje jeśli jest sumarycznie wystarczająco pamięci na stercie, ale nie ma pojedynczego wolnego bloku w którym zmieściłby się payload (a nie można realokować).
+Główne przyczyny występowania fragmentacji zewnętrznej:
+ - isolated deaths - obiekty będące obok siebie w pamięci nie "giną" w tym samym czasie
+ - zmiana zachowania programu w czasie - np. jeśli program w pewnym momencie zwalnia małe bloki pamięci i zajmuje duże.

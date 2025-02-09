@@ -1,0 +1,25 @@
+Na podstawie [ 6, 1.5] wyjaśnij zadania pełnione przez protokoły warstwy: łącza, sieciowej
+i transportowej.
+
+Warstwa łącza (link layer):
+ - Ethernet, WiFi
+ - dostarczane funkcjonalności zależą od nośnika, np. niektóre warstwy łącza zapewniają pewną dostawę
+ - od węzła do węzła
+ - pakiety tej warstry to ramki
+
+Warstwa sieciowa (Network layer):
+ - od hosta do hosta
+ - protokół IP - istnieje tylko jeden
+ - protokoły routingu
+ - pakiety tej warstwy to datagramy
+
+Watstwa transportowa (Transport Layer):
+ - UDP/TCP
+ - od procesu do procesu
+ - pakiety tej warstwy to segmenty
+
+Kapsułowanie (encapsulation):
+ - pakiety każdej warstwy są pakowane i przekazywane do następnej warstwy
+ - możliwe jest obsłużenie niższych warstw bez dotykania danych na wyższych warstwach, np. switch obsługuje jedynie warstwę fizyczną i łącza, router dodatkowo warstwę sieci
+
+Protokoły warstwy łącza i sieciowej nie są używane do komunikacji między procesami użytkownika, ponieważ nie są potrzebne - naszym łączem i zarazem siecią jest kernel

@@ -1,0 +1,7 @@
+sen przerywalny - obudzić może inny proces z grupy lub root
+sen nieprzerywalny - obudzić może tylko hardware event
+SIGKILL ubija proces bez możliwości reakcji
+SIGSEGV można handlować, ale w handlerze należy
+a)zfixować problem z dostępem do pamięci
+b)skoczyć gdzieś (longjmp)
+W przeciwnym razie wrócimy spowrotem do instrukcji, która spowodowała segfault.

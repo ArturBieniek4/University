@@ -1,0 +1,3 @@
+Proces przejął systemd
+Lider sesji dostaje SIGHUP i decyduje co zrobić
+Jeśli wyślemy killa do xterm, to proces sleep się zakończy.

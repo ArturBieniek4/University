@@ -1,0 +1,7 @@
+time find /usr
+
+a) proces nie zawsze jest na procesorze
+b) podprocesy/wątki mogą być na wielu procesorach jednocześnie
+
+ulimit -t 1
+SIGKILL -9

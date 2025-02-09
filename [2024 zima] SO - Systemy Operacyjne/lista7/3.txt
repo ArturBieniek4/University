@@ -1,0 +1,5 @@
+cat /proc/$(pgrep Xorg)/status | egrep 'Vm|Rss'
+man 5 proc_pid_status
+Zbiór rezydentny jest w RAM, zbiór roboczy jest aktywnie używany przez program.
+awk '/VmSize/ {size+=$2} /VmRSS/ {rss+=$2} END {print "Total VmSize:", size/1024/1024, "GB"; print "Total VmRSS:", rss/1024/1024, "GB"}' /proc/*/status 2>/dev/null
+Suma VmRSS nie pokrywa się z realnie używaną pamięcią, ponieważ procesy współdzielą pamięć (np. biblioteki)

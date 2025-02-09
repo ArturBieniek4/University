@@ -1,0 +1,17 @@
+ELF header - zawiera np. entry point address
+Segment header table - mapuje sekcje na segmenty pamięci, każde entry zawiera:
+    Typ segmentu (LOAD, DYNAMIC, INTERP)
+    Offset od początku
+    Rozmiar pamięci
+    Fizyczny adres
+    Flagi (uprawnienia)
+    Align
+Program - read-only:
+    .init - zawiera pojedynczą procedurę, call na entry point
+    .text - kod programu
+    .rodata - consty
+Dane - read/write:
+    .data - zainicjalizowane zmienne
+    .bss - niezainicjalizowane zmienne
+Tabela symboli i debug - nie są ładowane do pamięci
+Sekcja jest w pliku ELF, segment jest w pamięci.

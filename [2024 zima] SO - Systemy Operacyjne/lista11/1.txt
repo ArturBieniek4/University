@@ -1,0 +1,7 @@
+punkty montażowe - foldery w głównym systemie plików (/), w których logicznie podpinane są inne zamontowane systemy plików
+man mount
+DEVICE on MOUNTPOINT type FSTYPE (MOUNTATTR)
+Pseudosystemy plików: tmpfs, sysfs, devtmpfs, efivarfs, securityfs, devpts, cgroup2, pstore, bpf, autofs, hugetlbfs, mqueue, debugfs, tracefs, fusectl, configfs, binfmt_misc
+relatime - aktualizuje czasy modyfikacji plików o ile nie są wyższe niż aktualny czas, to jest domyślne i prawie zawsze pożądane
+noexec - nie można wykonywać plików wykonywalnych na zamontowanym systemie, to jest pożądane kiedy montujemy niekoniecznie zaufane dyski
+nodev - nie interpretuje urządzeń (znakowych/blokowych) w systemie plików, to w większości przypadków montowania systemu plików z urządzenia

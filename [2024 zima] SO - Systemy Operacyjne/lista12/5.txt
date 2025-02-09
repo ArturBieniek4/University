@@ -1,0 +1,12 @@
+4 warunki - 32.3
+Można zapobiegać circular waitom np. poprzez ustaloną kolejność zajmowania blokadę
+Hold-and-wait - jeden globalny lock na zajmowanie locków
+No Preemption - można zwracać inne locki jeśli na coś czekamy ale wtedy będzie dalej livelock
+Mutual Exclusion - można pisać kod tak żeby nie trzeba locków XD
+
+Lockdep - rozważa klasy blokad - np. jeśli mamy blokadę pól jakiejś struktury to każda blokada tej struktury jest w tej samej klasie blokad, pomimo iż mogą być tysiące instancji tej struktury i też tysiące blokad, ale wszystkie są w jednej klasie
+Następnie lockdep wyznacza zależności między tymi klasami blokad i wywnioskowuje kolejność w jakiej zakładane są blokady.
+Z tego konstruuje graf skierowany i sprawdza czy nie występuje cykl. Scenariusze z jakimi sobie nie radzi:
+ - zasady/kolejność blokowania zmieniają się w czasie życia blokad, są zależne od stanu obiektu, wtedy lockdep stwierdzi że jest to niepoprawne, pomimo iż może być poprawne. Przykład: inne zasady blokowania dla konstruktora i destruktora
+ - jedna z instancji ma inne zasady blokowania niż reszta - wtedy też może powiedzieć że jest niepoprawne, pomimo że będzie poprawne. Przykład: korzeń drzewa
+Jeśli lockdep powie że nie ma ryzyka deadlocku, to na pewno go nie ma.

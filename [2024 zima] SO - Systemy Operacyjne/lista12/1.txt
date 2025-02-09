@@ -1,0 +1,6 @@
+myid - będą problemy, pomimo że jest __thread, bo przekazujemy wskaźnik na to
+strtab - nie jest zapisywane współbieżnie
+vargp - jest zmienną lokalną na stosie, samo w sobie nie robi problemów, ale wskazuje na komórkę pamięci z myid.
+cnt - statyczna, będą problemy
+argc - tylko main go używa
+argv - przekazywane jako strtab ale nie jest zapisywane współbieżnie

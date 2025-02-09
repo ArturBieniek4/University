@@ -1,0 +1,15 @@
+Method: write
+c4078fa14ac634bf61906c39940bc031  test
+
+Method: fwrite
+c4078fa14ac634bf61906c39940bc031  test
+
+Method: fwrite-line
+c4078fa14ac634bf61906c39940bc031  test
+
+Method: fwrite-full
+c4078fa14ac634bf61906c39940bc031  test
+
+Method: writev
+c4078fa14ac634bf61906c39940bc031  test
+

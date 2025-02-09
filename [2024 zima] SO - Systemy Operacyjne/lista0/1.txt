@@ -1,0 +1,15 @@
+Wyjątek to zajście niespodziewanego zdarzenia, którego wystąpienie zaburza prawidłowy przebieg wykonywania programu.
+Pułapki (trap) - zamierzony wyjątek:
+    - wywołanie systemu (SYSCALL)
+    - sygnalizacja niepoprawnego wykonania programu np. integer overflow
+    - breakpoint
+    Po wystąpieniu pułapki instrukcja, która ją spowodowała jest normalnie wykonywana
+Błędy (fault):
+    - wykonanie niedozwolonej instrukcji (SIGILL)
+    - błąd segmentacji pamięci (SIGSEGV)
+    - page fault - nie jest runtime errorem
+    Uniemożliwiają zakończenie intrukcji, która je spowodowała.
+Przerwania:
+    - od timera RTC
+    - od dysku twardego
+    - od czujnika

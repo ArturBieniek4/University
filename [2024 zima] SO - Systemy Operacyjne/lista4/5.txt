@@ -1,0 +1,11 @@
+Nie można modyfikować katalogów za pomocą read() i write() ponieważ moglibyśmy bardzo namieszać próbując pisać w środku struktury katalogu.
+(tak mówił Cahir na wykładzie)
+
+Wywołania do czytania folderów:
+readdir - zwraca struct dirent
+opendir
+closedir
+
+Zawartość katalogu nie jest posortowana ponieważ takie sortowanie niepotrzebnie pochłania czas.
+Linux/system plików przechowuje wpisy w katalogu w takiej kolejności jak mu wygodnie
+Jeżeli chcemy mieć posortowaną zawartość wystarczy użyć np. ls

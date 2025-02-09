@@ -1,0 +1,10 @@
+read(0, d
+"d\n", 4096)                    = 2
+write(1, "d\n", 2d
+)
+
+Przy Ctrl+D read zwraca 0.
+Read generalnie zwraca liczbę odczytanych znaków.
+
+Jeżeli w zmodyfikowanym programie podamy folder zamiast pliku, to syscall zwróci błąd a funkcja err_sys("read error") przetłumaczy errno na komunikat o błędzie i wyświetli
+read error: Is a directory
