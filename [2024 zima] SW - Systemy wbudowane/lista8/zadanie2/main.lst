@@ -1,0 +1,830 @@
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.file 0 "/MEGA/UWr/Systemy wbudowane/lista8/zadanie2" "main.c"
+  11               	.global	uart_transmit
+  13               	uart_transmit:
+  14               	.LVL0:
+  15               	.LFB2:
+  16               		.file 1 "uart.c"
+   1:uart.c        **** #include "FreeRTOS.h"
+   2:uart.c        **** #include "task.h"
+   3:uart.c        **** #include <avr/io.h>
+   4:uart.c        **** #include <stdio.h>
+   5:uart.c        **** #ifndef F_CPU
+   6:uart.c        **** #define F_CPU 16000000UL
+   7:uart.c        **** #endif
+   8:uart.c        **** #ifndef BAUD
+   9:uart.c        **** #define BAUD 9600
+  10:uart.c        **** #endif
+  11:uart.c        **** #include <util/setbaud.h>
+  12:uart.c        **** 
+  13:uart.c        **** int uart_transmit(char c, FILE *stream);
+  14:uart.c        **** int uart_receive(FILE *stream);
+  15:uart.c        **** 
+  16:uart.c        **** FILE uart_file = FDEV_SETUP_STREAM(uart_transmit, uart_receive, _FDEV_SETUP_RW);
+  17:uart.c        **** 
+  18:uart.c        **** void uart_init() {
+  19:uart.c        ****   UBRR0H = UBRRH_VALUE;
+  20:uart.c        ****   UBRR0L = UBRRL_VALUE;
+  21:uart.c        **** #if USE_2X
+  22:uart.c        ****   UCSR0A |= _BV(U2X0);
+  23:uart.c        **** #else
+  24:uart.c        ****   UCSR0A &= ~(_BV(U2X0));
+  25:uart.c        **** #endif
+  26:uart.c        ****   UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data */
+  27:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+  28:uart.c        **** }
+  29:uart.c        **** 
+  30:uart.c        **** int uart_transmit(char c, FILE *stream) {
+  17               		.loc 1 30 41 view -0
+  18               		.cfi_startproc
+  19               		.loc 1 30 41 is_stmt 0 view .LVU1
+  20 0000 CF93      		push r28
+  21               		.cfi_def_cfa_offset 3
+  22               		.cfi_offset 28, -2
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	/* stack size = 1 */
+  26               	.L__stack_usage = 1
+  27 0002 C82F      		mov r28,r24
+  31:uart.c        ****   while (!(UCSR0A & _BV(UDRE0))) taskYIELD();
+  28               		.loc 1 31 3 is_stmt 1 view .LVU2
+  29               	.LVL1:
+  30               	.L2:
+  31               		.loc 1 31 10 discriminator 1 view .LVU3
+  32               		.loc 1 31 12 is_stmt 0 discriminator 1 view .LVU4
+  33 0004 8091 C000 		lds r24,192
+  34               		.loc 1 31 10 discriminator 1 view .LVU5
+  35 0008 85FF      		sbrs r24,5
+  36 000a 00C0      		rjmp .L3
+  32:uart.c        ****   UDR0 = c;
+  37               		.loc 1 32 3 is_stmt 1 view .LVU6
+  38               		.loc 1 32 8 is_stmt 0 view .LVU7
+  39 000c C093 C600 		sts 198,r28
+  33:uart.c        ****   return 0;
+  40               		.loc 1 33 3 is_stmt 1 view .LVU8
+  34:uart.c        **** }
+  41               		.loc 1 34 1 is_stmt 0 view .LVU9
+  42 0010 80E0      		ldi r24,0
+  43 0012 90E0      		ldi r25,0
+  44               	/* epilogue start */
+  45 0014 CF91      		pop r28
+  46               	.LVL2:
+  47               		.loc 1 34 1 view .LVU10
+  48 0016 0895      		ret
+  49               	.LVL3:
+  50               	.L3:
+  31:uart.c        ****   UDR0 = c;
+  51               		.loc 1 31 34 is_stmt 1 discriminator 2 view .LVU11
+  52 0018 0E94 0000 		call vPortYield
+  53               	.LVL4:
+  54 001c 00C0      		rjmp .L2
+  55               		.cfi_endproc
+  56               	.LFE2:
+  58               	.global	uart_receive
+  60               	uart_receive:
+  61               	.LVL5:
+  62               	.LFB3:
+  35:uart.c        **** 
+  36:uart.c        **** int uart_receive(FILE *stream) {
+  63               		.loc 1 36 32 view -0
+  64               		.cfi_startproc
+  65               	/* prologue: function */
+  66               	/* frame size = 0 */
+  67               	/* stack size = 0 */
+  68               	.L__stack_usage = 0
+  37:uart.c        ****   while (!(UCSR0A & _BV(RXC0))) taskYIELD();
+  69               		.loc 1 37 3 view .LVU13
+  70               	.L5:
+  71               		.loc 1 37 10 discriminator 1 view .LVU14
+  72               		.loc 1 37 12 is_stmt 0 discriminator 1 view .LVU15
+  73 001e 8091 C000 		lds r24,192
+  74               		.loc 1 37 10 discriminator 1 view .LVU16
+  75 0022 87FF      		sbrs r24,7
+  76 0024 00C0      		rjmp .L6
+  38:uart.c        ****   return UDR0;
+  77               		.loc 1 38 3 is_stmt 1 view .LVU17
+  78               		.loc 1 38 10 is_stmt 0 view .LVU18
+  79 0026 8091 C600 		lds r24,198
+  39:uart.c        **** }
+  80               		.loc 1 39 1 view .LVU19
+  81 002a 90E0      		ldi r25,0
+  82               	/* epilogue start */
+  83 002c 0895      		ret
+  84               	.L6:
+  37:uart.c        ****   while (!(UCSR0A & _BV(RXC0))) taskYIELD();
+  85               		.loc 1 37 33 is_stmt 1 discriminator 2 view .LVU20
+  86 002e 0E94 0000 		call vPortYield
+  87               	.LVL6:
+  88 0032 00C0      		rjmp .L5
+  89               		.cfi_endproc
+  90               	.LFE3:
+  92               		.section	.rodata.str1.1,"aMS",@progbits,1
+  93               	.LC0:
+  94 0000 4865 6C6C 		.string	"Hello World\r"
+  94      6F20 576F 
+  94      726C 640D 
+  94      00
+  95               	.LC1:
+  96 000d 2564 00   		.string	"%d"
+  97               	.LC2:
+  98 0010 5265 6365 		.string	"Received: %d\r\n"
+  98      6976 6564 
+  98      3A20 2564 
+  98      0D0A 00
+  99               		.text
+ 101               	vSerial:
+ 102               	.LVL7:
+ 103               	.LFB7:
+ 104               		.file 2 "main.c"
+   1:main.c        **** /******************************************************************************
+   2:main.c        ****  * Header file inclusions.
+   3:main.c        ****  ******************************************************************************/
+   4:main.c        **** 
+   5:main.c        **** #include "FreeRTOS.h"
+   6:main.c        **** #include "task.h"
+   7:main.c        **** #include "queue.h"
+   8:main.c        **** 
+   9:main.c        **** #include <avr/io.h>
+  10:main.c        **** 
+  11:main.c        **** 
+  12:main.c        **** #include <stdio.h>
+  13:main.c        **** #include "uart.c"
+  14:main.c        **** 
+  15:main.c        **** /******************************************************************************
+  16:main.c        ****  * Private macro definitions.
+  17:main.c        ****  ******************************************************************************/
+  18:main.c        **** 
+  19:main.c        **** #define mainLED_TASK_PRIORITY   2
+  20:main.c        **** 
+  21:main.c        **** #define mainSERIAL_TASK_PRIORITY 1
+  22:main.c        **** 
+  23:main.c        **** QueueHandle_t xQueue1;
+  24:main.c        **** 
+  25:main.c        **** /******************************************************************************
+  26:main.c        ****  * Private function prototypes.
+  27:main.c        ****  ******************************************************************************/
+  28:main.c        **** 
+  29:main.c        **** static void vBlinkLed(void* pvParameters);
+  30:main.c        **** 
+  31:main.c        **** static void vSerial(void* pvParameters);
+  32:main.c        **** 
+  33:main.c        **** /******************************************************************************
+  34:main.c        ****  * Public function definitions.
+  35:main.c        ****  ******************************************************************************/
+  36:main.c        **** 
+  37:main.c        **** /**************************************************************************//**
+  38:main.c        ****  * \fn int main(void)
+  39:main.c        ****  *
+  40:main.c        ****  * \brief Main function.
+  41:main.c        ****  *
+  42:main.c        ****  * \return
+  43:main.c        ****  ******************************************************************************/
+  44:main.c        **** int main(void)
+  45:main.c        **** {
+  46:main.c        ****     xQueue1 = xQueueCreate(10, sizeof( uint16_t ));
+  47:main.c        ****     // Create task.
+  48:main.c        ****     xTaskHandle blink_handle;
+  49:main.c        ****     xTaskHandle serial_handle;
+  50:main.c        ****     uart_init();
+  51:main.c        ****     stdin = stdout = stderr = &uart_file;
+  52:main.c        ****     xTaskCreate
+  53:main.c        ****         (
+  54:main.c        ****          vBlinkLed,
+  55:main.c        ****          "blink",
+  56:main.c        ****          configMINIMAL_STACK_SIZE,
+  57:main.c        ****          NULL,
+  58:main.c        ****          mainLED_TASK_PRIORITY,
+  59:main.c        ****          &blink_handle
+  60:main.c        ****         );
+  61:main.c        **** 
+  62:main.c        ****     xTaskCreate
+  63:main.c        ****         (
+  64:main.c        ****          vSerial,
+  65:main.c        ****          "serial",
+  66:main.c        ****          configMINIMAL_STACK_SIZE,
+  67:main.c        ****          NULL,
+  68:main.c        ****          mainSERIAL_TASK_PRIORITY,
+  69:main.c        ****          &serial_handle
+  70:main.c        ****         );
+  71:main.c        **** 
+  72:main.c        ****     // Start scheduler.
+  73:main.c        ****     vTaskStartScheduler();
+  74:main.c        **** 
+  75:main.c        ****     return 0;
+  76:main.c        **** }
+  77:main.c        **** 
+  78:main.c        **** /**************************************************************************//**
+  79:main.c        ****  * \fn static vApplicationIdleHook(void)
+  80:main.c        ****  *
+  81:main.c        ****  * \brief
+  82:main.c        ****  ******************************************************************************/
+  83:main.c        **** void vApplicationIdleHook(void)
+  84:main.c        **** {
+  85:main.c        **** 
+  86:main.c        **** }
+  87:main.c        **** 
+  88:main.c        **** /******************************************************************************
+  89:main.c        ****  * Private function definitions.
+  90:main.c        ****  ******************************************************************************/
+  91:main.c        **** 
+  92:main.c        **** /**************************************************************************//**
+  93:main.c        ****  * \fn static void vBlinkLed(void* pvParameters)
+  94:main.c        ****  *
+  95:main.c        ****  * \brief
+  96:main.c        ****  *
+  97:main.c        ****  * \param[in]   pvParameters
+  98:main.c        ****  ******************************************************************************/
+  99:main.c        **** static void vBlinkLed(void* pvParameters)
+ 100:main.c        **** {
+ 101:main.c        ****     DDRB |= _BV(PB5);
+ 102:main.c        ****     uint16_t time=500;
+ 103:main.c        ****     for ( ;; )
+ 104:main.c        ****     {
+ 105:main.c        ****         xQueueReceive(xQueue1, &time, portMAX_DELAY);
+ 106:main.c        ****         PORTB |= _BV(PB5);
+ 107:main.c        ****         vTaskDelay(time / portTICK_PERIOD_MS);
+ 108:main.c        ****         PORTB &= ~_BV(PB5);
+ 109:main.c        ****         vTaskDelay(1000 / portTICK_PERIOD_MS);
+ 110:main.c        ****     }
+ 111:main.c        **** }
+ 112:main.c        **** 
+ 113:main.c        **** 
+ 114:main.c        **** /**************************************************************************//**
+ 115:main.c        ****  * \fn static void vSerial(void* pvParameters)
+ 116:main.c        ****  *
+ 117:main.c        ****  * \brief
+ 118:main.c        ****  *
+ 119:main.c        ****  * \param[in]   pvParameters
+ 120:main.c        ****  ******************************************************************************/
+ 121:main.c        **** static void vSerial(void* pvParameters)
+ 122:main.c        **** {
+ 105               		.loc 2 122 1 view -0
+ 106               		.cfi_startproc
+ 107               		.loc 2 122 1 is_stmt 0 view .LVU22
+ 108 0034 CF93      		push r28
+ 109               		.cfi_def_cfa_offset 3
+ 110               		.cfi_offset 28, -2
+ 111 0036 DF93      		push r29
+ 112               		.cfi_def_cfa_offset 4
+ 113               		.cfi_offset 29, -3
+ 114 0038 00D0      		rcall .
+ 115               		.cfi_def_cfa_offset 6
+ 116 003a CDB7      		in r28,__SP_L__
+ 117 003c DEB7      		in r29,__SP_H__
+ 118               		.cfi_def_cfa_register 28
+ 119               	/* prologue: function */
+ 120               	/* frame size = 2 */
+ 121               	/* stack size = 4 */
+ 122               	.L__stack_usage = 4
+ 123:main.c        ****     uint16_t input;
+ 123               		.loc 2 123 5 is_stmt 1 view .LVU23
+ 124:main.c        ****     printf("Hello World\r\n");
+ 124               		.loc 2 124 5 view .LVU24
+ 125 003e 80E0      		ldi r24,lo8(.LC0)
+ 126 0040 90E0      		ldi r25,hi8(.LC0)
+ 127               	.LVL8:
+ 128               		.loc 2 124 5 is_stmt 0 view .LVU25
+ 129 0042 0E94 0000 		call puts
+ 130               	.LVL9:
+ 125:main.c        ****     for ( ;; )
+ 126:main.c        ****     {
+ 127:main.c        ****         if(scanf("%d", &input)>0)
+ 131               		.loc 2 127 12 view .LVU26
+ 132 0046 8E01      		movw r16,r28
+ 133 0048 0F5F      		subi r16,-1
+ 134 004a 1F4F      		sbci r17,-1
+ 135 004c 80E0      		ldi r24,lo8(.LC1)
+ 136 004e C82E      		mov r12,r24
+ 137 0050 80E0      		ldi r24,hi8(.LC1)
+ 138 0052 D82E      		mov r13,r24
+ 128:main.c        ****         {
+ 129:main.c        ****             printf("Received: %d\r\n", input);
+ 139               		.loc 2 129 13 view .LVU27
+ 140 0054 90E0      		ldi r25,lo8(.LC2)
+ 141 0056 E92E      		mov r14,r25
+ 142 0058 90E0      		ldi r25,hi8(.LC2)
+ 143 005a F92E      		mov r15,r25
+ 144               	.L8:
+ 125:main.c        ****     for ( ;; )
+ 145               		.loc 2 125 5 is_stmt 1 view .LVU28
+ 127:main.c        ****         {
+ 146               		.loc 2 127 9 view .LVU29
+ 127:main.c        ****         {
+ 147               		.loc 2 127 12 is_stmt 0 view .LVU30
+ 148 005c 1F93      		push r17
+ 149 005e 0F93      		push r16
+ 150 0060 DF92      		push r13
+ 151 0062 CF92      		push r12
+ 152 0064 0E94 0000 		call scanf
+ 153               	.LVL10:
+ 127:main.c        ****         {
+ 154               		.loc 2 127 11 discriminator 1 view .LVU31
+ 155 0068 0F90      		pop __tmp_reg__
+ 156 006a 0F90      		pop __tmp_reg__
+ 157 006c 0F90      		pop __tmp_reg__
+ 158 006e 0F90      		pop __tmp_reg__
+ 159 0070 1816      		cp __zero_reg__,r24
+ 160 0072 1906      		cpc __zero_reg__,r25
+ 161 0074 04F4      		brge .L8
+ 162               		.loc 2 129 13 is_stmt 1 view .LVU32
+ 163 0076 8A81      		ldd r24,Y+2
+ 164 0078 8F93      		push r24
+ 165 007a 8981      		ldd r24,Y+1
+ 166 007c 8F93      		push r24
+ 167 007e FF92      		push r15
+ 168 0080 EF92      		push r14
+ 169 0082 0E94 0000 		call printf
+ 170               	.LVL11:
+ 130:main.c        ****             xQueueSend(xQueue1, &input, portMAX_DELAY);
+ 171               		.loc 2 130 13 view .LVU33
+ 172 0086 20E0      		ldi r18,0
+ 173 0088 4FEF      		ldi r20,lo8(-1)
+ 174 008a 5FEF      		ldi r21,lo8(-1)
+ 175 008c B801      		movw r22,r16
+ 176 008e 8091 0000 		lds r24,xQueue1
+ 177 0092 9091 0000 		lds r25,xQueue1+1
+ 178 0096 0E94 0000 		call xQueueGenericSend
+ 179               	.LVL12:
+ 180 009a 0F90      		pop __tmp_reg__
+ 181 009c 0F90      		pop __tmp_reg__
+ 182 009e 0F90      		pop __tmp_reg__
+ 183 00a0 0F90      		pop __tmp_reg__
+ 184 00a2 00C0      		rjmp .L8
+ 185               		.cfi_endproc
+ 186               	.LFE7:
+ 189               	vBlinkLed:
+ 190               	.LVL13:
+ 191               	.LFB6:
+ 100:main.c        ****     DDRB |= _BV(PB5);
+ 192               		.loc 2 100 1 view -0
+ 193               		.cfi_startproc
+ 100:main.c        ****     DDRB |= _BV(PB5);
+ 194               		.loc 2 100 1 is_stmt 0 view .LVU35
+ 195 00a4 CF93      		push r28
+ 196               		.cfi_def_cfa_offset 3
+ 197               		.cfi_offset 28, -2
+ 198 00a6 DF93      		push r29
+ 199               		.cfi_def_cfa_offset 4
+ 200               		.cfi_offset 29, -3
+ 201 00a8 00D0      		rcall .
+ 202               		.cfi_def_cfa_offset 6
+ 203 00aa CDB7      		in r28,__SP_L__
+ 204 00ac DEB7      		in r29,__SP_H__
+ 205               		.cfi_def_cfa_register 28
+ 206               	/* prologue: function */
+ 207               	/* frame size = 2 */
+ 208               	/* stack size = 4 */
+ 209               	.L__stack_usage = 4
+ 101:main.c        ****     uint16_t time=500;
+ 210               		.loc 2 101 5 is_stmt 1 view .LVU36
+ 101:main.c        ****     uint16_t time=500;
+ 211               		.loc 2 101 10 is_stmt 0 view .LVU37
+ 212 00ae 259A      		sbi 0x4,5
+ 102:main.c        ****     for ( ;; )
+ 213               		.loc 2 102 5 is_stmt 1 view .LVU38
+ 102:main.c        ****     for ( ;; )
+ 214               		.loc 2 102 14 is_stmt 0 view .LVU39
+ 215 00b0 84EF      		ldi r24,lo8(-12)
+ 216 00b2 91E0      		ldi r25,lo8(1)
+ 217               	.LVL14:
+ 102:main.c        ****     for ( ;; )
+ 218               		.loc 2 102 14 view .LVU40
+ 219 00b4 9A83      		std Y+2,r25
+ 220 00b6 8983      		std Y+1,r24
+ 221               	.L12:
+ 103:main.c        ****     {
+ 222               		.loc 2 103 5 is_stmt 1 view .LVU41
+ 105:main.c        ****         PORTB |= _BV(PB5);
+ 223               		.loc 2 105 9 view .LVU42
+ 224 00b8 4FEF      		ldi r20,lo8(-1)
+ 225 00ba 5FEF      		ldi r21,lo8(-1)
+ 226 00bc BE01      		movw r22,r28
+ 227 00be 6F5F      		subi r22,-1
+ 228 00c0 7F4F      		sbci r23,-1
+ 229 00c2 8091 0000 		lds r24,xQueue1
+ 230 00c6 9091 0000 		lds r25,xQueue1+1
+ 231 00ca 0E94 0000 		call xQueueReceive
+ 232               	.LVL15:
+ 106:main.c        ****         vTaskDelay(time / portTICK_PERIOD_MS);
+ 233               		.loc 2 106 9 view .LVU43
+ 106:main.c        ****         vTaskDelay(time / portTICK_PERIOD_MS);
+ 234               		.loc 2 106 15 is_stmt 0 view .LVU44
+ 235 00ce 2D9A      		sbi 0x5,5
+ 107:main.c        ****         PORTB &= ~_BV(PB5);
+ 236               		.loc 2 107 9 is_stmt 1 view .LVU45
+ 237 00d0 8981      		ldd r24,Y+1
+ 238 00d2 9A81      		ldd r25,Y+2
+ 239 00d4 0E94 0000 		call vTaskDelay
+ 240               	.LVL16:
+ 108:main.c        ****         vTaskDelay(1000 / portTICK_PERIOD_MS);
+ 241               		.loc 2 108 9 view .LVU46
+ 108:main.c        ****         vTaskDelay(1000 / portTICK_PERIOD_MS);
+ 242               		.loc 2 108 15 is_stmt 0 view .LVU47
+ 243 00d8 2D98      		cbi 0x5,5
+ 109:main.c        ****     }
+ 244               		.loc 2 109 9 is_stmt 1 discriminator 1 view .LVU48
+ 245 00da 88EE      		ldi r24,lo8(-24)
+ 246 00dc 93E0      		ldi r25,lo8(3)
+ 247 00de 0E94 0000 		call vTaskDelay
+ 248               	.LVL17:
+ 103:main.c        ****     {
+ 249               		.loc 2 103 5 view .LVU49
+ 250 00e2 00C0      		rjmp .L12
+ 251               		.cfi_endproc
+ 252               	.LFE6:
+ 254               	.global	uart_init
+ 256               	uart_init:
+ 257               	.LFB1:
+  18:uart.c        ****   UBRR0H = UBRRH_VALUE;
+ 258               		.loc 1 18 18 view -0
+ 259               		.cfi_startproc
+ 260               	/* prologue: function */
+ 261               	/* frame size = 0 */
+ 262               	/* stack size = 0 */
+ 263               	.L__stack_usage = 0
+  19:uart.c        ****   UBRR0L = UBRRL_VALUE;
+ 264               		.loc 1 19 3 view .LVU51
+  19:uart.c        ****   UBRR0L = UBRRL_VALUE;
+ 265               		.loc 1 19 10 is_stmt 0 view .LVU52
+ 266 00e4 1092 C500 		sts 197,__zero_reg__
+  20:uart.c        **** #if USE_2X
+ 267               		.loc 1 20 3 is_stmt 1 view .LVU53
+  20:uart.c        **** #if USE_2X
+ 268               		.loc 1 20 10 is_stmt 0 view .LVU54
+ 269 00e8 87E6      		ldi r24,lo8(103)
+ 270 00ea 8093 C400 		sts 196,r24
+  24:uart.c        **** #endif
+ 271               		.loc 1 24 3 is_stmt 1 view .LVU55
+  24:uart.c        **** #endif
+ 272               		.loc 1 24 10 is_stmt 0 view .LVU56
+ 273 00ee E0EC      		ldi r30,lo8(-64)
+ 274 00f0 F0E0      		ldi r31,0
+ 275 00f2 8081      		ld r24,Z
+ 276 00f4 8D7F      		andi r24,lo8(-3)
+ 277 00f6 8083      		st Z,r24
+  26:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+ 278               		.loc 1 26 3 is_stmt 1 view .LVU57
+  26:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+ 279               		.loc 1 26 10 is_stmt 0 view .LVU58
+ 280 00f8 86E0      		ldi r24,lo8(6)
+ 281 00fa 8093 C200 		sts 194,r24
+  27:uart.c        **** }
+ 282               		.loc 1 27 3 is_stmt 1 view .LVU59
+  27:uart.c        **** }
+ 283               		.loc 1 27 10 is_stmt 0 view .LVU60
+ 284 00fe 88E1      		ldi r24,lo8(24)
+ 285 0100 8093 C100 		sts 193,r24
+ 286               	/* epilogue start */
+  28:uart.c        **** 
+ 287               		.loc 1 28 1 view .LVU61
+ 288 0104 0895      		ret
+ 289               		.cfi_endproc
+ 290               	.LFE1:
+ 292               		.section	.rodata.str1.1
+ 293               	.LC3:
+ 294 001f 626C 696E 		.string	"blink"
+ 294      6B00 
+ 295               	.LC4:
+ 296 0025 7365 7269 		.string	"serial"
+ 296      616C 00
+ 297               		.section	.text.startup,"ax",@progbits
+ 298               	.global	main
+ 300               	main:
+ 301               	.LFB4:
+  45:main.c        ****     xQueue1 = xQueueCreate(10, sizeof( uint16_t ));
+ 302               		.loc 2 45 1 is_stmt 1 view -0
+ 303               		.cfi_startproc
+ 304 0000 00D0      		rcall .
+ 305 0002 00D0      		rcall .
+ 306               		.cfi_def_cfa_offset 6
+ 307 0004 CDB7      		in r28,__SP_L__
+ 308 0006 DEB7      		in r29,__SP_H__
+ 309               		.cfi_def_cfa_register 28
+ 310               	/* prologue: function */
+ 311               	/* frame size = 4 */
+ 312               	/* stack size = 4 */
+ 313               	.L__stack_usage = 4
+  46:main.c        ****     // Create task.
+ 314               		.loc 2 46 5 view .LVU63
+  46:main.c        ****     // Create task.
+ 315               		.loc 2 46 15 is_stmt 0 view .LVU64
+ 316 0008 40E0      		ldi r20,0
+ 317 000a 62E0      		ldi r22,lo8(2)
+ 318 000c 8AE0      		ldi r24,lo8(10)
+ 319 000e 0E94 0000 		call xQueueGenericCreate
+ 320               	.LVL18:
+  46:main.c        ****     // Create task.
+ 321               		.loc 2 46 13 discriminator 1 view .LVU65
+ 322 0012 9093 0000 		sts xQueue1+1,r25
+ 323 0016 8093 0000 		sts xQueue1,r24
+  48:main.c        ****     xTaskHandle serial_handle;
+ 324               		.loc 2 48 5 is_stmt 1 view .LVU66
+  49:main.c        ****     uart_init();
+ 325               		.loc 2 49 5 view .LVU67
+  50:main.c        ****     stdin = stdout = stderr = &uart_file;
+ 326               		.loc 2 50 5 view .LVU68
+ 327 001a 0E94 0000 		call uart_init
+ 328               	.LVL19:
+  51:main.c        ****     xTaskCreate
+ 329               		.loc 2 51 5 view .LVU69
+  51:main.c        ****     xTaskCreate
+ 330               		.loc 2 51 29 is_stmt 0 view .LVU70
+ 331 001e E0E0      		ldi r30,lo8(__iob)
+ 332 0020 F0E0      		ldi r31,hi8(__iob)
+ 333 0022 80E0      		ldi r24,lo8(uart_file)
+ 334 0024 90E0      		ldi r25,hi8(uart_file)
+ 335 0026 9583      		std Z+5,r25
+ 336 0028 8483      		std Z+4,r24
+  51:main.c        ****     xTaskCreate
+ 337               		.loc 2 51 20 view .LVU71
+ 338 002a 9383      		std Z+3,r25
+ 339 002c 8283      		std Z+2,r24
+  51:main.c        ****     xTaskCreate
+ 340               		.loc 2 51 11 view .LVU72
+ 341 002e 9183      		std Z+1,r25
+ 342 0030 8083      		st Z,r24
+  52:main.c        ****         (
+ 343               		.loc 2 52 5 is_stmt 1 view .LVU73
+ 344 0032 CE01      		movw r24,r28
+ 345 0034 0396      		adiw r24,3
+ 346 0036 7C01      		movw r14,r24
+ 347 0038 02E0      		ldi r16,lo8(2)
+ 348 003a 20E0      		ldi r18,0
+ 349 003c 30E0      		ldi r19,0
+ 350 003e 40E8      		ldi r20,lo8(-128)
+ 351 0040 50E0      		ldi r21,0
+ 352 0042 60E0      		ldi r22,lo8(.LC3)
+ 353 0044 70E0      		ldi r23,hi8(.LC3)
+ 354 0046 80E0      		ldi r24,lo8(gs(vBlinkLed))
+ 355 0048 90E0      		ldi r25,hi8(gs(vBlinkLed))
+ 356 004a 0E94 0000 		call xTaskCreate
+ 357               	.LVL20:
+  62:main.c        ****         (
+ 358               		.loc 2 62 5 view .LVU74
+ 359 004e CE01      		movw r24,r28
+ 360 0050 0196      		adiw r24,1
+ 361 0052 7C01      		movw r14,r24
+ 362 0054 01E0      		ldi r16,lo8(1)
+ 363 0056 20E0      		ldi r18,0
+ 364 0058 30E0      		ldi r19,0
+ 365 005a 40E8      		ldi r20,lo8(-128)
+ 366 005c 50E0      		ldi r21,0
+ 367 005e 60E0      		ldi r22,lo8(.LC4)
+ 368 0060 70E0      		ldi r23,hi8(.LC4)
+ 369 0062 80E0      		ldi r24,lo8(gs(vSerial))
+ 370 0064 90E0      		ldi r25,hi8(gs(vSerial))
+ 371 0066 0E94 0000 		call xTaskCreate
+ 372               	.LVL21:
+  73:main.c        **** 
+ 373               		.loc 2 73 5 view .LVU75
+ 374 006a 0E94 0000 		call vTaskStartScheduler
+ 375               	.LVL22:
+  75:main.c        **** }
+ 376               		.loc 2 75 5 view .LVU76
+  76:main.c        **** 
+ 377               		.loc 2 76 1 is_stmt 0 view .LVU77
+ 378 006e 80E0      		ldi r24,0
+ 379 0070 90E0      		ldi r25,0
+ 380               	/* epilogue start */
+ 381 0072 0F90      		pop __tmp_reg__
+ 382 0074 0F90      		pop __tmp_reg__
+ 383 0076 0F90      		pop __tmp_reg__
+ 384 0078 0F90      		pop __tmp_reg__
+ 385 007a 0895      		ret
+ 386               		.cfi_endproc
+ 387               	.LFE4:
+ 389               		.text
+ 390               	.global	vApplicationIdleHook
+ 392               	vApplicationIdleHook:
+ 393               	.LFB5:
+  84:main.c        **** 
+ 394               		.loc 2 84 1 is_stmt 1 view -0
+ 395               		.cfi_startproc
+ 396               	/* prologue: function */
+ 397               	/* frame size = 0 */
+ 398               	/* stack size = 0 */
+ 399               	.L__stack_usage = 0
+  86:main.c        **** 
+ 400               		.loc 2 86 1 view .LVU79
+ 401               	/* epilogue start */
+ 402 0106 0895      		ret
+ 403               		.cfi_endproc
+ 404               	.LFE5:
+ 406               	.global	xQueue1
+ 407               		.section .bss
+ 410               	xQueue1:
+ 411 0000 0000      		.zero	2
+ 412               	.global	uart_file
+ 413               		.data
+ 416               	uart_file:
+ 417 0000 0000      		.word	0
+ 418 0002 00        		.byte	0
+ 419 0003 03        		.byte	3
+ 420 0004 0000      		.word	0
+ 421 0006 0000      		.word	0
+ 422 0008 0000      		.word	gs(uart_transmit)
+ 423 000a 0000      		.word	gs(uart_receive)
+ 424 000c 0000      		.word	0
+ 425               		.text
+ 426               	.Letext0:
+ 427               		.file 3 "/usr/avr/include/stdint.h"
+ 428               		.file 4 "./FreeRTOS/Source/include/projdefs.h"
+ 429               		.file 5 "./FreeRTOS/Source/portable/GCC/ATMega328/portmacro.h"
+ 430               		.file 6 "./FreeRTOS/Source/include/task.h"
+ 431               		.file 7 "./FreeRTOS/Source/include/queue.h"
+ 432               		.file 8 "/usr/avr/include/stdio.h"
+ 433               		.file 9 "<built-in>"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+     /tmp/ccA5GFH8.s:2      *ABS*:0000003e __SP_H__
+     /tmp/ccA5GFH8.s:3      *ABS*:0000003d __SP_L__
+     /tmp/ccA5GFH8.s:4      *ABS*:0000003f __SREG__
+     /tmp/ccA5GFH8.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/ccA5GFH8.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/ccA5GFH8.s:13     .text:00000000 uart_transmit
+     /tmp/ccA5GFH8.s:17     .text:00000000 .Loc.0
+     /tmp/ccA5GFH8.s:18     .text:00000000 L0
+     /tmp/ccA5GFH8.s:19     .text:00000000 .Loc.1
+     /tmp/ccA5GFH8.s:28     .text:00000004 .Loc.2
+     /tmp/ccA5GFH8.s:31     .text:00000004 .Loc.3
+     /tmp/ccA5GFH8.s:32     .text:00000004 .Loc.4
+     /tmp/ccA5GFH8.s:34     .text:00000008 .Loc.5
+     /tmp/ccA5GFH8.s:37     .text:0000000c .Loc.6
+     /tmp/ccA5GFH8.s:38     .text:0000000c .Loc.7
+     /tmp/ccA5GFH8.s:40     .text:00000010 .Loc.8
+     /tmp/ccA5GFH8.s:41     .text:00000010 .Loc.9
+     /tmp/ccA5GFH8.s:47     .text:00000016 .Loc.10
+     /tmp/ccA5GFH8.s:51     .text:00000018 .Loc.11
+     /tmp/ccA5GFH8.s:55     .text:0000001e L0
+     /tmp/ccA5GFH8.s:60     .text:0000001e uart_receive
+     /tmp/ccA5GFH8.s:63     .text:0000001e .Loc.12
+     /tmp/ccA5GFH8.s:64     .text:0000001e L0
+     /tmp/ccA5GFH8.s:69     .text:0000001e .Loc.13
+     /tmp/ccA5GFH8.s:71     .text:0000001e .Loc.14
+     /tmp/ccA5GFH8.s:72     .text:0000001e .Loc.15
+     /tmp/ccA5GFH8.s:74     .text:00000022 .Loc.16
+     /tmp/ccA5GFH8.s:77     .text:00000026 .Loc.17
+     /tmp/ccA5GFH8.s:78     .text:00000026 .Loc.18
+     /tmp/ccA5GFH8.s:80     .text:0000002a .Loc.19
+     /tmp/ccA5GFH8.s:85     .text:0000002e .Loc.20
+     /tmp/ccA5GFH8.s:89     .text:00000034 L0
+     /tmp/ccA5GFH8.s:101    .text:00000034 vSerial
+     /tmp/ccA5GFH8.s:105    .text:00000034 .Loc.21
+     /tmp/ccA5GFH8.s:106    .text:00000034 L0
+     /tmp/ccA5GFH8.s:107    .text:00000034 .Loc.22
+     /tmp/ccA5GFH8.s:114    .text:0000003a L0
+     /tmp/ccA5GFH8.s:123    .text:0000003e .Loc.23
+     /tmp/ccA5GFH8.s:124    .text:0000003e .Loc.24
+     /tmp/ccA5GFH8.s:128    .text:00000042 .Loc.25
+     /tmp/ccA5GFH8.s:131    .text:00000046 .Loc.26
+     /tmp/ccA5GFH8.s:139    .text:00000054 .Loc.27
+     /tmp/ccA5GFH8.s:145    .text:0000005c .Loc.28
+     /tmp/ccA5GFH8.s:146    .text:0000005c .Loc.29
+     /tmp/ccA5GFH8.s:147    .text:0000005c .Loc.30
+     /tmp/ccA5GFH8.s:154    .text:00000068 .Loc.31
+     /tmp/ccA5GFH8.s:162    .text:00000076 .Loc.32
+     /tmp/ccA5GFH8.s:171    .text:00000086 .Loc.33
+     /tmp/ccA5GFH8.s:410    .bss:00000000 xQueue1
+     /tmp/ccA5GFH8.s:185    .text:000000a4 L0
+     /tmp/ccA5GFH8.s:189    .text:000000a4 vBlinkLed
+     /tmp/ccA5GFH8.s:192    .text:000000a4 .Loc.34
+     /tmp/ccA5GFH8.s:193    .text:000000a4 L0
+     /tmp/ccA5GFH8.s:194    .text:000000a4 .Loc.35
+     /tmp/ccA5GFH8.s:201    .text:000000aa L0
+     /tmp/ccA5GFH8.s:210    .text:000000ae .Loc.36
+     /tmp/ccA5GFH8.s:211    .text:000000ae .Loc.37
+     /tmp/ccA5GFH8.s:213    .text:000000b0 .Loc.38
+     /tmp/ccA5GFH8.s:214    .text:000000b0 .Loc.39
+     /tmp/ccA5GFH8.s:218    .text:000000b4 .Loc.40
+     /tmp/ccA5GFH8.s:222    .text:000000b8 .Loc.41
+     /tmp/ccA5GFH8.s:223    .text:000000b8 .Loc.42
+     /tmp/ccA5GFH8.s:233    .text:000000ce .Loc.43
+     /tmp/ccA5GFH8.s:234    .text:000000ce .Loc.44
+     /tmp/ccA5GFH8.s:236    .text:000000d0 .Loc.45
+     /tmp/ccA5GFH8.s:241    .text:000000d8 .Loc.46
+     /tmp/ccA5GFH8.s:242    .text:000000d8 .Loc.47
+     /tmp/ccA5GFH8.s:244    .text:000000da .Loc.48
+     /tmp/ccA5GFH8.s:249    .text:000000e2 .Loc.49
+     /tmp/ccA5GFH8.s:251    .text:000000e4 L0
+     /tmp/ccA5GFH8.s:256    .text:000000e4 uart_init
+     /tmp/ccA5GFH8.s:258    .text:000000e4 .Loc.50
+     /tmp/ccA5GFH8.s:259    .text:000000e4 L0
+     /tmp/ccA5GFH8.s:264    .text:000000e4 .Loc.51
+     /tmp/ccA5GFH8.s:265    .text:000000e4 .Loc.52
+     /tmp/ccA5GFH8.s:267    .text:000000e8 .Loc.53
+     /tmp/ccA5GFH8.s:268    .text:000000e8 .Loc.54
+     /tmp/ccA5GFH8.s:271    .text:000000ee .Loc.55
+     /tmp/ccA5GFH8.s:272    .text:000000ee .Loc.56
+     /tmp/ccA5GFH8.s:278    .text:000000f8 .Loc.57
+     /tmp/ccA5GFH8.s:279    .text:000000f8 .Loc.58
+     /tmp/ccA5GFH8.s:282    .text:000000fe .Loc.59
+     /tmp/ccA5GFH8.s:283    .text:000000fe .Loc.60
+     /tmp/ccA5GFH8.s:287    .text:00000104 .Loc.61
+     /tmp/ccA5GFH8.s:289    .text:00000106 L0
+     /tmp/ccA5GFH8.s:300    .text.startup:00000000 main
+     /tmp/ccA5GFH8.s:302    .text.startup:00000000 .Loc.62
+     /tmp/ccA5GFH8.s:303    .text.startup:00000000 L0
+     /tmp/ccA5GFH8.s:304    .text.startup:00000002 L0
+     /tmp/ccA5GFH8.s:305    .text.startup:00000004 L0
+     /tmp/ccA5GFH8.s:314    .text.startup:00000008 .Loc.63
+     /tmp/ccA5GFH8.s:315    .text.startup:00000008 .Loc.64
+     /tmp/ccA5GFH8.s:321    .text.startup:00000012 .Loc.65
+     /tmp/ccA5GFH8.s:324    .text.startup:0000001a .Loc.66
+     /tmp/ccA5GFH8.s:325    .text.startup:0000001a .Loc.67
+     /tmp/ccA5GFH8.s:326    .text.startup:0000001a .Loc.68
+     /tmp/ccA5GFH8.s:329    .text.startup:0000001e .Loc.69
+     /tmp/ccA5GFH8.s:330    .text.startup:0000001e .Loc.70
+     /tmp/ccA5GFH8.s:416    .data:00000000 uart_file
+     /tmp/ccA5GFH8.s:337    .text.startup:0000002a .Loc.71
+     /tmp/ccA5GFH8.s:340    .text.startup:0000002e .Loc.72
+     /tmp/ccA5GFH8.s:343    .text.startup:00000032 .Loc.73
+     /tmp/ccA5GFH8.s:358    .text.startup:0000004e .Loc.74
+     /tmp/ccA5GFH8.s:373    .text.startup:0000006a .Loc.75
+     /tmp/ccA5GFH8.s:376    .text.startup:0000006e .Loc.76
+     /tmp/ccA5GFH8.s:377    .text.startup:0000006e .Loc.77
+     /tmp/ccA5GFH8.s:386    .text.startup:0000007c L0
+     /tmp/ccA5GFH8.s:392    .text:00000106 vApplicationIdleHook
+     /tmp/ccA5GFH8.s:394    .text:00000106 .Loc.78
+     /tmp/ccA5GFH8.s:395    .text:00000106 L0
+     /tmp/ccA5GFH8.s:400    .text:00000106 .Loc.79
+     /tmp/ccA5GFH8.s:403    .text:00000108 L0
+     /tmp/ccA5GFH8.s:434    .text:00000108 L0
+     /tmp/ccA5GFH8.s:389    .text.startup:0000007c L0
+                     .debug_frame:00000000 L0
+     /tmp/ccA5GFH8.s:50     .text:00000018 .L3
+     /tmp/ccA5GFH8.s:30     .text:00000004 .L2
+     /tmp/ccA5GFH8.s:84     .text:0000002e .L6
+     /tmp/ccA5GFH8.s:70     .text:0000001e .L5
+     /tmp/ccA5GFH8.s:144    .text:0000005c .L8
+     /tmp/ccA5GFH8.s:221    .text:000000b8 .L12
+     /tmp/ccA5GFH8.s:1195   .debug_abbrev:00000000 .Ldebug_abbrev0
+     /tmp/ccA5GFH8.s:1973   .debug_rnglists:0000000c .LLRL5
+     /tmp/ccA5GFH8.s:1983   .debug_line:00000000 .Ldebug_line0
+     /tmp/ccA5GFH8.s:103    .text:00000034 .LFB7
+     /tmp/ccA5GFH8.s:186    .text:000000a4 .LFE7
+     /tmp/ccA5GFH8.s:1789   .debug_loclists:00000010 .LLST3
+     /tmp/ccA5GFH8.s:1784   .debug_loclists:0000000c .LVUS3
+     /tmp/ccA5GFH8.s:130    .text:00000046 .LVL9
+     /tmp/ccA5GFH8.s:153    .text:00000068 .LVL10
+     /tmp/ccA5GFH8.s:170    .text:00000086 .LVL11
+     /tmp/ccA5GFH8.s:179    .text:0000009a .LVL12
+     /tmp/ccA5GFH8.s:191    .text:000000a4 .LFB6
+     /tmp/ccA5GFH8.s:252    .text:000000e4 .LFE6
+     /tmp/ccA5GFH8.s:1822   .debug_loclists:00000032 .LLST4
+     /tmp/ccA5GFH8.s:1817   .debug_loclists:0000002e .LVUS4
+     /tmp/ccA5GFH8.s:232    .text:000000ce .LVL15
+     /tmp/ccA5GFH8.s:240    .text:000000d8 .LVL16
+     /tmp/ccA5GFH8.s:248    .text:000000e2 .LVL17
+     /tmp/ccA5GFH8.s:393    .text:00000106 .LFB5
+     /tmp/ccA5GFH8.s:404    .text:00000108 .LFE5
+     /tmp/ccA5GFH8.s:301    .text.startup:00000000 .LFB4
+     /tmp/ccA5GFH8.s:387    .text.startup:0000007c .LFE4
+     /tmp/ccA5GFH8.s:320    .text.startup:00000012 .LVL18
+     /tmp/ccA5GFH8.s:328    .text.startup:0000001e .LVL19
+     /tmp/ccA5GFH8.s:357    .text.startup:0000004e .LVL20
+     /tmp/ccA5GFH8.s:372    .text.startup:0000006a .LVL21
+     /tmp/ccA5GFH8.s:375    .text.startup:0000006e .LVL22
+     /tmp/ccA5GFH8.s:62     .text:0000001e .LFB3
+     /tmp/ccA5GFH8.s:90     .text:00000034 .LFE3
+     /tmp/ccA5GFH8.s:1855   .debug_loclists:00000054 .LLST2
+     /tmp/ccA5GFH8.s:1850   .debug_loclists:00000050 .LVUS2
+     /tmp/ccA5GFH8.s:87     .text:00000032 .LVL6
+     /tmp/ccA5GFH8.s:15     .text:00000000 .LFB2
+     /tmp/ccA5GFH8.s:56     .text:0000001e .LFE2
+     /tmp/ccA5GFH8.s:1892   .debug_loclists:0000007a .LLST0
+     /tmp/ccA5GFH8.s:1883   .debug_loclists:00000072 .LVUS0
+     /tmp/ccA5GFH8.s:1922   .debug_loclists:00000099 .LLST1
+     /tmp/ccA5GFH8.s:1917   .debug_loclists:00000095 .LVUS1
+     /tmp/ccA5GFH8.s:53     .text:0000001c .LVL4
+     /tmp/ccA5GFH8.s:257    .text:000000e4 .LFB1
+     /tmp/ccA5GFH8.s:290    .text:00000106 .LFE1
+     /tmp/ccA5GFH8.s:102    .text:00000034 .LVL7
+     /tmp/ccA5GFH8.s:190    .text:000000a4 .LVL13
+     /tmp/ccA5GFH8.s:61     .text:0000001e .LVL5
+     /tmp/ccA5GFH8.s:14     .text:00000000 .LVL0
+     /tmp/ccA5GFH8.s:435    .debug_info:00000000 .Ldebug_info0
+     /tmp/ccA5GFH8.s:8      .text:00000000 .Ltext0
+     /tmp/ccA5GFH8.s:426    .text:00000108 .Letext0
+
+UNDEFINED SYMBOLS
+vPortYield
+puts
+scanf
+printf
+xQueueGenericSend
+xQueueReceive
+vTaskDelay
+xQueueGenericCreate
+__iob
+xTaskCreate
+vTaskStartScheduler
+__do_copy_data
+__do_clear_bss

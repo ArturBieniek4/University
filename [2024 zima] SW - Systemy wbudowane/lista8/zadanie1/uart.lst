@@ -1,0 +1,273 @@
+   1               		.file	"uart.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.file 0 "/MEGA/UWr/Systemy wbudowane/lista8/zadanie1" "uart.c"
+  11               	.global	uart_transmit
+  13               	uart_transmit:
+  14               	.LVL0:
+  15               	.LFB2:
+  16               		.file 1 "uart.c"
+   1:uart.c        **** #include "FreeRTOS.h"
+   2:uart.c        **** #include "task.h"
+   3:uart.c        **** #include <avr/io.h>
+   4:uart.c        **** #include <stdio.h>
+   5:uart.c        **** #include "uart.h"
+   6:uart.c        **** #ifndef F_CPU
+   7:uart.c        **** #define F_CPU 16000000UL
+   8:uart.c        **** #endif
+   9:uart.c        **** #ifndef BAUD
+  10:uart.c        **** #define BAUD 9600
+  11:uart.c        **** #endif
+  12:uart.c        **** #include <util/setbaud.h>
+  13:uart.c        **** 
+  14:uart.c        **** int uart_transmit(char c, FILE *stream);
+  15:uart.c        **** int uart_receive(FILE *stream);
+  16:uart.c        **** 
+  17:uart.c        **** FILE uart_file = FDEV_SETUP_STREAM(uart_transmit, uart_receive, _FDEV_SETUP_RW);
+  18:uart.c        **** 
+  19:uart.c        **** void uart_init() {
+  20:uart.c        ****   UBRR0H = UBRRH_VALUE;
+  21:uart.c        ****   UBRR0L = UBRRL_VALUE;
+  22:uart.c        **** #if USE_2X
+  23:uart.c        ****   UCSR0A |= _BV(U2X0);
+  24:uart.c        **** #else
+  25:uart.c        ****   UCSR0A &= ~(_BV(U2X0));
+  26:uart.c        **** #endif
+  27:uart.c        ****   UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data */
+  28:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+  29:uart.c        **** }
+  30:uart.c        **** 
+  31:uart.c        **** int uart_transmit(char c, FILE *stream) {
+  17               		.loc 1 31 41 view -0
+  18               		.cfi_startproc
+  19               		.loc 1 31 41 is_stmt 0 view .LVU1
+  20 0000 CF93      		push r28
+  21               		.cfi_def_cfa_offset 3
+  22               		.cfi_offset 28, -2
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	/* stack size = 1 */
+  26               	.L__stack_usage = 1
+  27 0002 C82F      		mov r28,r24
+  32:uart.c        ****   while (!(UCSR0A & _BV(UDRE0))) taskYIELD();
+  28               		.loc 1 32 3 is_stmt 1 view .LVU2
+  29               	.LVL1:
+  30               	.L2:
+  31               		.loc 1 32 10 discriminator 1 view .LVU3
+  32               		.loc 1 32 12 is_stmt 0 discriminator 1 view .LVU4
+  33 0004 8091 C000 		lds r24,192
+  34               		.loc 1 32 10 discriminator 1 view .LVU5
+  35 0008 85FF      		sbrs r24,5
+  36 000a 00C0      		rjmp .L3
+  33:uart.c        ****   UDR0 = c;
+  37               		.loc 1 33 3 is_stmt 1 view .LVU6
+  38               		.loc 1 33 8 is_stmt 0 view .LVU7
+  39 000c C093 C600 		sts 198,r28
+  34:uart.c        ****   return 0;
+  40               		.loc 1 34 3 is_stmt 1 view .LVU8
+  35:uart.c        **** }
+  41               		.loc 1 35 1 is_stmt 0 view .LVU9
+  42 0010 80E0      		ldi r24,0
+  43 0012 90E0      		ldi r25,0
+  44               	/* epilogue start */
+  45 0014 CF91      		pop r28
+  46               	.LVL2:
+  47               		.loc 1 35 1 view .LVU10
+  48 0016 0895      		ret
+  49               	.LVL3:
+  50               	.L3:
+  32:uart.c        ****   UDR0 = c;
+  51               		.loc 1 32 34 is_stmt 1 discriminator 2 view .LVU11
+  52 0018 0E94 0000 		call vPortYield
+  53               	.LVL4:
+  54 001c 00C0      		rjmp .L2
+  55               		.cfi_endproc
+  56               	.LFE2:
+  58               	.global	uart_receive
+  60               	uart_receive:
+  61               	.LVL5:
+  62               	.LFB3:
+  36:uart.c        **** 
+  37:uart.c        **** int uart_receive(FILE *stream) {
+  63               		.loc 1 37 32 view -0
+  64               		.cfi_startproc
+  65               	/* prologue: function */
+  66               	/* frame size = 0 */
+  67               	/* stack size = 0 */
+  68               	.L__stack_usage = 0
+  38:uart.c        ****   while (!(UCSR0A & _BV(RXC0))) taskYIELD();
+  69               		.loc 1 38 3 view .LVU13
+  70               	.L5:
+  71               		.loc 1 38 10 discriminator 1 view .LVU14
+  72               		.loc 1 38 12 is_stmt 0 discriminator 1 view .LVU15
+  73 001e 8091 C000 		lds r24,192
+  74               		.loc 1 38 10 discriminator 1 view .LVU16
+  75 0022 87FF      		sbrs r24,7
+  76 0024 00C0      		rjmp .L6
+  39:uart.c        ****   return UDR0;
+  77               		.loc 1 39 3 is_stmt 1 view .LVU17
+  78               		.loc 1 39 10 is_stmt 0 view .LVU18
+  79 0026 8091 C600 		lds r24,198
+  40:uart.c        **** }
+  80               		.loc 1 40 1 view .LVU19
+  81 002a 90E0      		ldi r25,0
+  82               	/* epilogue start */
+  83 002c 0895      		ret
+  84               	.L6:
+  38:uart.c        ****   while (!(UCSR0A & _BV(RXC0))) taskYIELD();
+  85               		.loc 1 38 33 is_stmt 1 discriminator 2 view .LVU20
+  86 002e 0E94 0000 		call vPortYield
+  87               	.LVL6:
+  88 0032 00C0      		rjmp .L5
+  89               		.cfi_endproc
+  90               	.LFE3:
+  92               	.global	uart_init
+  94               	uart_init:
+  95               	.LFB1:
+  19:uart.c        ****   UBRR0H = UBRRH_VALUE;
+  96               		.loc 1 19 18 view -0
+  97               		.cfi_startproc
+  98               	/* prologue: function */
+  99               	/* frame size = 0 */
+ 100               	/* stack size = 0 */
+ 101               	.L__stack_usage = 0
+  20:uart.c        ****   UBRR0L = UBRRL_VALUE;
+ 102               		.loc 1 20 3 view .LVU22
+  20:uart.c        ****   UBRR0L = UBRRL_VALUE;
+ 103               		.loc 1 20 10 is_stmt 0 view .LVU23
+ 104 0034 1092 C500 		sts 197,__zero_reg__
+  21:uart.c        **** #if USE_2X
+ 105               		.loc 1 21 3 is_stmt 1 view .LVU24
+  21:uart.c        **** #if USE_2X
+ 106               		.loc 1 21 10 is_stmt 0 view .LVU25
+ 107 0038 87E6      		ldi r24,lo8(103)
+ 108 003a 8093 C400 		sts 196,r24
+  25:uart.c        **** #endif
+ 109               		.loc 1 25 3 is_stmt 1 view .LVU26
+  25:uart.c        **** #endif
+ 110               		.loc 1 25 10 is_stmt 0 view .LVU27
+ 111 003e E0EC      		ldi r30,lo8(-64)
+ 112 0040 F0E0      		ldi r31,0
+ 113 0042 8081      		ld r24,Z
+ 114 0044 8D7F      		andi r24,lo8(-3)
+ 115 0046 8083      		st Z,r24
+  27:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+ 116               		.loc 1 27 3 is_stmt 1 view .LVU28
+  27:uart.c        ****   UCSR0B = _BV(RXEN0) | _BV(TXEN0); /* Enable RX and TX */
+ 117               		.loc 1 27 10 is_stmt 0 view .LVU29
+ 118 0048 86E0      		ldi r24,lo8(6)
+ 119 004a 8093 C200 		sts 194,r24
+  28:uart.c        **** }
+ 120               		.loc 1 28 3 is_stmt 1 view .LVU30
+  28:uart.c        **** }
+ 121               		.loc 1 28 10 is_stmt 0 view .LVU31
+ 122 004e 88E1      		ldi r24,lo8(24)
+ 123 0050 8093 C100 		sts 193,r24
+ 124               	/* epilogue start */
+  29:uart.c        **** 
+ 125               		.loc 1 29 1 view .LVU32
+ 126 0054 0895      		ret
+ 127               		.cfi_endproc
+ 128               	.LFE1:
+ 130               	.global	uart_file
+ 131               		.data
+ 134               	uart_file:
+ 135 0000 0000      		.word	0
+ 136 0002 00        		.byte	0
+ 137 0003 03        		.byte	3
+ 138 0004 0000      		.word	0
+ 139 0006 0000      		.word	0
+ 140 0008 0000      		.word	gs(uart_transmit)
+ 141 000a 0000      		.word	gs(uart_receive)
+ 142 000c 0000      		.word	0
+ 143               		.text
+ 144               	.Letext0:
+ 145               		.file 2 "/usr/avr/include/stdio.h"
+ 146               		.file 3 "/usr/avr/include/stdint.h"
+ 147               		.file 4 "uart.h"
+ 148               		.file 5 "./FreeRTOS/Source/portable/GCC/ATMega328/portmacro.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart.c
+     /tmp/ccwfsY6b.s:2      *ABS*:0000003e __SP_H__
+     /tmp/ccwfsY6b.s:3      *ABS*:0000003d __SP_L__
+     /tmp/ccwfsY6b.s:4      *ABS*:0000003f __SREG__
+     /tmp/ccwfsY6b.s:5      *ABS*:00000000 __tmp_reg__
+     /tmp/ccwfsY6b.s:6      *ABS*:00000001 __zero_reg__
+     /tmp/ccwfsY6b.s:13     .text:00000000 uart_transmit
+     /tmp/ccwfsY6b.s:17     .text:00000000 .Loc.0
+     /tmp/ccwfsY6b.s:18     .text:00000000 L0
+     /tmp/ccwfsY6b.s:19     .text:00000000 .Loc.1
+     /tmp/ccwfsY6b.s:28     .text:00000004 .Loc.2
+     /tmp/ccwfsY6b.s:31     .text:00000004 .Loc.3
+     /tmp/ccwfsY6b.s:32     .text:00000004 .Loc.4
+     /tmp/ccwfsY6b.s:34     .text:00000008 .Loc.5
+     /tmp/ccwfsY6b.s:37     .text:0000000c .Loc.6
+     /tmp/ccwfsY6b.s:38     .text:0000000c .Loc.7
+     /tmp/ccwfsY6b.s:40     .text:00000010 .Loc.8
+     /tmp/ccwfsY6b.s:41     .text:00000010 .Loc.9
+     /tmp/ccwfsY6b.s:47     .text:00000016 .Loc.10
+     /tmp/ccwfsY6b.s:51     .text:00000018 .Loc.11
+     /tmp/ccwfsY6b.s:55     .text:0000001e L0
+     /tmp/ccwfsY6b.s:60     .text:0000001e uart_receive
+     /tmp/ccwfsY6b.s:63     .text:0000001e .Loc.12
+     /tmp/ccwfsY6b.s:64     .text:0000001e L0
+     /tmp/ccwfsY6b.s:69     .text:0000001e .Loc.13
+     /tmp/ccwfsY6b.s:71     .text:0000001e .Loc.14
+     /tmp/ccwfsY6b.s:72     .text:0000001e .Loc.15
+     /tmp/ccwfsY6b.s:74     .text:00000022 .Loc.16
+     /tmp/ccwfsY6b.s:77     .text:00000026 .Loc.17
+     /tmp/ccwfsY6b.s:78     .text:00000026 .Loc.18
+     /tmp/ccwfsY6b.s:80     .text:0000002a .Loc.19
+     /tmp/ccwfsY6b.s:85     .text:0000002e .Loc.20
+     /tmp/ccwfsY6b.s:89     .text:00000034 L0
+     /tmp/ccwfsY6b.s:94     .text:00000034 uart_init
+     /tmp/ccwfsY6b.s:96     .text:00000034 .Loc.21
+     /tmp/ccwfsY6b.s:97     .text:00000034 L0
+     /tmp/ccwfsY6b.s:102    .text:00000034 .Loc.22
+     /tmp/ccwfsY6b.s:103    .text:00000034 .Loc.23
+     /tmp/ccwfsY6b.s:105    .text:00000038 .Loc.24
+     /tmp/ccwfsY6b.s:106    .text:00000038 .Loc.25
+     /tmp/ccwfsY6b.s:109    .text:0000003e .Loc.26
+     /tmp/ccwfsY6b.s:110    .text:0000003e .Loc.27
+     /tmp/ccwfsY6b.s:116    .text:00000048 .Loc.28
+     /tmp/ccwfsY6b.s:117    .text:00000048 .Loc.29
+     /tmp/ccwfsY6b.s:120    .text:0000004e .Loc.30
+     /tmp/ccwfsY6b.s:121    .text:0000004e .Loc.31
+     /tmp/ccwfsY6b.s:125    .text:00000054 .Loc.32
+     /tmp/ccwfsY6b.s:127    .text:00000056 L0
+     /tmp/ccwfsY6b.s:134    .data:00000000 uart_file
+     /tmp/ccwfsY6b.s:149    .text:00000056 L0
+                     .debug_frame:00000000 L0
+     /tmp/ccwfsY6b.s:50     .text:00000018 .L3
+     /tmp/ccwfsY6b.s:30     .text:00000004 .L2
+     /tmp/ccwfsY6b.s:84     .text:0000002e .L6
+     /tmp/ccwfsY6b.s:70     .text:0000001e .L5
+     /tmp/ccwfsY6b.s:368    .debug_abbrev:00000000 .Ldebug_abbrev0
+     /tmp/ccwfsY6b.s:8      .text:00000000 .Ltext0
+     /tmp/ccwfsY6b.s:144    .text:00000056 .Letext0
+     /tmp/ccwfsY6b.s:822    .debug_line:00000000 .Ldebug_line0
+     /tmp/ccwfsY6b.s:62     .text:0000001e .LFB3
+     /tmp/ccwfsY6b.s:90     .text:00000034 .LFE3
+     /tmp/ccwfsY6b.s:719    .debug_loclists:00000010 .LLST2
+     /tmp/ccwfsY6b.s:714    .debug_loclists:0000000c .LVUS2
+     /tmp/ccwfsY6b.s:87     .text:00000032 .LVL6
+     /tmp/ccwfsY6b.s:15     .text:00000000 .LFB2
+     /tmp/ccwfsY6b.s:56     .text:0000001e .LFE2
+     /tmp/ccwfsY6b.s:754    .debug_loclists:00000031 .LLST0
+     /tmp/ccwfsY6b.s:745    .debug_loclists:00000029 .LVUS0
+     /tmp/ccwfsY6b.s:782    .debug_loclists:0000004b .LLST1
+     /tmp/ccwfsY6b.s:777    .debug_loclists:00000047 .LVUS1
+     /tmp/ccwfsY6b.s:53     .text:0000001c .LVL4
+     /tmp/ccwfsY6b.s:95     .text:00000034 .LFB1
+     /tmp/ccwfsY6b.s:128    .text:00000056 .LFE1
+     /tmp/ccwfsY6b.s:150    .debug_info:00000000 .Ldebug_info0
+
+UNDEFINED SYMBOLS
+vPortYield
+__do_copy_data
