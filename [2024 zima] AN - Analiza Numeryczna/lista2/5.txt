@@ -1,0 +1,15 @@
+- wspierany przez większość procesorów natywnie
+- Mantysa od [1 do 2)
+Single precision: 1 | 8 | 23
+Double precision: 1 | 11| 52
+Trzy rodzaje liczb:
+- expo=0 zdenormalizowane
+    zero i liczby bliskie zero, równoodległe
+- expo=111111111 specjalne
+    infinity, nan
+- wpp znormalizowane
+    Exponent coded as a biased value: E = Exp – Bias
+ Exp: unsigned value of exp field
+ Bias = 2 k-1 - 1, where k is number of exponent bits
+Dzięki temu w zerze nie ma wielkiej dziury
+I mamy round to even domyślnie
