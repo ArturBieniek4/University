@@ -1,0 +1,6 @@
+Funkcja pure:
+    - dla takich samych wejść zawsze zwraca to samo
+    - nie ma żadnych efektów ubocznych
+
+W godbolcie nie działa pure.
+Kompilator jest zbyt mądry i wywnioskowuje nawet że jest to strlen XD

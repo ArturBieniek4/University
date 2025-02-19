@@ -1,0 +1,7 @@
+Profiluje się po to, aby zauważyć, jakie funkcje zabierają najwięcej czasu i w związku z czym warto je dobrze optymalizować.
+
+Profil płaski to pierwsza część gprof, profil grafu wywołań to druga
+
+Trzeba wywołać ze specjalną flagą, aby kompilator umieścił kod profilujący wewnątrz programu
+
+Zliczanie interwałowe polega na tym, że co jakiś czas program dostaje przerwanie od procesora i patrzy, w której instrukcji aktualnie jest. Daje sensowne wyniki w programach które wykonują się dłużej niż sekundę.

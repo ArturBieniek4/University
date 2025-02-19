@@ -1,0 +1,2 @@
+IRQ numery przerwań
+W /proc/interrupts są ilości przerwań na każdy rdzeń

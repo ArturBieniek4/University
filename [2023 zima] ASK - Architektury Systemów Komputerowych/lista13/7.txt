@@ -1,0 +1,3 @@
+CR3:
+- fizyczny adres tablicy stron - 20 bitów
+- processor context identifier - 12 bitów - IZOLACJA

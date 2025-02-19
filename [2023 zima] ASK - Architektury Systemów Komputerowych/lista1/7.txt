@@ -1,0 +1,21 @@
+i=0
+ILoop:
+    j=i
+    JLoop:
+        t5=j*4
+        temp=arr[t5]
+        t6=t5-4
+        arr[t5]=arr[t6]
+        arr[t6]=temp
+        j=j-1
+    JTest:
+        if j>0 goto JTest2
+    goto IPlus
+    JTest2:
+        t1=j*4
+        t2=arr[t1]
+        t3=t1-4
+        t4=arr[t3]
+        if t3<t4 goto JLoop
+IPlus: i=i+1
+ITest: if i<length goto ILoop

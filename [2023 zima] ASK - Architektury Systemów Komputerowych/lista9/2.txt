@@ -1,0 +1,2 @@
+U mnie generuje kod normalnie.
+readelf -a pliki/even

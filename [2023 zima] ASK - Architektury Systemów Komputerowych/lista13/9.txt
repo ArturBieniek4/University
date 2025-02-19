@@ -1,0 +1,7 @@
+Nie mam swapa lol
+Zbiór roboczy to realnie często używane strony przez pamięć,
+zbiór rezydentny to cała pamięć wirtualna procesu.
+Zważywszy na fakt, że każdy proces ma obowiązkowo np. 40MB offsetu od 0, to w zbiorze rezydentnym są rzeczy czasem zupełnie nieużywane
+Jak się kończy ram to system musi używać swapa.
+Jeżeli używamy więcej ramu niż mamy to do wielkości ram+swap procesor będzie szamotał,
+potem zwyczajnie zacznie killować procesy wpierdalające ram

@@ -1,0 +1,19 @@
+.data
+00000000 foo # rozmiar 2
+00000032 some # rozmiar 38
+00000032 wierd # rozmiar 8
+00000040 long
+00000044 zero 4
+00000048 abc #rozmiar 8
+00000056 foo #rozmiar 8
+
+.rodata
+00000000 abc # rozmiar 4
+
+.bss
+00000000 bar # rozmiar 8
+00000032 array # rozmiar 800
+
+Relokujemy weird na początek żeby było lepiej z tym offsetem
+Rodata na 10 (czemu nie 8? wtf?)
+foo na 18 (czemu nie na 14? wtf?)

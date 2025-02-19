@@ -1,0 +1,35 @@
+Procedura kopiuje wartość z from do to o długości count.
+
+1 void secret(uint8_t *to, uint8_t *from, size_t count) {
+2 size_t n = (count + 7) / 8;
+3 switch (count % 8) {
+4 case 0: do { *to++ = *from++;
+5 case 7: *to++ = *from++;
+6 case 6: *to++ = *from++;
+7 case 5: *to++ = *from++;
+8 case 4: *to++ = *from++;
+9 case 3: *to++ = *from++;
+10 case 2: *to++ = *from++;
+11 case 1: *to++ = *from++;
+12 } while (--n > 0);
+13 }
+14 }
+
+Działa to w ten sposób, że switch wskoczy w pętlę od środka w przypadku niepodzielności przez 8.
+Rozwiązanie z goto:
+
+void secret(uint8_t *to, uint8_t *from, size_t count) {
+size_t n = (count + 7) / 8;
+
+void* arr[]={&&c0, &&c1, &&c2, &&c3, &&c4, &&c5, &&c6, &&c7};
+goto (count%8);
+c0: do { *to++ = *from++;
+c7: *to++ = *from++;
+c6: *to++ = *from++;
+c5: *to++ = *from++;
+c4: *to++ = *from++;
+c3: *to++ = *from++;
+c2: *to++ = *from++;
+c1: *to++ = *from++;
+} while (--n > 0);
+}

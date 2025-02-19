@@ -1,0 +1,546 @@
+    PID   RSS    VSZ CMD
+      1  8640 169096 /sbin/init splash
+      2     0      0 [kthreadd]
+      3     0      0 [rcu_gp]
+      4     0      0 [rcu_par_gp]
+      5     0      0 [slub_flushwq]
+      6     0      0 [netns]
+      8     0      0 [kworker/0:0H-events_highpri]
+     11     0      0 [mm_percpu_wq]
+     12     0      0 [rcu_tasks_kthread]
+     13     0      0 [rcu_tasks_rude_kthread]
+     14     0      0 [rcu_tasks_trace_kthread]
+     15     0      0 [ksoftirqd/0]
+     16     0      0 [rcu_preempt]
+     17     0      0 [migration/0]
+     18     0      0 [idle_inject/0]
+     19     0      0 [cpuhp/0]
+     20     0      0 [cpuhp/1]
+     21     0      0 [idle_inject/1]
+     22     0      0 [migration/1]
+     23     0      0 [ksoftirqd/1]
+     25     0      0 [kworker/1:0H-events_highpri]
+     26     0      0 [cpuhp/2]
+     27     0      0 [idle_inject/2]
+     28     0      0 [migration/2]
+     29     0      0 [ksoftirqd/2]
+     31     0      0 [kworker/2:0H-events_highpri]
+     32     0      0 [cpuhp/3]
+     33     0      0 [idle_inject/3]
+     34     0      0 [migration/3]
+     35     0      0 [ksoftirqd/3]
+     37     0      0 [kworker/3:0H-events_highpri]
+     38     0      0 [cpuhp/4]
+     39     0      0 [idle_inject/4]
+     40     0      0 [migration/4]
+     41     0      0 [ksoftirqd/4]
+     43     0      0 [kworker/4:0H-events_highpri]
+     44     0      0 [cpuhp/5]
+     45     0      0 [idle_inject/5]
+     46     0      0 [migration/5]
+     47     0      0 [ksoftirqd/5]
+     49     0      0 [kworker/5:0H-events_highpri]
+     50     0      0 [cpuhp/6]
+     51     0      0 [idle_inject/6]
+     52     0      0 [migration/6]
+     53     0      0 [ksoftirqd/6]
+     55     0      0 [kworker/6:0H-events_highpri]
+     56     0      0 [cpuhp/7]
+     57     0      0 [idle_inject/7]
+     58     0      0 [migration/7]
+     59     0      0 [ksoftirqd/7]
+     61     0      0 [kworker/7:0H-events_highpri]
+     62     0      0 [cpuhp/8]
+     63     0      0 [idle_inject/8]
+     64     0      0 [migration/8]
+     65     0      0 [ksoftirqd/8]
+     67     0      0 [kworker/8:0H-events_highpri]
+     68     0      0 [cpuhp/9]
+     69     0      0 [idle_inject/9]
+     70     0      0 [migration/9]
+     71     0      0 [ksoftirqd/9]
+     73     0      0 [kworker/9:0H-events_highpri]
+     74     0      0 [cpuhp/10]
+     75     0      0 [idle_inject/10]
+     76     0      0 [migration/10]
+     77     0      0 [ksoftirqd/10]
+     79     0      0 [kworker/10:0H-events_highpri]
+     80     0      0 [cpuhp/11]
+     81     0      0 [idle_inject/11]
+     82     0      0 [migration/11]
+     83     0      0 [ksoftirqd/11]
+     85     0      0 [kworker/11:0H-events_highpri]
+     86     0      0 [cpuhp/12]
+     87     0      0 [idle_inject/12]
+     88     0      0 [migration/12]
+     89     0      0 [ksoftirqd/12]
+     91     0      0 [kworker/12:0H-events_highpri]
+     92     0      0 [cpuhp/13]
+     93     0      0 [idle_inject/13]
+     94     0      0 [migration/13]
+     95     0      0 [ksoftirqd/13]
+     97     0      0 [kworker/13:0H-events_highpri]
+     98     0      0 [cpuhp/14]
+     99     0      0 [idle_inject/14]
+    100     0      0 [migration/14]
+    101     0      0 [ksoftirqd/14]
+    103     0      0 [kworker/14:0H-events_highpri]
+    104     0      0 [cpuhp/15]
+    105     0      0 [idle_inject/15]
+    106     0      0 [migration/15]
+    107     0      0 [ksoftirqd/15]
+    109     0      0 [kworker/15:0H-events_highpri]
+    110     0      0 [cpuhp/16]
+    111     0      0 [idle_inject/16]
+    112     0      0 [migration/16]
+    113     0      0 [ksoftirqd/16]
+    115     0      0 [kworker/16:0H-events_highpri]
+    116     0      0 [cpuhp/17]
+    117     0      0 [idle_inject/17]
+    118     0      0 [migration/17]
+    119     0      0 [ksoftirqd/17]
+    121     0      0 [kworker/17:0H-events_highpri]
+    122     0      0 [cpuhp/18]
+    123     0      0 [idle_inject/18]
+    124     0      0 [migration/18]
+    125     0      0 [ksoftirqd/18]
+    127     0      0 [kworker/18:0H-events_highpri]
+    128     0      0 [cpuhp/19]
+    129     0      0 [idle_inject/19]
+    130     0      0 [migration/19]
+    131     0      0 [ksoftirqd/19]
+    133     0      0 [kworker/19:0H-events_highpri]
+    134     0      0 [cpuhp/20]
+    135     0      0 [idle_inject/20]
+    136     0      0 [migration/20]
+    137     0      0 [ksoftirqd/20]
+    139     0      0 [kworker/20:0H-events_highpri]
+    140     0      0 [cpuhp/21]
+    141     0      0 [idle_inject/21]
+    142     0      0 [migration/21]
+    143     0      0 [ksoftirqd/21]
+    145     0      0 [kworker/21:0H-events_highpri]
+    146     0      0 [cpuhp/22]
+    147     0      0 [idle_inject/22]
+    148     0      0 [migration/22]
+    149     0      0 [ksoftirqd/22]
+    151     0      0 [kworker/22:0H-events_highpri]
+    152     0      0 [cpuhp/23]
+    153     0      0 [idle_inject/23]
+    154     0      0 [migration/23]
+    155     0      0 [ksoftirqd/23]
+    157     0      0 [kworker/23:0H-events_highpri]
+    158     0      0 [kdevtmpfs]
+    159     0      0 [inet_frag_wq]
+    161     0      0 [kauditd]
+    165     0      0 [khungtaskd]
+    166     0      0 [oom_reaper]
+    168     0      0 [writeback]
+    169     0      0 [kcompactd0]
+    170     0      0 [ksmd]
+    171     0      0 [khugepaged]
+    172     0      0 [kintegrityd]
+    173     0      0 [kblockd]
+    174     0      0 [blkcg_punt_bio]
+    176     0      0 [tpm_dev_wq]
+    177     0      0 [ata_sff]
+    178     0      0 [md]
+    179     0      0 [md_bitmap]
+    180     0      0 [edac-poller]
+    181     0      0 [devfreq_wq]
+    182     0      0 [watchdogd]
+    183     0      0 [kworker/0:1H-kblockd]
+    184     0      0 [irq/27-AMD-Vi]
+    185     0      0 [kswapd0]
+    186     0      0 [ecryptfs-kthread]
+    187     0      0 [kthrotld]
+    188     0      0 [irq/28-aerdrv]
+    189     0      0 [irq/29-aerdrv]
+    190     0      0 [irq/30-aerdrv]
+    191     0      0 [irq/31-aerdrv]
+    213     0      0 [acpi_thermal_pm]
+    214     0      0 [mld]
+    215     0      0 [ipv6_addrconf]
+    223     0      0 [kstrp]
+    225     0      0 [kworker/u65:0]
+    229     0      0 [charger_manager]
+    249     0      0 [kworker/8:1H-kblockd]
+    264     0      0 [kworker/15:1H-kblockd]
+    265     0      0 [kworker/17:1H-kblockd]
+    266     0      0 [kworker/23:1H-kblockd]
+    267     0      0 [kworker/16:1H-kblockd]
+    269     0      0 [kworker/7:1H-kblockd]
+    270     0      0 [kworker/9:1H-kblockd]
+    271     0      0 [kworker/12:1H-kblockd]
+    273     0      0 [kworker/14:1H-kblockd]
+    276     0      0 [kworker/18:1H-kblockd]
+    277     0      0 [kworker/6:1H-kblockd]
+    278     0      0 [kworker/22:1H-kblockd]
+    279     0      0 [kworker/10:1H-kblockd]
+    280     0      0 [kworker/13:1H-kblockd]
+    281     0      0 [kworker/19:1H-kblockd]
+    282     0      0 [kworker/11:1H-kblockd]
+    284     0      0 [kworker/20:1H-kblockd]
+    286     0      0 [kworker/21:1H-kblockd]
+    295     0      0 [kworker/5:1H-kblockd]
+    297     0      0 [kworker/2:1H-kblockd]
+    298     0      0 [scsi_eh_0]
+    299     0      0 [scsi_tmf_0]
+    300     0      0 [scsi_eh_1]
+    301     0      0 [scsi_tmf_1]
+    302     0      0 [scsi_eh_2]
+    303     0      0 [scsi_tmf_2]
+    304     0      0 [scsi_eh_3]
+    305     0      0 [scsi_tmf_3]
+    306     0      0 [scsi_eh_4]
+    307     0      0 [scsi_tmf_4]
+    309     0      0 [scsi_eh_5]
+    310     0      0 [scsi_tmf_5]
+    311     0      0 [scsi_eh_6]
+    312     0      0 [scsi_tmf_6]
+    313     0      0 [scsi_eh_7]
+    314     0      0 [scsi_tmf_7]
+    322     0      0 [nvme-wq]
+    323     0      0 [nvme-reset-wq]
+    324     0      0 [nvme-delete-wq]
+    325     0      0 [nvme-auth-wq]
+    331     0      0 [kworker/1:1H-kblockd]
+    363     0      0 [kworker/3:1H-kblockd]
+    364     0      0 [kworker/4:1H-kblockd]
+    486     0      0 [uas]
+    536     0      0 [jbd2/sdb2-8]
+    537     0      0 [ext4-rsv-conver]
+    587 14836 126804 /lib/systemd/systemd-journald
+    665  3840  27752 /lib/systemd/systemd-udevd
+    911     0      0 [cryptd]
+    995  2940  13932 /sbin/mount.ntfs /dev/sdb1 /media/artur/1T -o rw,nosuid,nodev
+    996     0      0 [nv_queue]
+    997     0      0 [nv_queue]
+   1048  2688  14836 /lib/systemd/systemd-oomd
+   1049  6144  26068 /lib/systemd/systemd-resolved
+   1050  2496  89720 /lib/systemd/systemd-timesyncd
+   1052     0      0 [nvidia-modeset/kthread_q]
+   1053     0      0 [nvidia-modeset/deferred_close_kthread_q]
+   1056     0      0 [irq/106-nvidia]
+   1057     0      0 [nvidia]
+   1058     0      0 [nv_queue]
+   1170   960   2816 /usr/sbin/acpid
+   1173  1920   7764 avahi-daemon: running [AKB-Ubuntu.local]
+   1175  4416  13576 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   1176  9408 340932 /usr/sbin/NetworkManager --no-daemon
+   1182  2112  82844 /usr/sbin/irqbalance --foreground
+   1191 10176  43700 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+   1196  9592 237604 /usr/libexec/polkitd --no-debug
+   1198  1344 250840 /usr/libexec/okimfpdrv/scand
+   1200  2880 242572 /usr/libexec/power-profiles-daemon
+   1203  2496 222456 /usr/sbin/rsyslogd -n -iNONE
+   1209 17368 2947436 /usr/lib/snapd/snapd
+   1210  3456 243000 /usr/libexec/accounts-daemon
+   1212  1344  12028 /usr/sbin/cron -f -P
+   1213  2688 239020 /usr/libexec/switcheroo-control
+   1215  3528  48316 /lib/systemd/systemd-logind
+   1216  2880  14952 /lib/systemd/systemd-machined
+   1222  7028 394300 /usr/libexec/udisks2/udisksd
+   1223  1920  16504 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+   1227   768   7496 avahi-daemon: chroot helper
+   1322  7232 1555120 /usr/sbin/libvirtd
+   1329     0   2892 /bin/sh /snap/cups/1047/scripts/run-cups-browsed
+   1333   384   2892 /bin/sh /snap/cups/1047/scripts/run-cupsd
+   1343 10560 120728 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+   1370  3444 244236 /usr/sbin/ModemManager
+   1394     0      0 [UVM global queue]
+   1395     0      0 [UVM deferred release queue]
+   1397 19212 2541100 /usr/bin/containerd
+   1431     0      0 [UVM Tools Event Queue]
+   1461   960   5324 /usr/bin/nvidia-persistenced --user nvidia-persistenced --no-persistence-mode --verbose
+   1565  3264 243876 /usr/sbin/gdm3
+   1651  3264 173052 gdm-session-worker [pam/gdm-autologin]
+   1694  5840  18576 /lib/systemd/systemd --user
+   1697  6148 170964 (sd-pam)
+   1725  1348  10112 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib/libvirt/libvirt_leaseshelper
+   1728   772  10084 /usr/sbin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib/libvirt/libvirt_leaseshelper
+   1846  1920  42124 /usr/bin/pipewire
+   1847  1152  26128 /usr/bin/pipewire-media-session
+   1848 20316 10416184 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+   1862  3080 391040 /usr/bin/gnome-keyring-daemon --daemonize --login
+   1882  1728 154004 /usr/libexec/rtkit-daemon
+   1909  2688 164964 /usr/libexec/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   1910  4252  10952 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+   1912 240132 25742692 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3
+   2240  3456 243284 /usr/libexec/gvfsd
+   2263  2496 380896 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+   2474  1728  66624 cupsd -f -s /var/snap/cups/common/etc/cups/cups-files.conf -c /var/snap/cups/common/etc/cups/cupsd.conf
+   2503  4608 225576 /usr/libexec/gnome-session-binary --session=ubuntu
+   2572  1152   2892 /bin/sh /snap/cups/1047/scripts/run-cups-browsed
+   2610  2880 309680 /usr/libexec/at-spi-bus-launcher
+   2616  2304   8748 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_0
+   2623  2112  94444 /usr/libexec/gnome-session-ctl --monitor
+   2635  5376 448312 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+   2655 922556 7054696 /usr/bin/gnome-shell
+   2703  2496 386764 /usr/libexec/xdg-permission-store
+   2705  6528 583072 /usr/libexec/gnome-shell-calendar-server
+   2713  5952 1074816 /usr/libexec/evolution-source-registry
+   2718  3456 244828 /usr/libexec/upowerd
+   2723 10404 296356 /usr/libexec/geoclue
+   2725  9984 584544 /usr/libexec/goa-daemon
+   2728 22080 158596 /usr/libexec/dconf-service
+   2734  5760 540116 /usr/libexec/gvfs-udisks2-volume-monitor
+   2737  7680 1318360 /usr/libexec/evolution-calendar-factory
+   2753  4224 340936 /usr/libexec/goa-identity-service
+   2754  3072 240208 /usr/libexec/gvfs-gphoto2-volume-monitor
+   2767  2688 239124 /usr/libexec/gvfs-mtp-volume-monitor
+   2774  5952 683056 /usr/libexec/evolution-addressbook-factory
+   2778  3072 317744 /usr/libexec/gvfs-afc-volume-monitor
+   2785  2688 239168 /usr/libexec/gvfs-goa-volume-monitor
+   2797 24416 375364 /usr/libexec/packagekitd
+   2807  3072 165964 /usr/libexec/gvfsd-metadata
+   2808  4224 317648 /usr/libexec/gvfsd-trash --spawner :1.5 /org/gtk/gvfs/exec_spaw/0
+   2817  2112  38952 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+   2840  3456 613304 /usr/libexec/xdg-document-portal
+   2845   960   2796 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+   2846  5952 757716 /usr/libexec/xdg-desktop-portal
+   2860 92576 1508048 /usr/libexec/xdg-desktop-portal-gnome
+   2889 18316 454712 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+   2911 16168 2934368 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+   2913  2688 162820 /usr/libexec/at-spi2-registryd --use-gnome-session
+   2933   960   2892 sh -c /usr/bin/ibus-daemon --panel disable $([ "$XDG_SESSION_TYPE" = "x11" ] && echo "--xim")
+   2934  2496 313016 /usr/libexec/gsd-a11y-settings
+   2937  7640 318028 /usr/bin/ibus-daemon --panel disable --xim
+   2938 10508 466108 /usr/libexec/gsd-color
+   2943  4416 378056 /usr/libexec/gsd-datetime
+   2944  3840 315816 /usr/libexec/gsd-housekeeping
+   2950  9128 343864 /usr/libexec/gsd-keyboard
+   2954 11104 867692 /usr/libexec/gsd-media-keys
+   2956 10660 453952 /usr/libexec/gsd-power
+   2958  3840 252388 /usr/libexec/gsd-print-notifications
+   2963  2496 460392 /usr/libexec/gsd-rfkill
+   2967  2304 238952 /usr/libexec/gsd-screensaver-proxy
+   2968  3264 468540 /usr/libexec/gsd-sharing
+   2970  2880 314900 /usr/libexec/gsd-smartcard
+   2973  2688 321936 /usr/libexec/gsd-sound
+   2976  9348 344252 /usr/libexec/gsd-wacom
+   2978 10004 346004 /usr/libexec/gsd-xsettings
+   2998 18756 825432 /usr/libexec/evolution-data-server/evolution-alarm-notify
+   3008  4224 232272 /usr/libexec/gsd-disk-utility-notify
+   3031 16241344 246645604 qbittorrent
+   3052  2688 239892 /usr/libexec/ibus-dconf
+   3061 14056 275088 /usr/libexec/ibus-extension-gtk3
+   3068  8996 196576 /usr/libexec/ibus-x11 --kill-daemon
+   3071  2496 240060 /usr/libexec/ibus-portal
+   3087  5160 248012 /usr/libexec/colord
+   3103 67612 1461256 /snap/snap-store/1113/usr/bin/snap-store --gapplication-service
+   3147  4416 344896 /usr/libexec/gsd-printer
+   3152 11076 3007568 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver
+   3154 10640 345744 /usr/libexec/xdg-desktop-portal-gtk
+   3213  2496 166288 /usr/libexec/ibus-engine-simple
+   3220 24024 723536 /usr/libexec/tracker-miner-fs-3
+   3557 31144 2871092 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+   3591  1536  13092 /usr/sbin/kerneloops --test
+   3593  1728  13092 /usr/sbin/kerneloops
+   3596 33644 1834616 /usr/bin/tor --defaults-torrc /usr/share/tor/tor-service-defaults-torrc -f /etc/tor/torrc --RunAsDaemon 0
+   3598  7760 2707900 /opt/teamviewer/tv_bin/teamviewerd -d
+   3668 63116 3447452 /opt/teamviewer/tv_bin/TeamViewer
+   4077  4504 722280 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 51ce1b48eda9bd8c46bcfb1e8d06d88425fc53de7f47ef3fa84207baa2221930 -address /run/containerd/containerd.sock
+   4083  3604 722536 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 7c077ee0a47b9180d1db16b7d1282f52e1e532429e0c6b857e0918aeee195a13 -address /run/containerd/containerd.sock
+   4140 123624 388276 /app/presearch-node
+   4144 14016 723540 /watchtower --cleanup --interval 900 presearch-auto-updater presearch-node
+   8151 71384 2765952 megasync
+   9053  8872 2568516 /usr/bin/snap userd
+  14861     0      0 [tls-strp]
+  16383  4224 284240 /usr/libexec/gvfsd-http --spawner :1.5 /org/gtk/gvfs/exec_spaw/1
+  18886  2112   7980 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+  27870 18144 394316 /usr/bin/seahorse --gapplication-service
+  27871 18092 896888 /usr/bin/gnome-calendar --gapplication-service
+  27956  1152  86520 /usr/bin/gpg-agent --supervised
+  30277  4800  15436 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+  32063 428636 1177554996 /opt/Spacemesh/spacemesh_app
+  32066 13248 33790364 /opt/Spacemesh/spacemesh_app --type=zygote --no-zygote-sandbox
+  32067 12864 33790352 /opt/Spacemesh/spacemesh_app --type=zygote
+  32069  9276 33790352 /opt/Spacemesh/spacemesh_app --type=zygote
+  32094 124236 34341936 /opt/Spacemesh/spacemesh_app --type=gpu-process --enable-crash-reporter=d8471e99-8e15-4b67-b657-c3febc1924d5,no_channel --user-data-dir=/home/artur/.config/Spacemesh --gpu-preferences=WAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAGAAAAAAAAAAYAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,12300666153116574272,4747559333083905652,262144 --disable-features=SpareRendererForSitePerProcess
+  32112 14016 33839908 /opt/Spacemesh/spacemesh_app --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --enable-crash-reporter=d8471e99-8e15-4b67-b657-c3febc1924d5,no_channel --user-data-dir=/home/artur/.config/Spacemesh --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,12300666153116574272,4747559333083905652,262144 --disable-features=SpareRendererForSitePerProcess
+  32116 68372 1185826580 /opt/Spacemesh/spacemesh_app --type=renderer --enable-crash-reporter=d8471e99-8e15-4b67-b657-c3febc1924d5,no_channel --user-data-dir=/home/artur/.config/Spacemesh --app-path=/opt/Spacemesh/resources/app.asar --no-sandbox --no-zygote --first-renderer-process --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1717315536301655 --launch-time-ticks=21884285259 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,12300666153116574272,4747559333083905652,262144 --disable-features=SpareRendererForSitePerProcess
+  32132 32496 34054956 /opt/Spacemesh/spacemesh_app --type=broker
+  32201 7638656 16918408 /opt/Spacemesh/node/go-spacemesh --config /home/artur/.config/Spacemesh/node-config.json -d /media/artur/1T/Smesh_data/7c8cef2b --grpc-private-listener 127.0.0.1:9093
+  32429  2688 1705168 /opt/Spacemesh/node/service --address http://127.0.0.1:35361 --min-num-units 4 --max-num-units 1048576 --k1 26 --k2 37 --pow-difficulty 000dfb23b0979b4b000000000000000000000000000000000000000000000000 --dir /media/artur/SMESH/SMESH -n 8192 -r 1 -p 1 --threads 23 --nonces 288 --randomx-mode fast --watch-pid 32201 --max-retries 10
+  53984  4408 120384 /usr/bin/speech-dispatcher -s -t 0
+  53995     0      0 [sd_espeak-ng-mb] <defunct>
+  53998  4608 108120 /usr/lib/speech-dispatcher-modules/sd_espeak-ng /etc/speech-dispatcher/modules/espeak-ng.conf
+  54001  2304 358220 /usr/lib/speech-dispatcher-modules/sd_dummy /etc/speech-dispatcher/modules/dummy.conf
+  54180  3456 391320 /usr/libexec/gvfsd-network --spawner :1.5 /org/gtk/gvfs/exec_spaw/2
+  54192  5568 527744 /usr/libexec/gvfsd-smb-browse --spawner :1.5 /org/gtk/gvfs/exec_spaw/3
+  54199  3648 319360 /usr/libexec/gvfsd-dnssd --spawner :1.5 /org/gtk/gvfs/exec_spaw/4
+ 122267 45264 906392 /usr/libexec/gnome-terminal-server
+ 122290  2880  14272 bash
+ 122430  9064 3789432 adb -L tcp:5037 fork-server server --reply-fd 4
+ 122445 49600 3909160 scrcpy -s 192.168.1.101 --window-title 101 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122450 51032 3786276 scrcpy -s 192.168.1.102 --window-title 102 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122511  1728  85264 adb -s 192.168.1.102:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=36f9c889 log_level=info video_bit_rate=500000 max_size=1024
+ 122513 49360 3122732 scrcpy -s 192.168.1.103 --window-title 103 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122519 50308 3517136 scrcpy -s 192.168.1.104 --window-title 104 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122551 50868 3917352 scrcpy -s 192.168.1.105 --window-title 105 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122618 49748 3647040 scrcpy -s 192.168.1.107 --window-title 107 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122646  1536  85264 adb -s 192.168.1.103:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=3e777bd0 log_level=info video_bit_rate=500000 max_size=1024
+ 122657 50836 3909164 scrcpy -s 192.168.1.108 --window-title 108 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 122689  1344  85264 adb -s 192.168.1.105:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=00ae48aa log_level=info video_bit_rate=500000 max_size=1024
+ 122739  1344  85264 adb -s 192.168.1.104:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=6c6d48aa log_level=info video_bit_rate=500000 max_size=1024
+ 122773  1344  85264 adb -s 192.168.1.107:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=2c131584 log_level=info video_bit_rate=500000 max_size=1024
+ 122782  1728  85264 adb -s 192.168.1.101:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=3437c889 log_level=info video_bit_rate=500000 max_size=1024
+ 122788  1920  85264 adb -s 192.168.1.108:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=1a69e25e log_level=info video_bit_rate=500000 max_size=1024
+ 122906  2880  14008 bash
+ 123308 50220 2860592 scrcpy -s 192.168.1.141 --window-title 141 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123313 50704 2731268 scrcpy -s 192.168.1.142 --window-title 142 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123344 50372 3515948 scrcpy -s 192.168.1.143 --window-title 143 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123375 50160 3384880 scrcpy -s 192.168.1.144 --window-title 144 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123408  1536  85264 adb -s 192.168.1.141:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=37303e40 log_level=info video_bit_rate=500000 max_size=1024
+ 123409 49896 3909172 scrcpy -s 192.168.1.145 --window-title 145 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123472  1728  85264 adb -s 192.168.1.142:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=744224ad log_level=info video_bit_rate=500000 max_size=1024
+ 123484  1536  85264 adb -s 192.168.1.143:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=2e1e0b1a log_level=info video_bit_rate=500000 max_size=1024
+ 123501  1536  85264 adb -s 192.168.1.144:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=4812f187 log_level=info video_bit_rate=500000 max_size=1024
+ 123506  1728  85264 adb -s 192.168.1.145:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=6450d7f4 log_level=info video_bit_rate=500000 max_size=1024
+ 123679  2880  14008 bash
+ 123702 50648 2999848 scrcpy -s 192.168.1.151 --window-title 151 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123707 50748 3393076 scrcpy -s 192.168.1.152 --window-title 152 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123739 50980 4310572 scrcpy -s 192.168.1.153 --window-title 153 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123771 51460 3130920 scrcpy -s 192.168.1.154 --window-title 154 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123801  1536  85264 adb -s 192.168.1.151:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=2cfce5e0 log_level=info video_bit_rate=500000 max_size=1024
+ 123837 50676 4310572 scrcpy -s 192.168.1.155 --window-title 155 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 123843  1536  85264 adb -s 192.168.1.152:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=67aacc4d log_level=info video_bit_rate=500000 max_size=1024
+ 123881  1536  85264 adb -s 192.168.1.153:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=23d1b2ba log_level=info video_bit_rate=500000 max_size=1024
+ 123890  1728  85264 adb -s 192.168.1.154:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=7cf69927 log_level=info video_bit_rate=500000 max_size=1024
+ 123900  1728  85264 adb -s 192.168.1.155:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=51c06601 log_level=info video_bit_rate=500000 max_size=1024
+ 124083  2880  14008 bash
+ 124105 49544 3648248 scrcpy -s 192.168.1.161 --window-title 161 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 124137  1536  85264 adb -s 192.168.1.161:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=69765ade log_level=info video_bit_rate=500000 max_size=1024
+ 124364  3072  14008 bash
+ 124447 50624 3517132 scrcpy -s 192.168.1.172 --window-title 172 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 124478 50312 3909164 scrcpy -s 192.168.1.173 --window-title 173 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 124537  1536  85264 adb -s 192.168.1.172:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=1fb54ad5 log_level=info video_bit_rate=500000 max_size=1024
+ 124543  1536  85264 adb -s 192.168.1.173:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=66cd17af log_level=info video_bit_rate=500000 max_size=1024
+ 124580 50292 3517128 scrcpy -s 192.168.1.175 --window-title 175 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 124587 50484 3253840 scrcpy -s 192.168.1.176 --window-title 176 --video-bit-rate=500K -m 1024 --legacy-paste -S
+ 124654  1728  85264 adb -s 192.168.1.175:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=2b3765b2 log_level=info video_bit_rate=500000 max_size=1024
+ 124658  1728  85264 adb -s 192.168.1.176:5555 shell CLASSPATH=/data/local/tmp/scrcpy-server.jar app_process / com.genymobile.scrcpy.Server 2.4 scid=55a14c1f log_level=info video_bit_rate=500000 max_size=1024
+ 138422     0      0 [kworker/7:0-events]
+ 145206     0      0 [kworker/3:2-events]
+ 159398     0      0 [kworker/18:0-events]
+ 167500     0      0 [kworker/11:1-events]
+ 167501     0      0 [kworker/10:0-mm_percpu_wq]
+ 167533 36676 3165768 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 0:0:3840:2160:2:54:0:0:0:0
+ 167618     0      0 [kworker/8:1-rcu_gp]
+ 171884     0      0 [kworker/4:1-events]
+ 171888     0      0 [kworker/17:1-rcu_gp]
+ 171952     0      0 [kworker/16:2-mm_percpu_wq]
+ 172676     0      0 [kworker/4:2-events]
+ 175968     0      0 [kworker/6:1-rcu_par_gp]
+ 176459     0      0 [kworker/15:2-mm_percpu_wq]
+ 176535     0      0 [kworker/5:0-rcu_gp]
+ 178764     0      0 [kworker/3:1-events]
+ 178924     0      0 [kworker/6:0-mm_percpu_wq]
+ 179094     0      0 [kworker/1:1-mm_percpu_wq]
+ 179128     0      0 [kworker/9:1-events]
+ 179163     0      0 [kworker/15:1-events]
+ 179165     0      0 [kworker/11:0-rcu_par_gp]
+ 179301     0      0 [kworker/18:2-events]
+ 179392     0      0 [kworker/7:1-mm_percpu_wq]
+ 179396     0      0 [scsi_eh_8]
+ 179397     0      0 [scsi_tmf_8]
+ 179398     0      0 [usb-storage]
+ 179504     0      0 [kworker/16:0-mm_percpu_wq]
+ 183146     0      0 [kworker/9:0-mm_percpu_wq]
+ 183147     0      0 [kworker/8:2-mm_percpu_wq]
+ 184443     0      0 [kworker/19:0-mm_percpu_wq]
+ 186638     0      0 [kworker/19:1]
+ 186639     0      0 [kworker/13:2-rcu_par_gp]
+ 186640     0      0 [kworker/17:0-mm_percpu_wq]
+ 186658     0      0 [kworker/5:2-mm_percpu_wq]
+ 186660     0      0 [kworker/14:2-rcu_par_gp]
+ 189107 3097592 5826892 /usr/bin/rqiner -i XKDKXQQDMEEYRGDRSNFEDYKSPVLDZIHERAPRIPSJXEJUHTZWAEPAUUWDAKAB -l Ryzen9_3900X -t 20
+ 189295  4904  17484 sshd: rshell [priv]
+ 189298  5760  17972 /lib/systemd/systemd --user
+ 189299  8164 172292 (sd-pam)
+ 189307  3840  41976 /usr/bin/pipewire
+ 189308  4224  26136 /usr/bin/pipewire-media-session
+ 189309 10616 300420 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+ 189310  2688  38952 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+ 189347  4924  17620 sshd: rshell
+ 189364  5092  17228 sshd: rshell [priv]
+ 189409  4728  17488 sshd: rshell
+ 189424  4728  17484 sshd: rshell [priv]
+ 189430  2496   8484 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ 189471  4732  17620 sshd: rshell
+ 189515  5068 278760 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+ 197084     0      0 [kworker/1:0-rcu_par_gp]
+ 197085     0      0 [kworker/13:1-mm_percpu_wq]
+ 197322     0      0 [kworker/2:2-events]
+ 211332     0      0 [kworker/10:2]
+ 312734  7104  75528 /usr/sbin/cupsd -l
+ 312737  5760 172636 /usr/sbin/cups-browsed
+ 313435     0      0 [kworker/12:1-rcu_gp]
+ 316136     0      0 [kworker/2:1-mm_percpu_wq]
+ 318350 1888592 14025832 /snap/firefox/4336/usr/lib/firefox/firefox
+ 318490 23424 211940 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -parentBuildID 20240527194810 -prefsLen 38810 -prefMapSize 254053 -appDir /snap/firefox/4336/usr/lib/firefox/browser {a1caac65-d7e6-4ad6-9a03-dece7b48470c} 318350 true socket
+ 318499     0      0 [kworker/0:2-events_freezable]
+ 318517 103584 2530496 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 38951 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {a0b652f2-8c1d-41c0-84c5-4a1291bf971a} 318350 true tab
+ 318627 140632 19651644 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 44535 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {6679bbe1-7a3e-45fa-9a60-57df1e92d497} 318350 true tab
+ 318735 28676 352312 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -parentBuildID 20240527194810 -sandboxingKind 0 -prefsLen 44576 -prefMapSize 254053 -appDir /snap/firefox/4336/usr/lib/firefox/browser {a8f108f6-bb78-4ca2-a99a-d4a26796d3b7} 318350 true utility
+ 318818 156608 2692316 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -prefsLen 33585 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {6c945563-bae5-4e6e-80c3-95ae41c7096a} 318350 true tab
+ 319204 26108 409152 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -parentBuildID 20240527194810 -prefsLen 44708 -prefMapSize 254053 -appDir /snap/firefox/4336/usr/lib/firefox/browser {db4602cf-0ed9-4df0-bd81-5d0d63b661e3} 318350 true rdd
+ 320755 79812 1177824212 /snap/caprine/65/caprine --no-sandbox
+ 320992 14976 33966256 /snap/caprine/65/caprine --type=zygote --no-zygote-sandbox --no-sandbox
+ 320993 14976 33966260 /snap/caprine/65/caprine --type=zygote --no-sandbox
+ 321180 96852 34204992 /snap/caprine/65/caprine --type=gpu-process --no-sandbox --enable-crash-reporter=542b2ca2-8ae1-4539-aabe-1911500d46bb,no_channel --user-data-dir=/home/artur/snap/caprine/65/.config/Caprine --gpu-preferences=WAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAGAAAAAAAAAAYAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,700714598335428084,7380259714286875916,262144 --disable-features=SpareRendererForSitePerProcess
+ 321221 28248 34181416 /snap/caprine/65/caprine --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --enable-crash-reporter=542b2ca2-8ae1-4539-aabe-1911500d46bb,no_channel --user-data-dir=/home/artur/snap/caprine/65/.config/Caprine --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,700714598335428084,7380259714286875916,262144 --disable-features=SpareRendererForSitePerProcess
+ 321293 211832 1188222476 /snap/caprine/65/caprine --type=renderer --enable-crash-reporter=542b2ca2-8ae1-4539-aabe-1911500d46bb,no_channel --user-data-dir=/home/artur/snap/caprine/65/.config/Caprine --app-path=/snap/caprine/65/resources/app.asar --no-sandbox --no-zygote --no-sandbox --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=7 --time-ticks-at-unix-epoch=-1717315536301656 --launch-time-ticks=141065704192 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,700714598335428084,7380259714286875916,262144 --disable-features=SpareRendererForSitePerProcess
+ 321338 43208 1185951096 /snap/caprine/65/caprine --type=renderer --enable-crash-reporter=542b2ca2-8ae1-4539-aabe-1911500d46bb,no_channel --user-data-dir=/home/artur/snap/caprine/65/.config/Caprine --app-path=/snap/caprine/65/resources/app.asar --enable-sandbox --no-sandbox --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8 --time-ticks-at-unix-epoch=-1717315536301656 --launch-time-ticks=141066800644 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,700714598335428084,7380259714286875916,262144 --disable-features=SpareRendererForSitePerProcess
+ 322803     0      0 [kworker/u64:2-flush-8:16]
+ 323195     0      0 [kworker/23:0-events]
+ 323443 158788 2664696 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 20 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {71b5df81-3e18-496c-b600-2034f8b59cbd} 318350 true tab
+ 323447 134416 2731456 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 21 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {06a1b2af-b8b6-4d9f-9038-f94c534552a5} 318350 true tab
+ 323616     0      0 [kworker/12:2-mm_percpu_wq]
+ 323978     0      0 [kworker/0:1-cgroup_destroy]
+ 324015 18816 34303504 /snap/caprine/65/caprine --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-US --service-sandbox-type=none --no-sandbox --enable-crash-reporter=542b2ca2-8ae1-4539-aabe-1911500d46bb,no_channel --user-data-dir=/home/artur/snap/caprine/65/.config/Caprine --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,700714598335428084,7380259714286875916,262144 --disable-features=SpareRendererForSitePerProcess
+ 324240     0      0 [kworker/u64:3-events_unbound]
+ 324302 180528 2561644 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 24 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {b9f03ddd-35b3-4281-9c0c-f30fbf1bd605} 318350 true tab
+ 324407 233980 1177964008 /snap/code/159/usr/share/code/code --no-sandbox --force-user-env
+ 324409 16320 34046120 /snap/code/159/usr/share/code/code --type=zygote --no-zygote-sandbox --no-sandbox
+ 324410 16896 34046136 /snap/code/159/usr/share/code/code --type=zygote --no-sandbox
+ 324423  5696 33601272 /snap/code/159/usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/artur/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=16d71e05-41f4-480c-b164-7cb1681158b8&iid=16d71e05-41f4-480c-b164-7cb1681158b8&sid=16d71e05-41f4-480c-b164-7cb1681158b8 --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.89.1 --annotation=lsb-release=Ubuntu 22.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=28.2.8 --initial-client-fd=47 --shared-client-connection
+ 324438 164968 34011360 /snap/code/159/usr/share/code/code --type=gpu-process --disable-gpu-sandbox --no-sandbox --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --gpu-preferences=WAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAABgAAAAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAGAAAAAAAAAAYAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAIAAAAAAAAAA== --shared-files --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 324455 25968 33858892 /snap/code/159/usr/share/code/code --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 324478 217716 1188706904 /snap/code/159/usr/share/code/code --type=renderer --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --app-path=/snap/code/159/usr/share/code/resources/app --enable-sandbox --enable-blink-features=HighlightAPI --first-renderer-process --no-sandbox --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1717315536301655 --launch-time-ticks=144663328130 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version --vscode-window-config=vscode:c89e5c22-2c75-4c18-baa0-4a5e59ed9dde
+ 324547 52592 1177721716 /snap/code/159/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 324568 51540 1177707516 /snap/code/159/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 324819     0      0 [kworker/14:0-mm_percpu_wq]
+ 324837 40752 1177724492 /snap/code/159/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 324838 70780 1177709136 /snap/code/159/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --dns-result-order=ipv4first --inspect-port=0 --crashpad-handler-pid=324423 --enable-crash-reporter=7f1a6806-cd38-4230-847a-1de2b96530f2,no_channel --user-data-dir=/home/artur/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=0,i,7960818703231292637,17509940958237603203,262144 --enable-features=kWebSQLAccess --disable-features=CalculateNativeWinOcclusion,SpareRendererForSitePerProcess --variations-seed-version
+ 325119  5184  13876 bash
+ 325263 159224 2542400 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 25 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {c19b895b-eb18-48e3-925e-629527081952} 318350 true tab
+ 325313 217636 2687260 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 26 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {af9e3676-9be1-4956-b63e-e30e2c1b33c7} 318350 true tab
+ 325476     0      0 [kworker/21:3-events]
+ 325477 142400 2533488 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 28 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {d1bd32f0-d83a-42b5-807e-3ab9a81c45ca} 318350 true tab
+ 325631  4608   9060 /usr/bin/bash --init-file /snap/code/159/usr/share/code/resources/app/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+ 325968 160112 2533160 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 29 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {aa014543-b3ea-492c-974c-0f8042b9fe8a} 318350 true tab
+ 326020     0      0 [kworker/22:0-events]
+ 326385 222860 2618584 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 33 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {37b5a3cb-7a5a-445c-81bb-84b51db97547} 318350 true tab
+ 326575 244376 6974316 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 35 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {6c41c4c5-806a-4412-ae4e-1662083dfb0c} 318350 true tab
+ 326697     0      0 [kworker/20:2-events]
+ 326698     0      0 [kworker/22:1-events]
+ 326741     0      0 [kworker/u64:0-flush-8:16]
+ 326802 151868 2517748 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 36 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {9a96a234-1973-4dbc-b64a-09872c993e55} 318350 true tab
+ 326854 142980 2569840 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 37 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {e285b1a5-560f-4d10-ba88-dd4c8c8018b3} 318350 true tab
+ 327399 56444 1041548 gnome-system-monitor
+ 327790     0      0 [kworker/u64:1-ext4-rsv-conversion]
+ 328241     0      0 [kworker/23:2-events]
+ 328243     0      0 [kworker/20:0-inet_frag_wq]
+ 328289 197620 2554392 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 38 -isForBrowser -prefsLen 33787 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {4da339b4-e1e8-43e1-9ce5-8c34fd1673e3} 318350 true tab
+ 328371     0      0 [kworker/21:1-events]
+ 329124     0      0 [kworker/23:1-events]
+ 329139 155804 2515192 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 39 -isForBrowser -prefsLen 34779 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {a332a449-3c05-40df-b2cc-c84ca0967da6} 318350 true tab
+ 329175 73920 2399792 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 40 -isForBrowser -prefsLen 34779 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {d807fad0-b1cc-4d15-a81f-d7d724f8281a} 318350 true tab
+ 329239 74112 2399808 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 41 -isForBrowser -prefsLen 34779 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {4d44eb8c-a0c0-40b3-beec-d944e9888238} 318350 true tab
+ 329333 76032 2399816 /snap/firefox/4336/usr/lib/firefox/firefox -contentproc -childID 42 -isForBrowser -prefsLen 34779 -prefMapSize 254053 -jsInitLen 231800 -parentBuildID 20240527194810 -greomni /snap/firefox/4336/usr/lib/firefox/omni.ja -appomni /snap/firefox/4336/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/4336/usr/lib/firefox/browser {afd89ae3-68a3-45b5-8b0f-1bb176b31fab} 318350 true tab
+ 329391  1536   3212 sleep 3600
+ 329630  5952  16956 sudo ps -e -o pid,rss,vsz,cmd
+ 329631  2312  16956 sudo ps -e -o pid,rss,vsz,cmd
+ 329632  3072  15204 ps -e -o pid,rss,vsz,cmd

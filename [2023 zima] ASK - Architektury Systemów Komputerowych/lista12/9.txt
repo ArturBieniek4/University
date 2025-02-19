@@ -1,0 +1,97 @@
+Iterations:        1
+Instructions:      10
+Total Cycles:      21
+Total uOps:        13
+
+Dispatch Width:    4
+uOps Per Cycle:    0.62
+IPC:               0.48
+Block RThroughput: 3.3
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 2      8     1.00    *                   imulq	24(%rdi), %rsi
+ 1      5     0.50    *                   movq	16(%rdi), %r8
+ 1      3     1.00                        imulq	$11, %rsi, %rsi
+ 1      5     0.50    *                   movq	(%rdi,%rsi,8), %rax
+ 1      5     0.50    *                   movq	32(%rdi), %rsi
+ 1      1     0.25                        addq	$4, %rax
+ 1      1     0.50                        leaq	(%rsi,%r8,8), %rsi
+ 1      1     1.00           *            movq	%rsi, (%rdx)
+ 1      1     1.00           *            movq	%rax, (%rcx)
+ 3      7     1.00                  U     retq
+
+
+Resources:
+[0]   - HWDivider
+[1]   - HWFPDivider
+[2]   - HWPort0
+[3]   - HWPort1
+[4]   - HWPort2
+[5]   - HWPort3
+[6]   - HWPort4
+[7]   - HWPort5
+[8]   - HWPort6
+[9]   - HWPort7
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    
+ -      -     1.00   2.00   2.00   3.00   2.00   2.00   1.00   2.00   
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    Instructions:
+ -      -      -     1.00    -     1.00    -      -      -      -     imulq	24(%rdi), %rsi
+ -      -      -      -     1.00    -      -      -      -      -     movq	16(%rdi), %r8
+ -      -      -     1.00    -      -      -      -      -      -     imulq	$11, %rsi, %rsi
+ -      -      -      -      -     1.00    -      -      -      -     movq	(%rdi,%rsi,8), %rax
+ -      -      -      -      -     1.00    -      -      -      -     movq	32(%rdi), %rsi
+ -      -     1.00    -      -      -      -      -      -      -     addq	$4, %rax
+ -      -      -      -      -      -      -     1.00    -      -     leaq	(%rsi,%r8,8), %rsi
+ -      -      -      -      -      -     1.00    -      -     1.00   movq	%rsi, (%rdx)
+ -      -      -      -      -      -     1.00    -      -     1.00   movq	%rax, (%rcx)
+ -      -      -      -     1.00    -      -     1.00   1.00    -     retq
+
+
+Timeline view:
+                    0123456789 
+Index     0123456789          0
+
+[0,0]     DeeeeeeeeER    .    .   imulq	24(%rdi), %rsi
+[0,1]     DeeeeeE---R    .    .   movq	16(%rdi), %r8
+[0,2]     D========eeeER .    .   imulq	$11, %rsi, %rsi
+[0,3]     .D==========eeeeeER .   movq	(%rdi,%rsi,8), %rax
+[0,4]     .DeeeeeE----------R .   movq	32(%rdi), %rsi
+[0,5]     .D===============eER.   addq	$4, %rax
+[0,6]     .D=====eE----------R.   leaq	(%rsi,%r8,8), %rsi
+[0,7]     . D=========eE-----R.   movq	%rsi, (%rdx)
+[0,8]     . D===============eER   movq	%rax, (%rcx)
+[0,9]     .  DeeeeeeeE--------R   retq
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     1     1.0    1.0    0.0       imulq	24(%rdi), %rsi
+1.     1     1.0    1.0    3.0       movq	16(%rdi), %r8
+2.     1     9.0    0.0    0.0       imulq	$11, %rsi, %rsi
+3.     1     11.0   0.0    0.0       movq	(%rdi,%rsi,8), %rax
+4.     1     1.0    1.0    10.0      movq	32(%rdi), %rsi
+5.     1     16.0   0.0    0.0       addq	$4, %rax
+6.     1     6.0    0.0    10.0      leaq	(%rsi,%r8,8), %rsi
+7.     1     10.0   0.0    5.0       movq	%rsi, (%rdx)
+8.     1     16.0   0.0    0.0       movq	%rax, (%rcx)
+9.     1     1.0    1.0    8.0       retq
+       1     7.2    0.4    3.6       <total>

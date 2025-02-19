@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+import subprocess
+from fnmatch import fnmatch
+
+
+def shell(prog):
+    return subprocess.run(prog, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+def dump_mca(srcfile):
+    mca = shell(['llvm-mca-11', '-mcpu=skylake', srcfile])
+
+    info = {}
+    for line in mca.stdout.decode().splitlines():
+        if not line:
+            continue
+        if line.startswith('Instruction Info'):
+            break
+        key, value = line.split(':')
+        info[key.strip()] = float(value) if '.' in value else int(value)
+
+    return info
+
+
+def dump_instructions(objfile):
+    objdump = shell(['objdump', '--no-show-raw-insn', '-d', objfile])
+
+    insn = set()
+    for line in objdump.stdout.decode().splitlines():
+        try:
+            _, ins = line.split('\t')
+            ins = ins.split('#', maxsplit=1)[0]
+            ins = ins.split('<', maxsplit=1)[0]
+            ins = ins.split()
+            if len(ins) <= 2:
+                insn.add(ins[0])
+            else:
+                insn.add(ins[1])
+        except ValueError:
+            pass
+
+    return insn
+
+
+def dump_symbols(objfile):
+    nm = shell(['nm', '-P', objfile])
+
+    symbols = {}
+    for line in nm.stdout.decode().splitlines():
+        name, scope = line.split()[:2]
+        symbols[name] = scope
+    return symbols
+
+
+def dump_sections(objfile):
+    objdump = shell(['objdump', '-h', objfile])
+
+    section = {}
+    for line in objdump.stdout.decode().splitlines()[5::2]:
+        _, name, size, _, _, _, _ = line.split()
+        section[name] = int(size, 16)
+
+    return section
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Check various aspects of provided solution.')
+    parser.add_argument('--max-size', type=int,
+                        help='limit of sections size in the object file')
+    parser.add_argument('--max-cpi', type=float,
+                        help='maximum number of cycle per iteration')
+    parser.add_argument('--bad-insns', type=str,
+                        help='list of forbidden instructions')
+    parser.add_argument('--procedure', type=str,
+                        help=('source file name and procedure name '
+                              'separated by colon'))
+    parser.add_argument('--quiet', action='store_true',
+                        help='do not print analysis information')
+    args = parser.parse_args()
+
+    source, procedure = args.procedure.split(':')
+    objfile = os.path.splitext(source)[0] + '.o'
+
+    sects = dump_sections(objfile)
+    text_size = sects.get('.text', 0)
+    data_size = sects.get('.data', 0) + sects.get('.rodata', 0)
+    bss_size = sects.get('.bss', 0)
+
+    if not args.quiet:
+        print('Sections size in "%s" object file: text=%d, data=%d, bss=%d'
+              % (objfile, text_size, data_size, bss_size))
+    if text_size + data_size + bss_size > args.max_size:
+        raise SystemExit('Your program takes too much space!\nExceeded limit '
+                         'of sections size: %d!' % args.max_size)
+
+    if args.bad_insns:
+        insns = dump_instructions(objfile)
+        for insn in insns:
+            for bad_insn in args.bad_insns.split(','):
+                if fnmatch(insn, bad_insn):
+                    raise SystemExit('Your program uses forbidden "%s" '
+                                     'instruction!' % insn)
+
+    mca = dump_mca(source)
+    ipc = mca['IPC']
+    iters = mca['Iterations']
+    insns = mca['Instructions']
+    totcyc = mca['Total Cycles']
+    cpi = totcyc / iters
+
+    if not args.quiet:
+        print('Instructions per cycle: %s' % ipc)
+        print('Cycles per iteration: %s' % cpi)
+        print('Instructions per iteration: %s' % (insns / iters))
+
+    if args.max_cpi:
+        if cpi > args.max_cpi:
+            raise SystemExit('Your program uses processor resources '
+                             'inefficiently!\nAcceptance limit for '
+                             'cycle per iteration is %s!' % args.max_cpi)
+        else:
+            print('Limit of %s cycle per iteration achieved!' % args.max_cpi)

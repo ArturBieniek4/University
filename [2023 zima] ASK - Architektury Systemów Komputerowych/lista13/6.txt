@@ -1,0 +1,10 @@
+1. Wpieprzamy się w pierwsze 40MB pamięci przez NPE - zawsze segfault
+2. Wpieprzamy się w zarezerwowany blok pamięci jądra - zawsze segfault
+3. Robimy coś niezgodnego z ustawieniami dostępu RWX - zawsze segfault
+4. Próbujemy uzyskać dostęp do pamięci trybu uprzywilejowanego, będąc w trybie użytkownika - zawsze segfault
+5. Trafiamy gdzieś gdzie jest zmapowany dysk - wszystko git, tylko trzeba poczekać na obsługę page faulta
+
+Przed wywołaniem procedury obsługi pagefaulta następuje przełączenie w tryb uprzywilejowany i przejście do procedury w jądrze obsługującej pagefaulta.
+Po wywołaniu:
+- przejście w tryb użytkownika
+- powrót w miejsce programu które wywołało pagefaulta (iret)

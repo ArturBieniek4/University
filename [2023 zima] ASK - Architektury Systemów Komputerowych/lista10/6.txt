@@ -1,0 +1,18 @@
+1. !RAS w dół, przesyłamy adres wiersza
+2. czekamy tRCD (RAS-to-CAS delay)
+3. !CAS w dół, przesyłamy adres kolumny
+4. czekamy CL (CAS latency)
+5. odbieramy dane, bajt po bajcie według zegara
+6. Decyzja: 3. lub 7.
+7. precharge, czekamy tRP i 1.
+
+tCAS - czas w cyklach jaki zajmuje wyrzucenie na wyjście wybranej kolumny
+źródło - wybór kolumny przez mux i latch/rejestr przesuwny
+
+tRCD - wybór wiersza
+źródło - głównie sense amplifiers + jakieś muxy i latch
+
+tRP - czyszczenie sense amplifiers - kondensatory/bramki tranzystorów rozładowanie
+
+tRAS - czas od ostatniego odczytu wiersza do precharge,
+tyle ile potrzeba żeby zapisać spowrotem zawartość

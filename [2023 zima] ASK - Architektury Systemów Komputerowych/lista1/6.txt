@@ -1,0 +1,9 @@
+vs->d = us[1].a + us[j].c
+
+t1=us[24]
+t2=us[j*3+16]
+t2=t2&FF000000
+t1=t1+t2
+t2=vs+16
+t1=t1&00FFFFFF
+t2*=t1

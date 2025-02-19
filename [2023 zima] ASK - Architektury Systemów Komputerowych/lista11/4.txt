@@ -1,0 +1,47 @@
+Adres   Ostatnie użycie
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+
+
+
+Access do 000
+
+Adres   Ostatnie użycie
+000     1
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+
+Access do 004
+
+Adres   Ostatnie użycie
+000     1
+004     2
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+
+Access do 010
+
+Adres   Ostatnie użycie
+000     1
+004     2
+010     3
+XXX     0
+XXX     0
+XXX     0
+XXX     0
+XXX     0

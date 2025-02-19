@@ -1,0 +1,33 @@
+Adres Wartość Rejestr Wartość
+0x100 0xFF    %rax    0x100
+0x108 0xAB    %rcx 1
+0x110 0x13    %rdx 3
+0x118 0x11
+
+1. addq %rcx,(%rax)
+wynik w 0x100
+1+0xFF=0x100
+2. subq 16(%rax),%rdx
+wynik w %rdx
+0x13+3=0x16
+3. shrq $4,%rax
+wynik w %rax
+0xA
+4. incq 16(%rax)
+wynik w 0x110
+0x14
+5. decq %rcx
+wynik w %rcx
+0
+6. imulq 8(%rax)
+wynik w %rax
+0xAB*0x100=0xAB00
+7. leaq 7(%rcx,%rcx,8),%rdx
+wynik w %rdx
+7+%rcx+%rcx*8=
+7+1+8=16
+8. leaq 0xA(,%rdx,4),%rdx
+wynik w %rdx
+0xA+%rdx*4=
+0xA+12=0xA+0xC
+=0x16

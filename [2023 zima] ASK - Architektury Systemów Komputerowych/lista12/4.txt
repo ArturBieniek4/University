@@ -1,0 +1,3 @@
+Zamiany nie zrobił, bo kolorki są po kolei w godbolcie
+Złączenia też nie, bo mamy 6 jump
+Wszystkie zmienne indukcyjne są usunięte, bo nie ma żadnych mnożeń

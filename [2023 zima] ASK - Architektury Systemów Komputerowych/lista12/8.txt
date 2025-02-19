@@ -1,0 +1,46 @@
+---
+ASM
+
+1       imulq   24(%rdi), %rsi
+2       movq    16(%rdi), %r8
+3       imulq   $11, %rsi, %rsi
+4       movq    (%rdi,%rsi,8), %rax
+5       movq    32(%rdi), %rsi
+6       addq    $4, %rax
+7       leaq    (%rsi,%r8,8), %rsi
+8       movq    %rsi, (%rdx)
+9       movq    %rax, (%rcx)
+        ret
+
+~1 2 na nic nie czeka
+~3 czeka na 1
+~4 czeka na 3
+~5 na nic nie czeka (przenazywanie rejestrów)
+~6 czeka na 4
+~7 czeka na 2 5
+~8 czeka na 7
+~9 czeka na 6
+
+Wykonanie:
+cykl 1
+wykonujemy 1 2 5
+2 5 kończą w następnym cyklu
+1 kończy w cyklu 4
+
+cykl 2
+wykonujemy 7, kończy w następnym
+
+cykl 3
+wykonujemy 8, kończy w następnym
+
+cykl 4
+wykonujemy 3, kończy w cyklu 7
+
+cykl 7
+wykonujemy 4, kończy w następnym
+
+cykl 8
+wykonujemy 6, kończy w następnym
+
+cykl 9
+wykonujemy 9, kończy w następnym

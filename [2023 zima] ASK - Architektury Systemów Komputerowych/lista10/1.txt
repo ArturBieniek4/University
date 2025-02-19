@@ -1,0 +1,17 @@
+a)
+576k/24k=24ms
+12ms bo połowa
+
+b)
+7200 obr/min
+7200 obr/60sec
+120 obr/sec
+1/120 sec/obr
+1/60 sec/(1/2 obr)
+
+c)
+1/120 transfer ścieżki
+1/120 / 32000 = 1/3840000 s
+
+641/3840000 ~= 16.7ms
+16.7ms+12ms=28.7ms

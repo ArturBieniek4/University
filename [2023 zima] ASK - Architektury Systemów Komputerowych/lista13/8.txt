@@ -1,0 +1,9 @@
+sudo ps -e -o rss,vsz | awk '{rss += $1; vsz += $2} END {print rss, vsz}'
+38009260 1,4099e+10
+38GB!    dużo
+
+
+free
+               total        used        free      shared  buff/cache   available
+Mem:        40982956    19693436      716176      462460    20573344    20299016
+Swap:              0           0           0
