@@ -1,0 +1,16 @@
+a)Offset ma 5 bitów czyli 32 słowa
+
+b)2^5 = 32 wiersze
+
+c)
+Metadane:
+22 bity na tag
++2 na valid i dirty
+tyle na każdy wiersz
+
+Właściwe dane - 32*4=128
+
+24 : 128
+12 : 64
+6 : 32
+3 : 16

@@ -1,0 +1,3 @@
+Adres fizyczny = pfn * 4096 + offset (12 ostanich bitów adresu)
+
+Przykładowo u mnie kawałek pamięci rqinera jest w 00100000-09d81fff : System RAM

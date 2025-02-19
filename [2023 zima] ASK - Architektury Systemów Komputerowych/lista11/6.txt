@@ -1,0 +1,5 @@
+Czy słowo jest w Li?
+TAK:
+Ustaw dirty bit na 1
+NIE:
+Pobierz słowo z L(i+1) i wstaw słowo do Li

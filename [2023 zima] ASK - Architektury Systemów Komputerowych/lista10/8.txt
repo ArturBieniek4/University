@@ -1,0 +1,14 @@
+16 słów = 128 bajtów
+8KiB = 8192 bajtów
+4GiB = 4294967296 bajtów
+jeden wiersz na 64 razy
+wierszy trzeba odczytać 524288
+Jeden raz:
+tRCD = 15
+tCAS = 15 * 64 = 960
+tRAS = 36
+tRP = 15, podczas tego już przesyłamy wiersz
+Razem na wiersz: 960+15+36+15=1026
+Razy ilość wierszy: 524288*1026=537919488 cykli
+Przy prędkości 2133 MHz daje to 0,252189165s
+Przy dual-channel będzie dwukrotnie niższy o ile tablica jest dobrze zorganizowana

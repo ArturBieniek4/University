@@ -1,0 +1,25 @@
+if n<0:
+    retval=INT32_MIN
+    goto RETURN
+x=n
+c=0
+t1=N-2
+d=1<<t
+Loop1:
+    d=d>>2
+Loop1Test: if d>n goto Loop1
+
+Loop2:
+    t2=c+d
+    if x>=t2 goto If1
+    Else1:
+        c=c>>1
+    If1:
+        t2=c+d
+        x-=t2
+        t3=c>>1
+        t3=t3+d
+        c=t3
+Loop2Test: if d>0 goto Loop2
+retval=c
+RETURN: goto retplace

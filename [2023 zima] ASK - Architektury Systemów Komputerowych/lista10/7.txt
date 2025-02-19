@@ -1,0 +1,16 @@
+DDR4-1600,
+tCLK = 800 MHz,
+tCAS = 10,
+tRCD = 10,
+tRP = 10,
+tRAS = 25
+Chcemy pesymistycznie, więc zakładamy, że poprzednia operacja na pamięci zostawiła po sobie możliwie największy syf, czyli odczytała sobie tylko 64 bity w jednym cyklu.
+Musimy poczekać 25+10=35 cykli na możliwość wyboru wiersza, 
+następnie może być tak że nasz blok jest w 2 kolejnych wierszach.
+Zmiana wiersza zajmie nam kolejne 35 cykli.
+Sam odczyt to 10*8 skoro czytamy po 64 bity a mamy do przeczytania 64 bajty.
+więc 35+35+80=150 cykli, przy 800MHz to jest 0,1875 ns
+
+W trybie sekwencyjnym czytamy dwa razy kolumnę,
+te dwa wybory wierszy mamy nadal
+więc będzie 35*2+10*2=90 czyli 0,1125ns

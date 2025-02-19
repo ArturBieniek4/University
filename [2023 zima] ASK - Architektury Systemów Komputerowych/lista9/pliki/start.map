@@ -1,0 +1,66 @@
+
+Discarded input sections
+
+ .comment       0x0000000000000000       0x28 even.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 even.o
+ .comment       0x0000000000000000       0x28 odd.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 odd.o
+ .comment       0x0000000000000000       0x28 start.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 start.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x00000000004000e8                . = (0x400000 + SIZEOF_HEADERS)
+
+.text           0x00000000004000e8       0x39
+ *(.text .text.*)
+ .text          0x00000000004000e8       0x13 even.o
+                0x00000000004000e8                is_even
+ .text          0x00000000004000fb       0x10 odd.o
+                0x00000000004000fb                is_odd
+ .text          0x000000000040010b       0x16 start.o
+                0x000000000040010b                _start
+
+.rodata
+ *(.rodata .rodata.*)
+
+.eh_frame       0x0000000000400128       0x60
+ .eh_frame      0x0000000000400128       0x30 even.o
+ .eh_frame      0x0000000000400158       0x18 odd.o
+                                         0x30 (size before relaxing)
+ .eh_frame      0x0000000000400170       0x18 start.o
+                                         0x30 (size before relaxing)
+
+.data           0x0000000000400188        0x0
+ *(.data .data.*)
+ .data          0x0000000000400188        0x0 even.o
+ .data          0x0000000000400188        0x0 odd.o
+ .data          0x0000000000400188        0x0 start.o
+
+.bss            0x0000000000400188        0x0
+ *(.bss .bss.*)
+ .bss           0x0000000000400188        0x0 even.o
+ .bss           0x0000000000400188        0x0 odd.o
+ .bss           0x0000000000400188        0x0 start.o
+ *(COMMON)
+
+/DISCARD/
+ *(.rela.*)
+ *(.iplt .iplt.*)
+ *(.igot .igot.*)
+ *(.got .got.*)
+ *(.comment)
+ *(.note.gnu.property)
+ *(.note.GNU-stack)
+LOAD even.o
+LOAD odd.o
+LOAD start.o
+OUTPUT(start elf64-x86-64)

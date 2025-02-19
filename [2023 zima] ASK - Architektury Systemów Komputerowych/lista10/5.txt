@@ -1,0 +1,6 @@
+1.Musi się latch deaktywować i precharge zrobić (zresetować sense amplifiers)
+2.Decyzja 0-1
+3.Odczytywany jest zawsze cały wiersz i zapisywany na nowo
+4.Musi się zapisać ten wiersz do RAMu na nowo i precharge
+5.Bo kondensatory mają upływ
+6.Kontroler pamięci ma licznik i odświeża wiersz po wierszu

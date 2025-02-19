@@ -1,0 +1,2 @@
+xp i yp mogą mieć część wspólną w pamięci
+restrict oznacza że przez cały okres życia wskaźnika, nie ma innego wskaźnika na to miejsce w pamięci

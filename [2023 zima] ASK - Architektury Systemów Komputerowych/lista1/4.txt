@@ -1,0 +1,13 @@
+volatile pozwala na dostęp sprzętowy, powoduje zaczytanie wartości bezpośrednio z pamięci (bez cache). Przydatne jeżeli jakieś przerwanie/sprzęt jest w stanie zmienić tą wartość.
+
+static zachowuje wartość zmiennej poza zakresem, przykład:
+int f()
+{
+    static int x=0;
+    x++;
+    return x;
+}
+f(); //zwraca 1
+f(); //zwraca 2
+
+restrict mówi kompilatorowi, że jest to jedyny wskaźnik na dane miejsce w pamięci tzn. że ta wartość nie ulegnie zmianie w inny sposób niż dostęp do tego wskaźnika

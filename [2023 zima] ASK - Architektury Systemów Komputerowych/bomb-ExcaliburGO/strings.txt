@@ -1,0 +1,380 @@
+/lib64/ld-linux-x86-64.so.2
+mfUa
+socket
+fflush
+strcpy
+exit
+sprintf
+fopen
+__isoc99_sscanf
+connect
+signal
+puts
+stdin
+strtol
+fgets
+strlen
+__errno_location
+read
+stdout
+__ctype_b_loc
+getenv
+stderr
+alarm
+gethostbyname
+close
+fprintf
+sleep
+__cxa_finalize
+memmove
+__libc_start_main
+write
+snprintf
+libc.so.6
+GLIBC_2.3
+GLIBC_2.7
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+u/UH
+AVAUATUSH
+l$0L
+T$ H
+D$(H
+P[]A\A]A^
+ATUSH
+[]A\
+***truncH
+ated***
+AVAUATUSI
+[]A\A]A^
+AWAVAUATUSH
+Error: CH
+lient unI
+able to H
+create sI
+G ockefA
+Error: DH
+NS is unI
+able to H
+resolve I
+server aI
+G(ddrefA
+G,ssA
+Error: UH
+nable toI
+ connectH
+ to the I
+G servfA
+G$erA
+Error: RH
+esult stI
+ring tooH
+ large. I
+IncreaseH
+ SUBMITRI
+_MAXBUF
+<_v	
+|$(H
+Error: CH
+lient unI
+able to H
+read firI
+st headeH
+r from sI
+G0ervefA
+L$0H
+[]A\A]A^A_
+Error: CH
+lient unI
+able to H
+read staI
+tus messH
+age fromI
+ server
+Error: CH
+lient unI
+able to H
+write toI
+ the serI
+G(ver
+Error: RH
+esult stI
+ring conH
+tains anI
+ illegalH
+ or unprI
+intable H
+characteI
+W8fA
+G@r.A
+L$(L
+D$0H
+Error: CH
+lient unI
+able to H
+read heaI
+ders froH
+m serverI
+ATUSH
+[]A\
+Error: CH
+lient unH
+able to H
+create sH
+E ockef
+Error: DH
+NS is unH
+able to H
+resolve H
+server aH
+E(ddref
+E,ss
+APRL
+[]A\A]A^A_
+%s: Error: Couldn't open %s
+Usage: %s [<input_file>]
+That's number 2.  Keep going!
+Halfway there!
+Good work!  On to the next...
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+Phase 1 defused. How about the next one?
+So you got that one.  Try this one.
+Crikey! I have lost my mojo!
+%d %c %d
+Wow! You've defused the secret stage!
+So you think you can stop the bomb with ctrl-c, do you?
+Curses, you've found the secret phase!
+But finding it and solving it are quite different...
+Congratulations! You've defused the bomb!
+Well...
+OK. :-)
+Invalid phase%s
+BOOM!!!
+The bomb has blown up.
+%d %d %d %d %d %d
+Error: Premature EOF on stdin
+GRADE_BOMB
+Error: Input line too long
+%d %d %s
+DrEvil
+Program timed out after %d seconds
+Error: HTTP request failed with error %d: %s
+GET /%s/submitr.pl/?userid=%s&userpwd=%s&lab=%s&result=%s&submit=submit HTTP/1.0
+Error: Unable to connect to server %s
+%%%02X
+%s %d %[a-zA-z ]
+changeme.ii.uni.wroc.pl
+AUTORESULT_STRING=%s
+bomblab
+csapp
+;*3$"
+GCC: (Debian 10.2.1-6) 10.2.1 20210110
+/usr/lib/gcc/x86_64-linux-gnu/10/include
+/usr/include/x86_64-linux-gnu/bits
+/usr/include/x86_64-linux-gnu/bits/types
+/usr/include
+bomb.c
+stddef.h
+types.h
+struct_FILE.h
+FILE.h
+stdio.h
+support.h
+phases.h
+stdlib.h
+<built-in>
+printf
+__off_t
+_IO_read_ptr
+_chain
+size_t
+_shortbuf
+_IO_buf_base
+long long unsigned int
+read_line
+long long int
+phase_defused
+_fileno
+_IO_read_end
+_flags
+_IO_buf_end
+_cur_column
+_IO_codecvt
+_old_offset
+infile
+initialize_bomb
+_IO_marker
+stdin
+_freeres_buf
+/home/pwit/Praca/zajecia/ASK24/ii-ask/bomblab/src
+_IO_write_ptr
+short unsigned int
+_IO_save_base
+_lock
+_flags2
+_mode
+__builtin_puts
+_IO_write_end
+GNU C17 10.2.1 20210110 -mtune=generic -march=x86-64 -ggdb -O1 -fasynchronous-unwind-tables
+_IO_lock_t
+_IO_FILE
+fopen
+_markers
+unsigned char
+short int
+_IO_wide_data
+_vtable_offset
+exit
+bomb.c
+input
+__off64_t
+_IO_read_base
+_IO_save_end
+__pad5
+_unused2
+argv
+phase_1
+phase_2
+phase_3
+phase_4
+phase_5
+phase_6
+_IO_backup_base
+argc
+_freeres_list
+main
+_IO_write_base
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+bomb.c
+phases.c
+array.0
+support.c
+sig_handler
+driverlib.c
+rio_readlineb
+__FRAME_END__
+__init_array_end
+_DYNAMIC
+__init_array_start
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_csu_fini
+skip
+getenv@GLIBC_2.2.5
+phase_defused
+__errno_location@GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+stdout@GLIBC_2.2.5
+strcpy@GLIBC_2.2.5
+puts@GLIBC_2.2.5
+stdin@GLIBC_2.2.5
+write@GLIBC_2.2.5
+_edata
+strlen@GLIBC_2.2.5
+num_input_strings
+phase_5
+initialize_bomb_solve
+blank_line
+snprintf@GLIBC_2.2.5
+submitr
+phase_3
+phase_1
+invalid_phase
+init_driver
+alarm@GLIBC_2.2.5
+close@GLIBC_2.2.5
+node3
+read@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+explode_bomb
+node1
+__data_start
+signal@GLIBC_2.2.5
+gethostbyname@GLIBC_2.2.5
+node5
+fprintf@GLIBC_2.2.5
+__gmon_start__
+strtol@GLIBC_2.2.5
+fun7
+__dso_handle
+_IO_stdin_used
+host_table
+func4
+string_length
+__libc_csu_init
+fflush@GLIBC_2.2.5
+__isoc99_sscanf@GLIBC_2.7
+secret_phase
+infile
+sigalrm_handler
+init_timeout
+__bss_start
+main
+memmove@GLIBC_2.2.5
+read_line
+strings_not_equal
+phase_4
+fopen@GLIBC_2.2.5
+phase_6
+scratch
+driver_post
+phase_2
+sprintf@GLIBC_2.2.5
+exit@GLIBC_2.2.5
+bomb_id
+connect@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+node2
+node4
+sleep@GLIBC_2.2.5
+node6
+__cxa_finalize@GLIBC_2.2.5
+read_six_numbers
+initialize_bomb
+__ctype_b_loc@GLIBC_2.3
+stderr@GLIBC_2.2.5
+socket@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.bss
+.comment
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_loc

@@ -1,0 +1,6 @@
+a) 10 mln / 1.4 = 7142857,142857143 instr/sec
+b) 
+5MB/sec 5 milionów bajtów
+jak pobieramy po 32 bity, to mamy 1.25 miliona operacji na pamięci
+Czyli zostaje 8.75 miliona dla CPU
+/1.4 = 6.25 mln instr/sec

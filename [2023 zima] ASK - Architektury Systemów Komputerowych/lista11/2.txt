@@ -1,0 +1,27 @@
+a)
+zzzzzzzziioo
+
+b)
+832
+znacznik = 83
+indeks = 0
+offset = 2
+HIT CC
+
+835
+znacznik = 83
+indeks = 1
+offset = 1
+MISS
+
+FFD
+znacznik = FF
+indeks = 3
+offset = 1
+HIT C0
+
+c)
+znacznik = 00
+indeks = 2
+offset = 2
+00A

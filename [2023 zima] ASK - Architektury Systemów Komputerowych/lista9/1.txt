@@ -1,0 +1,12 @@
+-S
+
+.globl - widoczny dla linkera
+.data - sekcja data
+.align - jaki padding
+.type - typ obiektu
+.size - rozmiar obiektu
+.value - wartość
+.section .rodata - read only
+.bss - niezainicjalizowane zmienne globalne
+.zero 8 - zapełnienie 8 bajtami zer
+.quad - quadword

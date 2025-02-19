@@ -1,0 +1,5 @@
+strtok - zastępuje pierwszy znaleziony znak terminalem, używane do rozdzielania słów (spacje i inne duperele),
+opt - symbole które spodziewamy się że będą najczęściej występować dajemy na początek
+qsort - sortowanie, niezbyt, ważne żeby sortować jedne dane tylko raz
+malloc - może wywołać page faulta, dlatego jeżeli już używamy to warto rezerwować duży blok pamięci
+h_xor - wiadomo
