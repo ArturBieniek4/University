@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz} 
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\renewcommand{\labelitemi}{$\blacktriangleright$}
+
+\begin{document}
+
+
+\title{Sieci komputerowe - Ćwiczenia nr 2}
+\author{Artur Bieniek}
+
+\maketitle
+
+\section*{1.} W 10-Mbitowym Ethernecie sygnał rozchodzi się z prędkością $10^8 m/s$. Standard ustala, że maksymalna odległość między dwoma komputerami może wynosić co najwyżej $2,5 km$. Oblicz, jaka jest minimalna długość ramki (wraz z nagłówkami).
+
+\textbf{Rozwiązanie:} Ramka musi być wystarczająco duża, aby zawsze wykryć kolizję. Widać, że najcięższym przypadkiem jest gdy jeden komputer zacznie nadawać ramkę, a drugi komputer tuż przed otrzymaniem pierwszego bajtu danych zacznie też nadawać ramkę. Zatem czas propagacji ramki musi zająć dwukrotność odległości między komputerami.
+\[
+    t_{prop} = \frac{2\cdot 2500m}{10^8\frac{m}{s}} = 5\cdot 10^{-5} s
+\]
+Wtedy ramka musi być rozmiaru
+\[
+    L_{min} = 10^7\cdot 5 \cdot 10^{-5} = 500 \text{ bitów}
+\]
+
+\section*{2.} Rozważmy rundowy protokół Aloha we współdzielonym kanale, tj. w każdej rundzie każdy z $n$ uczestników usiłuje wysłać ramkę z prawdopodobieństwem $p$. Jakie jest prawdopodobieństwo $P(p, n)$, że jednej stacji uda się nadać (tj. że nie wystąpi kolizja)? Pokaż, że $P(p, n)$ jest maksymalizowane dla $p = 1/n$. Ile wynosi $\lim_{n\rightarrow \infty} P(1/n, n)$?
+
+\textbf{Rozwiązanie:}
+\[
+    P(p,n) = n \cdot p \cdot (1-p)^{n-1}
+\]
+\[
+    P'(p) = n(1-p)^{n-1} - np(n-1)(1-p)^{n-2} = n(1-p)^{n-2}[(1-p)-p(n-1)]
+\]
+\[
+    P'(p) = 0 \iff (1-p)-p(n-1) = 0 \iff 1-p-pn+p = 0 \iff p=1/n
+\]
+\[
+    \lim_{n \rightarrow \infty}P(\frac{1}{n}, n) = \lim_{n \rightarrow \infty}n \cdot \frac{1}{n} \cdot {(1-\frac{1}{n})}^{n-1} = \lim_{n \rightarrow \infty}{(1-\frac{1}{n})}^{n-1} = \frac{1}{e}
+\]
+
+\section*{3.}
+Jaka suma kontrolna CRC zostanie dołączona do wiadomości 1010 przy założeniu że CRC używa wielomianu $x^2 + x + 1$? A jaka jeśli używa wielomianu $x^7 + 1$?
+
+\textbf{Rozwiązanie:} \begin{itemize}
+    \item Dzielimy (mod 2) \texttt{1010000} przez \texttt{111}, reszta \texttt{10}
+    \item Dzielimy (mod 2) \texttt{1010000000000} przez \texttt{10000001}, reszta \texttt{0001010}
+\end{itemize}
+\section*{4.}
+Pokaż, że CRC-1, czyli 1-bitowa suma obliczana na podstawie wielomianu $G (x) = x + 1$, działa identycznie jak bit parzystości.
+
+\textbf{Rozwiązanie:} Zauważmy, że $x+1$ jest pierwiastkiem wielomianu $M(x)$ wtedy i tylko wtedy, gdy $M(1)=0$. $M(1) = (\sum_{i=0}^{n}a_i) mod\ 2 = \newline \begin{cases}
+    0 \iff \text{liczba zapalonych bitów jest parzysta}\\
+    1 \iff \text{liczba zapalonych bitów jest nieparzysta}
+\end{cases}
+$
+
+\section*{5.} Załóżmy, że wielomian $G(x)$ stopnia $n$ stosowany w CRC zawiera składnik $x^0$. Pokaż, że jeśli wybierzemy dowolny odcinek długości $n$ z wiadomości i dowolnie go zmodyfikujemy (zmienimy dowolną niezerową liczbę bitów w nim), to zostanie to wykryte. Czy taka własność zachodzi, jeśli $G(x)$ nie zawiera składnika równego $x^0$?
+
+\textbf{Rozwiązanie:} Dowolna modyfikacja fragmentu wiadomości o długości n może być zapisana jako dodanie wielomianu $E(x)$, takiego, że $0<deg(E)<n$. Błąd zostanie wykryty zawsze jeśli $G(x)$ nie dzieli $E(x)$. Jeśli wielomian $G(x)$ dzieli $E(x)$, to istnieje wielomian $Q(x)$ taki, że $E(x) = Q(x) \cdot G(x)$. Ale wtedy $deg(E) \geq deg(Q)*deg(G) \geq n$. Sprzeczność.
+
+\section*{6.} Pokaż, że suma CRC stosująca wielomian $G(x) = x^3 + x + 1$ wykryje wszystkie podwójne błędy (zmianę wartości dwóch bitów), które są oddalone od siebie o nie więcej niż 6 bitów (tj. pomiędzy dwoma zmienianymi bitami jest nie więcej niż 5 innych bitów).
+
+\textbf{Rozwiązanie:} Mamy pokazać, że dla każdego $E(x) = x^i + x^j$, gdzie $0 \leq j-i \leq 6$, $G(x)$ nie dzieli $E(x)$. Niech $d = j-i$. Wtedy $E(x) = x^i(1+x^d)$. Wtedy $G(x) | E(x) \iff G(x) | (1+x^d)$ (ponieważ $x^i$ to tylko przesunięcie). \begin{itemize}
+    \item $(1+x) \nmid (x^3 + x + 1) (mod\ 2)$
+    \item $(1+x^2) \nmid (x^3 + x + 1) (mod\ 2)$
+    \item $(1+x^3) \nmid (x^3 + x + 1) (mod\ 2)$
+    \item $(1+x^4) \nmid (x^3 + x + 1) (mod\ 2)$
+    \item $(1+x^5) \nmid (x^3 + x + 1) (mod\ 2)$
+    \item $(1+x^6) \nmid (x^3 + x + 1) (mod\ 2)$
+\end{itemize}
+
+\section*{7.}
+Załóżmy, że wyliczamy sumę CRC dla 4-bitowej wiadomości używając wielomianu $G (x) = x3 + x + 1$. Wtedy wiadomość wraz z sumą ma długość 7 bitów. Załóżmy, że co najwyżej jeden z tych 7 bitów został przekłamany. Pokaż, jak odbiorca takiego komunikatu może wykryć i skorygować takie przekłamanie.
+
+\textbf{Rozwiązanie:} Jeśli $G(x) | M(x)$ to nie ma przekłamania lub jest takie przekłamanie, którego nie umiemy wykryć. Jeśli $G(x) \nmid M(x)$, to wystarczy flipnąć po kolei każdy z 7 bitów i sprawdzić czy $G(x) |
+ M(x)$. Ponieważ wiemy z poprzedniego zadania, że takie CRC wykryje wszystkie podwójne błędy oddalone o nie więcej niż 6 bitów, nie występuje ryzyko trafienia w inną wiadomość.
+
+\section*{8.}
+Pokaż, że kodowanie Hamming(7,4) umożliwia skorygowanie jednego przekłamanego bitu.
+
+\textbf{Rozwiązanie:} Kodowanie hamminga działa następująco:
+\begin{itemize}
+    \item $p_1 = d_1 \oplus d_2 \oplus d_4$
+    \item $p_2 = d_1 \oplus d_3 \oplus d_4$
+    \item $p_3 = d_2 \oplus d_3 \oplus d_4$
+    \item $M = d_4, d_3, d_2, p_3, d_1, p_2, p_1$
+\end{itemize}
+Zdefiniujmy:
+\begin{itemize}
+    \item $s_1 = p_1 \oplus d_1 \oplus d_2 \oplus d_4$
+    \item $s_2 = p_2 \oplus d_1 \oplus d_3 \oplus d_4$
+    \item $s_3 = p_3 \oplus d_2 \oplus d_3 \oplus d_4$
+\end{itemize}
+Jeśli nie ma błędu, to $s=000$.
+Jeśli jest błąd na jednej pozycji, to:
+\begin{itemize}
+    \item Jeśli błąd wystąpił na pozycji $d_1$, $d_2$, $d_4$ to $s_1=1$.
+    \item Jeśli błąd wystąpił na pozycji $d_1$, $d_3$, $d_4$ to $s_2=1$.
+    \item Jeśli błąd wystąpił na pozycji $d_2$, $d_3$, $d_4$ to $s_3=1$.
+\end{itemize}
+Zauważmy, że wtedy $s$ wskazuje dokładnie numer bitu na którym wystąpił błąd.
+\begin{tabular}{|c|c|}
+    \hline
+    Bit z błędem & s \\ \hline
+    $d_4$ & 111\\ \hline
+    $d_3$ & 110\\ \hline
+    $d_2$ & 110\\ \hline
+    $p_3$ & 100\\ \hline
+    $d_1$ & 011\\ \hline
+    $p_2$ & 010\\ \hline
+    $p_1$ & 001\\ \hline
+\end{tabular}
+
+\section*{9.}
+W pewnym kanale każdy przesyłany bit zostaje przekłamany (niezależnie) z prawdopodobieństwem
+1/100. Rozważmy dwa scenariusze wysyłania 100 bitów danych.
+\begin{itemize}
+    \item Dane wysyłamy w ramce bez dodatkowego kodowania. Ramka jest dostarczona poprawnie, jeśli żaden z bitów nie jest przekłamany.
+    
+    \textbf{Rozwiązanie:} $P = (0.99)^{100} \approx 36.6\%$
+    \item Każde 4 bity kodujemy za pomocą kodowania Hamming(7,4) w postaci 7-bitowego bloku. (czyli wysyłamy (7/4)·100 bitów). Ramka jest dostarczona poprawnie, jeśli każdy z 7-bitowych bloków jest dostarczony poprawnie. 7-bitowy blok jest dostarczony poprawnie, jeśli zawiera co najwyżej jeden przekłamany bit.
+    
+    \textbf{Rozwiązanie:} $P = (\binom{7}{0}\cdot(0.01)^0\cdot (0.99)^{7-0} + \binom{7}{1}\cdot (0.01)^1 \cdot (0.99)^{7-1})^{25} \approx 95\%$
+\end{itemize}
+
+\section*{10.}
+Dana jest deterministyczna funkcja skrótu $h$ zwracająca na podstawie tekstu liczbę m-bitową. Losujemy $2^{m/2}$ tekstów i obliczamy na nich funkcję $h$. Zakładamy tutaj, że przy takim losowaniu tekstu $x$,
+$h(x)$ jest losową (wybraną z rozkładem jednostajnym) liczbą $m$-bitową. Pokaż, że prawdopodobieństwo, że wsród wylosowanych tekstów istnieją dwa o takiej samej wartości funkcji $h$ jest $\Omega(1)$.
+
+\textbf{Rozwiązanie:} Obliczymy prawdopodobieństwo tego, że żadne dwa teksty nie będą miały tego samego skrótu i odejmiemy je od 1.
+\begin{itemize}
+    \item Pierwszy tekst może mieć dowolny skrót. Prawdopodobieństwo braku kolizji wynosi 1.
+    \item Drugi tekst może mieć skrót inny niż pierwszy, prawdopodobieństwo tego wynosi $\frac{2^m-1}{2^m}$
+    \item Trzeci tekst może mieć skrót inny niż pierwszy i drugi, prawdopodobieństwo tego wynosi $\frac{2^m-2}{2^m}$
+    \item \dots
+    \item $k$-ty tekst może mieć skrót inny niż pierwsze $k-1$ tekstów, prawdopodobieństwo tego wynosi $\frac{2^m-(k-1)}{2^m}$
+\end{itemize}.
+Prawdopodobieństwo, ze żadne dwa teksty nie mają tego samego skrótu jest iloczynem tych prawdopodobieństw.
+\begin{equation}
+\begin{matrix}
+P_{\text{brak kolizji}} = \frac{2^m}{2^m} \cdot \frac{2^m-1}{2^m} \cdot \frac{2^m-2}{2^m} \cdot \dots \cdot \frac{2^m-k+1}{2^m} = \prod_{i=0}^{k-1}(1-\frac{i=0}{2^m}) \approx \\
+\prod_{i=0}^{k-1}e^{-i/2^m} = e^{-\sum_{i=0}^{k-1}i/2^m} \approx e^{-\frac{k^2}{2^{m+1}}} = e^{-\frac{1}{2}} \\
+P_{\text{kolizja}} = 1-P_{\text{brak kolizji}} = 1-e^{-\frac{1}{2}} \approx 0.3935
+\end{matrix}
+\end{equation}
+
+\end{document}
