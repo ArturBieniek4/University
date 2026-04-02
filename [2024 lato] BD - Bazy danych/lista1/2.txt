@@ -1,0 +1,29 @@
+Wszystkie te operatory poza selekcją i rzutem nie mogą zmniejszać liczby wierszy w wyniku.
+Przy czym rzut może jedynie zrobić część wspólną zbiorów (usuwa duplikaty).
+Spróbujmy wyrazić A \ B, przy pomocy selekcji, przypuśćmy że mamy takie wyrażenie oraz że działa ono dla takich tabel:
+A:
+kol1
+2
+
+B:
+kol1
+2
+
+Wynik to zbiór pusty.
+Wyrażene składa się z selekcji o formule zbudowanej tylko przy użyciu alternatywy, koniunkcji i wyrażeń atomowych. W szczególności ma ono skończoną liczbę artybutów które porównuje ze stałą lub innym atrybutem.
+Dodajmy teraz jeszcze jedną kolumnę o nazwie której nie ma w atrybutach które sprawdza selekcja:
+
+A:
+kol1	kol2
+2	3
+
+B:
+kol1	kol2
+2	4
+
+Ponieważ to wyrażenie nie wie nic o kol2, to zwróci zbiór pusty, co nie jest poprawnym wynikiem.
+
+Dodanie negacji nic nie rozwiązuje, nadal mamy identyczny problem.
+Musielibyśmy dodać kwantyfikatory lub operator należenia.
+
+Okazuje się że możemy dopuścić tworzenie operatora dla każdego schematu bazy, więc to rozwiązanie nie działa XD

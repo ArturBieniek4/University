@@ -1,0 +1,3 @@
+(S join S) join S
+
+Zawsze mamy dokładnie s elementów, złączenie zbioru z samym sobą go nie zmienia.

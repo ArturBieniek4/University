@@ -1,0 +1,9 @@
+Robimy rzut A,C na P join S
+
+Min:
+Jeśli P i S nie mają żadnego dopasowania na kolumnie B, to jest to zbiór pusty.
+
+Max:
+Jeśli wszystkie krotki z obu tych zbiorów mają takie samo B, to mamy p*s krotek - wszystko ze wszystkim
+
+Zweryfikowane w kalkulatorze

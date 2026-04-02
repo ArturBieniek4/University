@@ -1,0 +1,8 @@
+Robimy przemianowanie P(B,C) -> S(A,B) i sumę tego z relacją P
+
+Min:
+Jeśli jedna z relacji jest podzbiorem drugiej, ta suma może być większą z sumowanych relacji, wtedy mamy max(p, s).
+Mniej się nie da, ponieważ suma zbiorów musi w szczególności zawierać oba te zbiory.
+
+Max:
+Zbiory mogą być rozłączne, wtedy ich suma to  p+s.

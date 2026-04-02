@@ -1,0 +1,23 @@
+a) irrelevant
+b) irrelevant
+c)
+σmovie_num=1
+(γ first_name, last_name; count(movie_id)→movie_num (
+(ρid→actor_id(actors)
+⨝roles
+⨝(ρid→movie_id(movies)))
+)
+)
+
+d) irrelevant
+e)
+(γ ; MAX(rank)->rank(movies)
+⨝
+movies)
+
+i)
+πname
+(γ ; MIN(year)->year(movies)
+⨝
+movies)
+

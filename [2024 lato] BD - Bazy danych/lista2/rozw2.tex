@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Bazy Danych 2025 - Lista zadań nr 2}
+\author{Artur Bieniek}
+
+\maketitle
+
+\section{(1 pkt)}
+Rozważmy relację R(A, B, C).
+Napisz zapytanie algebry relacji oraz zapytanie rrd/rrk, które zwróci pusty wynik wtedy i tylko wtedy gdy para atrybutów
+A, B jest kluczem relacji R.
+\newline\textbf{Rozwiązanie}\newline
+Klucz relacji - taka krotka argumentów, że nie dopuszczamy aby w relacji znalazły się dwie różne krotki o jednakowych wartościach klucza. Czyli innymi słowy para A, B jest kluczem relacji R $\Leftrightarrow$ zbiór różnych krotek relacji R w których wartości A,B są takie same jest pusty.
+\newline\textbf{Zapytanie algebry relacji:}
+\[
+        \sigma_{A=A2 \wedge B=B2 \wedge C\not=C2}
+        (R \times \rho_{A \rightarrow A2, B \rightarrow B2, C \rightarrow C2}(R))
+\]
+\textbf{Zapytanie rrd/rrk:}
+\[
+        \{a, b \mid \exists c_1 \exists c_2 c_1\not=c_2 \wedge (a, b, c_1)\in R \wedge (a, b, c_2)\in R\}
+\]
+
+\section{(1 pkt)}
+Rozważmy relacje R(A, B, C) oraz S(X, Z), przy czym atrybut A jest kluczem w R. Napisz zapytanie algebry relacji oraz zapytanie rrk/rrd, które zwróci
+pusty wynik wtedy i tylko wtedy gdy atrybut Z relacji S jest kluczem obcym
+wskazującym na atrybut A relacji R.
+\newline\textbf{Rozwiązanie}\newline
+Z jest kluczem obcym w relacji S wskazującym na atrybut A relacji R $\Leftrightarrow$ \[
+\exists z (x, z)\in S \Rightarrow
+\exists b\exists c (z, b, c) \in R
+\]
+\textbf{Zapytanie algebry relacji:}
+\[
+        \pi_{Z}(S)\backslash(\rho_{A\rightarrow Z}\pi_{A}R \bowtie \pi_{Z}S)
+\]
+\textbf{Zapytanie rrd/rrk}
+\[
+        \{z \mid \exists_{x\in S} (x, z)\in R \wedge \forall_{a, b} (a, b, z)\not\in R\}
+\]
+
+\section{(1 pkt)}
+Dane są relacje R, S i T o schematach $R = AB, S = B_1B_2 $ i $ T = BC$.
+Przeanalizuj znaczenie poniższych zapytań i postaraj się znaleźć naturalną interpretację dla relacji i zapytań w języku polskim. Zastanów się, czy są to formuły
+niezależne od dziedziny. Zapisz równoważne im formuły w algebrze relacji zawsze
+jeśli to możliwe.
+\begin{enumerate}
+        \item $\{ a \mid (\exists b)(R(a,b) \wedge \neg((\exists a' > a \wedge (\exists b')(R(a',b'))))) \}$
+        \newline
+        Ta formuła jest niezależna od dziedziny, ponieważ bierze takie a dla których $\exists b R(a, b) \wedge $dalsza część. Nawet gdyby dalsza część była tautologią, to w wyniku znajdą się tylko $a\in A$.
+        Z tego powodu, można napisać równoważną jej formułę w algebrze relacji.
+        \newline\textbf{Formuła w algebrze relacji:}
+        \[
+                \pi_{A}(R\backslash\pi_{A, B}\sigma_{A2>A}(R \times \rho_{A\rightarrow A2, B\rightarrow B2}R))
+        \]
+        \item $\{a, b \mid (\forall c)(T(c,a)\vee T(c,b) \vee (\forall d)(\neg T(c,d))) \}$
+        \newline
+        Ta formuła nie jest niezależna dziedzinowo, kontrprzykład:
+        $T = \emptyset$. Wtedy $(\forall d)(\neg T(c,d))$ jest tautologią, wtedy też całe wyrażenie jest tautologią, czyli każde $a,b$ je spełnia. Z tego powodu, napisanie równoważnej formuły w algebrze relacji jest niemożliwe.
+\end{enumerate}
+
+\section{(1 pkt)}
+Zdecyduj czy poniższe równości zachodzą. Zaprezentuj dowód lub kontr-
+przykład.
+\begin{itemize}
+        \item $R \bowtie S = S \bowtie R$
+        \newline
+        $R \bowtie S = 
+        \newline \{t \mid \exists_{r \in R, s \in S} r.(attr(R) \cap attr(S)) = s.(attr(R)\cap attr(S)) \wedge t.attr(R) = r \wedge t.attr(S) = s\}
+        \newline = \{t \mid \exists_{s \in S, r \in R} s.(attr(S) \cap attr(R)) = r.(attr(S)\cap attr(R)) \wedge t.attr(S) = s \wedge t.attr(R) = r\}
+        \newline= S \bowtie R$
+        \item $R \bowtie (S \bowtie T) = (R \bowtie S) \bowtie T$
+        \newline
+        $R \bowtie (S \bowtie T) = \{p \mid \exists_{r \in R, s \in S, t \in T} r.(attr(R) \cap attr(S) \cap attr(T)) = s.(attr(R)\cap attr(S) \cap attr(T)) \wedge p.attr(R) = r \wedge p.attr(S) = s \wedge p.attr(T) = t\} = (R \bowtie S) \bowtie T$
+\end{itemize}
+
+\section{(1 pkt)}
+Baza danych składa się z relacji:
+\begin{itemize}
+        \item \texttt{F(idf,tytul,rezyser,rokProd,czas)} - idf jest kluczem; tytuł i inne
+        atrybuty nie muszą być unikalne; czas oznacza czas trwania filmu i jest
+        podany w minutach;
+        \item \texttt{S(idf,sala,data,godz)} - w podanej sali i terminie jest projekcja filmu o
+        podanym identyfikatorze;
+        \item \texttt{A(pseudo,imie, nazwisko,narodowość,rokUr)} - informacje o aktorach;
+        pseudonim jest unikalny;
+        \item \texttt{R(pseudo,idf,postac,gaza)} - nformacja, że aktor o podanym pseudo-
+        nimie grał w filmie daną postać i otrzymał za to podaną gażę.
+        \item \texttt{M(pseudo,rok,minGaza)} - nformacja, że aktor o podanym pseudonimie
+        w danym roku na podanym poziomie ustalił minimalną gażę za grę w filmie.
+\end{itemize}
+Zapisz poniższe zapytania w rrd lub rrk.
+\begin{enumerate}
+        \item Podaj dane aktorów (pseudonim, imię, nazwisko, rok urodzenia, narodowość), którzy pojawili się w filmach produkowanych tylko w jednym roku.
+        \newline
+        $\{ a \mid A(A) \wedge \forall_{f1, f2, r1, r2} (R(r1) \wedge R(r2) \wedge F(f1) \wedge F(f2) \wedge r1.pseudo=a.pseudo \wedge r2.pseudo=a.pseudo \wedge r1.fid=f1.fid \wedge r2.fid=f2.fid) \implies f1.rokProd=f2.rokProd \}$
+        \newline
+        $\{pseudo, imie, nazwisko, narodowosc, rokUr
+        \newline\mid (pseudo, imie, nazwisko, narodowosc, rokUr) \in A \newline \wedge \forall_{idf, postac, gaza, tytul, rezyser, rokProd, czas, idf2, postac2, tytul2, rezyser2, rokProd2, czas2}
+        \newline R(pseudo, idf, postac, gaza) \wedge F(idf, tytul, rezyser, rokProd, czas)
+        \newline \wedge R(pseudo, idf2, postac2, gaza2) \wedge F(idf2 tytul2, rezyser2, rokProd2, czas2)
+        \newline \implies rokProd = rokProd2\}
+        $
+        \item Podaj pełne krotki filmów, które są najnowszymi filmami reżyserów.
+        \newline $\{ f \mid F(f) \wedge \neg \exists f' (F(f') \wedge f.rezyser = f'.rezyser \wedge f'.rokProd>f.rokProd)\}$
+        \item Dla każdego filmu znajdź aktora, który dostał najwyższą gażę w tym filmie (został najlepiej opłacony z obsady filmu). W relacji wynikowej podaj
+        pseudonim aktora, idf oraz gażę.
+        \newline $\{ psuedo, idf, gaza \mid (\exists postac R(pseudo, idf, postac, gaza)) \wedge \forall_{pseudo2, postac2, gaza2}
+        \newline R(pseudo2, idf, postac2, gaza2) \implies pseudo=pseudo2 \vee gaza2<=gaza \}$
+        \item Podaj pełne krotki aktorów, którzy nigdy nie obniżyli swojej minimalnej
+        gaży (w późniejszych latach mogła ona najwyżej rosnąć). Na wynik nie
+        wpływają lata, w których aktor nie podał minimalnej gaży.
+        \newline $\{ a \mid A(a) \forall_{rok, rok2, minGaza, minGaza2}
+        \newline M(a.pseudo, rok, minGaza) \wedge M(a.pseudo, rok2, minGaza2)
+        \newline \implies rok<rok2 \vee minGaza>=minGaza2\}$
+\end{enumerate}
+
+\section*{Zadanie 6 (1 pkt)}
+\textbf{Relacja:} \texttt{(Józek, x)}
+\newline\textbf{Zapytanie:} $\sigma_{Zarobki < 42}(R)$
+\newline Nie istnieje relacja $Q_D$, taka że $rep(Q_D) = Q(rep(D))$, ponieważ zmienna ma typ Int i nie można w żaden sposób skwantyfikować, że wartość jest mniejsza niż 42.
+
+\end{document}

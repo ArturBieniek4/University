@@ -1,0 +1,98 @@
+a)
+πname, last_name,genre(
+ρid→movie_id(σyear<1960(movies))
+⨝movies_genres
+⨝movies_directors⨝(ρid→director_id(directors))
+)
+Baza jest zepsuta bo jeden film ma wiele gatunków
+
+b)
+ρid→actor_id(actors) \ (
+	πactor_id, first_name, last_name, gender (
+		ρid→actor_id(actors)
+		⨝
+		(
+			roles⨝
+			(
+				πdirector_id(
+					ρid→director_id
+					σfirst_name='Quentin' ∧ last_name='Tarantino' (directors)
+				)
+				⨝movies_directors
+				⨝
+				ρid→movie_id(movies)
+			)
+		)
+	)
+)
+
+c)
+(ρid→actor_id(actors))
+\
+πactor_id, first_name, last_name, gender(
+	σmovie_id≠movie_id2 (
+	(
+		(ρid→actor_id(actors))
+		⨝
+		(πactor_id, movie_id(roles))
+	)
+	⨝
+	(ρmovie_id→movie_id2(
+		(ρid→actor_id(actors))
+		⨝
+		(πactor_id, movie_id(roles))
+	))
+	)
+)
+
+d)
+πname(
+	(
+	(σgenre='Drama'(movies_genres))
+	⨝
+	(σgenre2='Sci-Fi'(ρgenre→genre2(movies_genres)))
+	)
+	⨝(ρid→movie_id(movies))
+)
+
+e)
+movies
+\
+πid, name, year, rank
+(σrank<rank2
+(movies ⨝ (ρid→id2, name→name2, year→year2, rank→rank2 (movies))))
+
+f)
+πlast_name((σmovie_id≠movie_id2 (roles⨝(ρmovie_id→movie_id2(roles))))
+⨝(ρid→actor_id(actors)))
+
+g)
+directors
+\
+(
+	πdirector_id, first_name, last_name(
+		(σgenre='Horror'(movies_genres))
+		⨝ρid→movie_id(movies)
+		⨝ρid→director_id(directors)
+	)
+)
+
+h)
+πlast_name(directors⨝
+movies_directors⨝
+(ρid→movie_id(movies)\
+πmovie_id, name, year, rank(
+	σgender='F'(
+		ρid→movie_id(movies)
+		⨝roles
+		⨝(ρid→actor_id(actors))
+	)
+)))
+
+i)
+movies
+\
+πid, name, year, rank
+(σyear>year2
+(movies ⨝ (ρid→id2, name→name2, year→year2, rank→rank2 (movies))))
+

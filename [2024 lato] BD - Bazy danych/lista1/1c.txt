@@ -1,0 +1,12 @@
+Rzut B na P \ ( (rzut B na P) \ rzut B na S)
+Dostajemy z tego te B które są w P ale nie ma ich w
+[B które są w P ale nie ma ich w S]
+Czyli te B które są w P ale nie są w S
+
+Min:
+Jeśli zbiory unikalnych B w P i S są rozłączne, to mamy zbiór pusty.
+
+Max:
+Jeśli B z P są podzbiorem B z S, to mamy min(p, s) krotek.
+
+Zweryfikowane w kalkulatorze

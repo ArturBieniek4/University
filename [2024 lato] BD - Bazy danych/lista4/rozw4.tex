@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\title{Bazy Danych 2025 - Lista zadań nr 4}
+\author{Artur Bieniek}
+
+\maketitle
+
+\section{(1 pkt)}
+Rozważmy następujące zapytanie w Datalogu.
+\begin{verbatim}
+        T(X, Y) :- E(X,Y).
+        T(X, Y) :- T(X,Z), T(Z,Y)
+\end{verbatim}
+Przypomnij definicję semantyki dla Datalogu, a następnie pokaż, że dla każdego $i \in \mathbb{N}_{+}$ zachodzi $T^i = \{ (a,b) \mid $ istnieje ścieżka z  $a$ do $b$ o długości $\leq 2^{i-1} \}$
+\newline
+\textbf{Semantyka:} $T^i$ oznacza zbiór krotek powstały po zastosowaniu zestawu reguł $i$ razy.
+
+\textbf{Baza indukcji:} $T^0 = \emptyset = \{(a,b) \mid \}$ istnieje ścieżka z $a$ do $b$ o długości $\leq 2^{-1}=\frac{1}{2}$
+
+\textbf{Krok indukcyjny:} Przypuśćmy że $T^{i-1} = \{ (a,b) \mid$ istnieje ścieżka z $a$ do $b$ o długości $\leq 2^{i-2}$. Pokażemy że $T^{i} = \{ (a,b) \mid$ istnieje ścieżka z $a$ do $b$ o długości $\leq 2^{i-1}$.
+\newline $T^{i} = \{(a,b) \mid E(a,b) \vee \exists v(T^{i-1}(a, v) \wedge T^{i-1}(v, b))$ $\}$
+\newline = $\{(a,b) \mid $ istnieje ścieżka z $a$ do $b$ o długości $1$ $ \vee \exists v($ istnieje ścieżka z $a$ do $v$ o długości $\leq 2^{i-2}$ i istnieje ścieżka z $v$ do $b$ o długości $\leq 2^{i-2} \}$
+\newline = $\{ (a,b) \mid$ istnieje ścieżka z $a$ do $b$ o długości $\leq 2^{i-1} \}$
+\\~\\
+Napisz następujące zapytania datalogowe. Użyj stałych $n$ i $m$ tam gdzie jest to potrzebne.
+
+
+\section{(0.5 pkt)} Zwróć wierzchołki, do których można dojść ścieżką z $n$ lub ścieżką z $m$.
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        T(V) :- E(n, V)
+        T(V) :- E(m, V)
+        T(V) :- T(U), E(U, V)
+\end{verbatim}
+
+\section{(0.5 pkt)} Zwróć wierzchołki, do których można dojść ścieżką z $n$ i ścieżką z $m$.
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        FromN(V) :- E(n, V)
+        FromN(V) :- FromN(U), E(U, V)
+        FromM(V) :- E(m, V)
+        FromM(V) :- FromM(U), E(U, V)
+        T(V) :- FromN(V), FromM(V)
+\end{verbatim}
+
+\section{(1 pkt)} Zwróć pary wierzchołków, do których można dojść z wierzchołka $n$ ścieżkami o tej samej długości
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        T(V, 1) :- E(n, V)
+        T(V, L) :- T(U, L-1), E(U, V)
+        P(U, V) :- T(U, L), T(V, L)
+\end{verbatim}
+Alternatywnie:
+\begin{verbatim}
+        P(a, b) :- E(n, a), E(n, b)
+        P(a, b) :- P(u, v), E(u, a), E(v, b)
+\end{verbatim}
+
+\section{(1 pkt)} Zwróć pary wierzchołków, do których można dojść z wierzchołka $n$ ścieżkami, które mają różną długość.
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        T(x, y) :- E(x, y)
+        T(x, y) :- E(x, z), T(z, y)
+        S(a, b) :- E(n, a), E(n, b)
+        S(a, b) :- S(x, y), E(x, a), E(y, b)
+        P(x, y) :- S(a, y), T(a, x)
+        P(x, y) :- P(y, x)
+\end{verbatim}
+Rozważamy grafy z jedną relacją ternarną $E(s, t, a)$. W trzeciej kolumnie pamiętamy kolor krawędzi (obsługujemy paletę 16 milionów kolorów). Napisz następujące zapytania datalogowe lub udowodnij, że dane zapytanie nie istnieje.
+
+\section{(0.5 pkt)} Zwróć pary wierzchołków $x,y$ takie, że nie istnieje ścieżka z $x$ do $y$.
+
+\textbf{Rozwiązanie:} Tego zapytania nie można wyrazić w Datalogu, ponieważ w szczególności zapytanie w Datalogu zwraca krotki które należą do relacji, a nie możemy zapytać się o krotki których nie ma. Nie mamy więc nawet jak stwierdzić, że dwa wierzchołki nie są połączone krawędzią. Można też podeprzeć to faktem, że Datalog jest monotoniczny. Jest również prosty kontrprzykład: dwa wierzchołki niepołączone krawędzią - jeśli dodamy między nimi krawędź, to wierzchołki znikną, a nie powinny (ponieważ monotoniczność oznacza że dodanie krotek do bazy nie może zmniejszyć wyniku)
+
+\section{(0.5 pkt)} Zwróć pary wierzchołków $x, y$ takie, że z $x$ do $y$ można przejść jednokolorową ścieżką.
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        T(s, t, a) := E(s, t, a)
+        T(s, v, a) := T(s, t, a), E(t, v, a)
+        P(x, y) := T(x, y, a)
+\end{verbatim}
+
+
+\section{(0.5 pkt)} Zwróć pary wierzchołków $x, y$ takie, że każda ścieżka z $x$ do $y$ składa się z krawędzi co najmniej dwóch kolorów.
+
+\textbf{Rozwiązanie:} Aby zwrócić pary wierzchołków $x, y$ takie, że każda ścieżka z $x$ do $y$ składa się z krawędzi co najmniej dwóch kolorów, trzeba by jakoś wykluczyć możliwość tego, że istnieje ścieżka z $x$ do $y$ składająca się z krawędzi tylko jednego koloru, ale ponieważ Datalog jest monotoniczny, nie można tego zrobić, ponieważ dodanie krawędzi nie może zmniejszyć wyniku zapytania.
+
+\section{(1 pkt)} Zwróć pary wierzchołków $x,y$ takie, że z $x$ do $y$ można przejść ścieżką składająca się z krawędzi nie więcej niż dwóch kolorów.
+
+\textbf{Rozwiązanie:}
+\begin{verbatim}
+        One(s, t, a) := E(s, t, a)
+        One(s, v, a) := One(s, t, a), E(t, v, a)
+        Two(s, t, a, b) := One(s, v, a), E(v, t, b)
+        Two(s, t, a, b) := Two(s, v, a, b), E(v, t, a)
+        Two(s, t, a, b) := Two(s, v, a, b), E(v, t, b)
+        P(x, y) := One(x, y, a)
+        P(x, y) := Two(x, y, a, b)
+\end{verbatim}
+
+\section{(2 pkt, nie wlicza się do maksimum)}
+Rozważamy grafy z jedną relacją binarną $E(s, t)$. Dowiedz się co to są gry Ehrenfeuchta-Fraïssé i pokaż z ich pomocą, że w logice pierwszego rzędu (rrd/rrk) nie da się wyrazić zapytania $P_*(x, y)$ spełnionego gdy istnieje ścieżka z $x$ do $y$ o dowolnej długości.
+
+\textbf{Gry Ehrenfeuchta-Fraïssé:} Gra jest rozgrywana przez 2 graczy - \textbf{spoilera} i \textbf{duplikatora}, toczy się przez $k$ rund. W każdej rundzie:
+\begin{itemize}
+        \item \textbf{Spoiler} wybiera element z jednej struktury
+        \item \textbf{Duplikator} musi wybrać element z drugiej struktury, tak żeby zbiór elementów drugiej struktury wybranych przez niego był izomorficzny ze zbiorem elementów pierwszej struktury wybranych przez \textbf{spoilera}.
+\end{itemize}
+Po $k$ rundach mamy wybrane $k$ par elementów: $(a_1, b_1), (a_2, b_2), ... (a_k, b_k)$.
+Jeśli po $k$ rundach zbiory elementów wybranych przez \textbf{spoilera} i \textbf{duplikatora} są izomorficzne wygrywa \textbf{duplikator}, w przeciwnym razie wygrywa \textbf{spoiler}.
+
+Jeśli \textbf{duplikator} może zawsze wygrać grę niezależnie od ruchów \textbf{spoilera} (ma strategię wygrywającą), to te grafy są nierozróżnialne przez zdania logiki pierwszego rzędu o głębokości kwantyfikatorów $\leq k$.
+
+Przypuśćmy nie wprost, że istnieje formuła logiki pierwszego rzędu $\varphi(x, y)$ wyrażająca $P_*(x, y)$. Niech głębokość kwantyfikatorów tej formuły wynosi $k$.
+
+Dla tego $k$ weźmy dwa grafy z wyróżnionymi parami wierzchołków:
+\begin{itemize}
+        \item $G_1$: pojedyncza skierowana ścieżka
+        \[
+                a = v_0 \rightarrow v_1 \rightarrow \ldots \rightarrow v_{3^k} = b
+        \]
+        \item $G_2$: suma rozłączna dwóch skierowanych ścieżek długości $3^k$
+        \[
+                c = w_0 \rightarrow w_1 \rightarrow \ldots \rightarrow w_{3^k}
+        \]
+        oraz
+        \[
+                u_0 \rightarrow u_1 \rightarrow \ldots \rightarrow u_{3^k} = d
+        \]
+\end{itemize}
+W $G_1$ istnieje ścieżka z $a$ do $b$, więc $P_*(a,b)$ jest prawdziwe. W $G_2$ wierzchołki $c$ i $d$ leżą w różnych składowych, więc $P_*(c,d)$ jest fałszywe.
+
+Pokażemy jednak, że \textbf{duplikator} wygrywa $k$-rundową grę EF na strukturach $(G_1, a, b)$ i $(G_2, c, d)$. Intuicja jest standardowa: ścieżki są tak długie, że formuła o głębokości $k$ nie jest w stanie dojść do miejsca, w którym w $G_2$ następuje rozłączenie.
+
+Strategia duplikatora jest następująca. Po $i$ rundach utrzymuje on niezmiennik, że dla każdej wybranej pary odpowiadających sobie wierzchołków ich odległości od najbliższych już zaznaczonych punktów oraz od wyróżnionych końców są zgodne z dokładnością do progu $3^{k-i}$. Innymi słowy:
+\begin{itemize}
+        \item jeśli dwa zaznaczone wierzchołki są blisko siebie (w odległości $< 3^{k-i}$), to duplikator odwzorowuje je tak, aby zachować dokładne odległości i kierunek,
+        \item jeśli są dalej niż $3^{k-i}$, to dla formuły o pozostałej głębokości kwantyfikatorów wyglądają lokalnie tak samo, więc wystarczy wybrać dowolny punkt w odpowiednio długim, niezajętym fragmencie ścieżki.
+\end{itemize}
+Ponieważ na początku wszystkie istotne odcinki mają długość $3^k$, po każdej rundzie pozostaje zapas długości potrzebny do utrzymania tego niezmiennika w kolejnej rundzie. To jest dokładnie standardowy argument ``dzielenia odcinka na trzy części'' używany dla liniowych porządków i ścieżek.
+
+Zatem po $k$ rundach \textbf{duplikator} nadal wygrywa, więc struktury $(G_1, a, b)$ i $(G_2, c, d)$ są nierozróżnialne przez formuły FO o głębokości kwantyfikatorów co najwyżej $k$. Jest to sprzeczne z założeniem, że $\varphi$ wyraża osiągalność, bo $\varphi(a,b)$ powinno być prawdziwe, a $\varphi(c,d)$ fałszywe.
+
+Wniosek: w logice pierwszego rzędu nie da się wyrazić zapytania $P_*(x, y)$.
+
+\end{document}

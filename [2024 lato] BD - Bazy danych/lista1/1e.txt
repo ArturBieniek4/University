@@ -1,0 +1,9 @@
+Selekcja takich krotek z P że A<B
++ takich krotek z P że A>B
+Czyli są to wszystkie krotki z P takie że A!=B
+
+Min:
+Wszystkie krotki mogą mieć A=B, wtedy mamy zbiór pusty
+
+Max:
+Wszystkie krotki mogą mieć A!=B, wtedy mamy p krotek

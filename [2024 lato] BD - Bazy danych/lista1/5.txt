@@ -1,0 +1,12 @@
+a)
+To bierze wszystkich aktorów o tym imieniu, których może być więcej bo ludzie mają też nazwiska.
+Poprawiona wersja:
+tau genders desc
+gamma actors.first_name; count(actors.gender)→genders
+πfirst_name, gender(actors join actors.id=roles.actor_id roles)
+
+b)
+γ directors.first_name, directors.last_name; count(actors.actor_id)→num_actors
+((ρid→director_id directors) ⨝ movies_directors
+⨝ (ρid→movie_id(movies))
+⨝ (ρid→actor_id(actors)))

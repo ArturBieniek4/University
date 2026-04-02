@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+\begin{document}
+
+\title{Bazy Danych 2025 - Lista zadań nr 5}
+\author{Artur Bieniek}
+
+\maketitle
+
+Pomóż zaprojektować bazę danych dla Wydziału Przestępczości Zorganizowanej (WPZ). Tajne służby opracowały już listę najbardziej zagrożonych miast oraz najbardziej złowieszczych procederów. Ustalono też ponad wszelką wątpliwość, że jeśli gang uprawia jakiś proceder to uprawia go we wszystkich miastach, w których jest obecny, a jeśli jest obecny w jakimś mieście to uprawia w nim wszystkie procedery, które uprawia gdziekolwiek. W tej chwili baza składa się z relacji: \texttt{Mafia(Miasto, Gang, Proceder, Szef, Dochód, ROI)}. Wiadomo też, że zachodzą zależności funkcyjne to: \texttt{Gang} $\rightarrow$ \texttt{Szef}, \texttt{Szef} $\rightarrow$ \texttt{Dochód}, \texttt{Proceder} $\rightarrow$ \texttt{ROI}.
+
+\textbf{Interpretacja:} \begin{itemize}
+        \item Jeden gang może trudnić się kilkoma procederami.
+        \item Jeden gang może działać w wielu miastach.
+        \item Jeden szef może być szefem wielu gangów.
+\end{itemize}
+
+\section{(0.5 pkt)} Podaj definicję postaci BCNF. Czy powyższa baza jest w tej postaci? Dlaczego? Zaproponuj taki rozkład bazy do postaci BCNF, który jest odwracalny i zachowuje wszystkie zależności. Nie rozkładaj jakiejkolwiek tabeli, która już jest w postaci BCNF.
+
+\textbf{Definicja postaci BCNF:}  Relacja $R$ ze zbiorem zależności funkcyjnych $F$ jest w postaci \textbf{BCNF}, jeśli dla każdej nietrywialnej zależności $\alpha \rightarrow \beta (\alpha \cap \beta = \emptyset)$ zbiór $\alpha$ jest nadkluczem.
+
+\textbf{Czy baza jest w BCNF?} Nie, ponieważ mamy zależności funkcyjne \texttt{Szef} $\rightarrow$ \texttt{Dochód}, a \texttt{Szef} nie jest nadkluczem oraz \texttt{Proceder} $\rightarrow$ \texttt{ROI}, a \texttt{Proceder} również nie jest nadkluczem.
+
+\textbf{Rozkład:}\begin{itemize}
+        \item \texttt{Mafia(Miasto, Gang, Proceder, Szef)}
+        \item \texttt{Zarobki(Szef, Dochód)}
+        \item \texttt{Zwroty(Proceder, ROI)}
+\end{itemize}
+Jest on odwracalny na podstawie lematu z wykładu (dowód zad 8):
+        Jeżeli $\alpha \rightarrow \beta$ jest nietrywialna $(\alpha \cap \beta = \emptyset)$, to rozkład $R$ na $R_1 = \alpha \beta$ i $R_2 = R \backslash \beta$ jest odwracalny.
+Zachowuje zależności, ponieważ suma zbiorów zależności dalej jest równa początkowemu zbiorowi zależności, a zatem ich domknięcia też są równe.
+
+\section{(0.5 pkt)} Czy mimo tego, że baza (po Twoich modyfikacjach) jest w postaci BCNF dostrzegasz w niej jeszcze jakąś oczywistą redundancję? Jaka jest jej przyczyna?
+
+\textbf{Rozwiązanie:} Oczywistą redundancją jest to, że takie atrybuty jak \texttt{Miasto, Proceder, Szef} są przechowywane dla jednego gangu wielokrotnie, właściwie nawet przechowywany jest zawsze ich iloczyn kartezjański. Przyczyną tej redundancji jest fakt, że na tych atrybutach zachodzi jedynie zależność funkcyjna \texttt{Gang} $\rightarrow$ \texttt{Szef}, ale \texttt{Gang} jest nadkluczem.
+
+\section{(0.5 pkt)} Czy istnieje odwracalny rozkład pozwalający się tej redundancji pozbyć? Podaj go. Dlaczego jest on odwracalny?
+
+\textbf{Rozkład:} \begin{itemize}
+        \item \texttt{Miasta(Gang, Miasto)}
+        \item \texttt{Szefowie(Gang, Szef)}
+        \item \texttt{Procedery(Gang, Proceder)}
+        \item \texttt{Zarobki(Szef, Dochód)}
+        \item \texttt{Zwroty(Proceder, ROI)}
+\end{itemize} Jest on odwracalny, ponieważ \texttt{Mafia(Gang, Miasto, Proceder, Szef)} $\equiv$ \newline \texttt{Miasta(Gang, Miasto) $\Join$ \newline Procedery(Gang, Proceder) $\Join$ \newline Szefowie(Gang, Szef)}.
+
+\section{(0.5 pkt)} Napisz zapytanie algebry relacji zwracające niepustą odpowiedź wtedy i tylko wtedy gdy w relacji \texttt{Mafia} naruszona jest zależność funkcyjna \texttt{Proceder} $\rightarrow$ \texttt{ROI}.
+
+\textbf{Rozwiązanie:}
+\[
+ \sigma_{ROI\neq ROI2}(\pi_{Proceder, ROI}(Mafia) \Join (\rho_{ROI\rightarrow ROI2}\pi_{Proceder, ROI}(Mafia)))
+\]
+
+\section{(1 pkt)} Rozważamy relację \texttt{S(F, M, R)}. Zależność wielowartościowa \texttt{F $\twoheadrightarrow$ M} zachodzi wtw, gdy dla każdych dwóch krotek $t_1, t_2 \in S$ takich, że $\pi_F(t_1) = \pi_F(t_2)$ istnieje krotka $t \in S$ taka, że: \begin{enumerate}
+        \item $\pi_{FM}(t) = \pi_{FM}(t_1)$
+        \item $\pi_{FR}(t) = \pi_{FR}(t_2)$
+\end{enumerate}
+Udowodnij lub pokaż kontrprzykład: \begin{enumerate}
+        \item Jeśli $F \twoheadrightarrow M$ to $F \rightarrow M$
+        \textbf{Kontrprzykład:}
+        
+        \begin{tabular}{|c | c | c|}
+                \hline
+                F & M & R \\
+                \hline
+                1 & 2 & 4 \\
+                \hline
+                1 & 2 & 5 \\
+                \hline
+                1 & 3 & 4 \\
+                \hline
+                1 & 3 & 5 \\
+                \hline
+        \end{tabular}
+        
+        Jeśli weźmiemy dowolne dwie krotki $t_1, t_2 \in S$, to istnieje krotka \[t = (1, \pi_M(t_1), \pi_R(t_2))\] spełniająca powyższe zależności.
+        \item Jeśli $F \rightarrow M$ to $F \twoheadrightarrow M$
+        \textbf{Dowód:}
+
+        Skoro $F \rightarrow M$, to dla każdych $t_1, t_2 \in S$ takich. że $\pi_F(t_1) = \pi_F(t_2)$ zachodzi $\pi_{FM}(t_1) = \pi_{FM}(t_2)$. Ponadto w oczywisty sposób zachodzi $\pi_{FR(t_2)} = \pi_{FR(t_2)}$. Tak więc dla każdych dwóch krotek $t_1, t_2 \in S$ takich. że $\pi_F(t_1) = \pi_F(t_2)$ istnieje krotka $t = t_2$, spełniająca powyższe zależności, co należało udowodnić.
+\end{enumerate}
+
+\section{(1 pkt)} Jednym z najważniejszych obecnie modeli danych dla grafów są tzw. \textit{property graphs}. Grafy w tym modelu składają się z wierzchołków i krawędzi. Wierzchołki i krawędzie mogą posiadać wiele własności, które są parami klucz-wartość. Zaproponuj sensowny sposób przechowywania takich grafów w relacyjnej bazie danych.
+
+\textbf{Rozwiązanie:} \begin{itemize}
+        \item \texttt{Edges(Edge\_id, Vert1, Vert2)}
+        \item \texttt{EdgeProps(Edge\_id, Prop\_name, Prop\_value)}
+        \item \texttt{VertProps(Vert, Prop\_name, Prop\_value)}
+\end{itemize}
+
+\section{(1 pkt)} Zmodyfikuj rozwiązanie poprzedniego zagadnienia tak aby property graphs przechowywać w 6NF.
+
+\textbf{Rozwiązanie:} \begin{itemize}
+        \item \texttt{EdgesV1(Edge\_id, Vert1)}
+        \item \texttt{EdgesV2(Edge\_id, Vert2)}
+        \item \texttt{EdgeProps(Edge\_id, Prop\_id)}
+        \item \texttt{VertProps(Vert\_id, Prop\_id)}
+        \item \texttt{PropNames(Prop\_id, Name)}
+        \item \texttt{PropValues(Prop\_id, Value)}
+\end{itemize}
+
+\section{(1 pkt)} Rozważmy relację $R$, w której zachodzi zależność funkcyjna $\xi = \alpha \rightarrow \beta$, gdzie $\alpha \cap \beta = \emptyset$ oraz $\alpha$ i $\beta$ są podzbiorami atrybutów $R$. Udowodnij, że rozkład relacji $R$ wg $\xi$, na relacje $R_1$ z atrybutami $\alpha \cup \beta$ oraz $R_2$ z atrybutami $attr(R)\backslash \beta$ jest odwracalny.
+
+\textbf{Rozwiązanie:} Skoro zachodzi zależność funkcyjna $\alpha \rightarrow \beta$, to nie wystąpi sytuacja, że dla dwóch krotek $t_1, t_2$, $\pi_\alpha(t_1)=\pi_\alpha(t_2) \wedge \pi_\beta(t_1) \neq \pi_\beta(t_2)$. Z tego powodu $R_1 \Join R_2$ ma dokładnie tyle samo takich samych elementów co $R$, więc ten rozkład jest odwracalny.
+
+\textbf{Bardziej formalnie:} Weźmy dowolną krotkę $t_2 \in R_2$. Zauważmy że istnieje tylko jedna krotka $t_1 \in R_1$, która złączy się z $t_2$, ponieważ $\alpha \rightarrow \beta$. Ale zauważmy, że krotka $t_1 \Join t_2$ należy do R.
+
+Analogicznie, weźmy dowolną krotkę $t \in R$. W oczywisty sposób $t \in R_1 \Join R_2$.
+
+Pokazaliśmy zatem że $R = R_1 \Join R_2$, co jest definicją odwracalności tego rozkładu.
+
+\end{document}
